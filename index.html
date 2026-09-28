@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0b0d10">
 <link rel="manifest" href="manifest.webmanifest">
-<title>CaliBuilding V10.3</title>
+<title>CaliBuilding V10.4</title>
 <style>
 :root{
   --bg:#090b0e;--panel:#11151a;--panel2:#161b21;--line:#242b33;--txt:#f4f6f8;--muted:#96a0aa;
@@ -402,12 +402,21 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .v103ok{border:1px solid #315b3d;background:#0c1710}
 .v103diag{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;color:var(--muted);word-break:break-word}
 
+
+/* V10.4 — history integrity + midnight-safe planning */
+.integrityGood{border:1px solid #315b3d;background:#0c1710}
+.integrityBad{border:1px solid #7a4b4b;background:#1a0e0e}
+.integrityLine{display:flex;gap:8px;align-items:flex-start;padding:7px 0;border-bottom:1px solid var(--line)}
+.integrityLine:last-child{border-bottom:0}
+.absDate{font-size:11px;font-weight:950;letter-spacing:.08em;color:var(--accent);text-transform:uppercase}
+.forecastChanged{border-left:3px solid #6b5b31;padding-left:9px}
+
 </style>
 </head>
 <body>
 <div class="app">
   <div class="topbar">
-    <div><div class="brand">Cali<span>Building</span></div><div class="version">Adaptive Physique & Performance Coach · V10.3 · A10.3</div></div>
+    <div><div class="brand">Cali<span>Building</span></div><div class="version">Adaptive Physique & Performance Coach · V10.4 · A10.4</div></div>
     <div class="chips"><span class="chip accent">MASTER LOCKED</span></div>
   </div>
   <div id="view"></div>
@@ -422,7 +431,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 
 <script>
 const KEY='CALIBUILDING_V01_STATE';
-const VERSION='0.10.3';
+const VERSION='0.10.4';
 const SEED={"version": "0.1.0", "profile": {"sex": "male", "age": 35, "height_cm": 183, "weight_kg": 80, "experience_years": 15, "level": "advanced", "role": "performer"}, "master": {"locked": true, "goal": "Molto muscoloso e visibilmente ipertrofico, relativamente asciutto, armonioso ed elegante; mantenere mobilita, coordinazione, agilita, dinamismo e credibilita scenica.", "priorities": [{"name": "upper_chest", "label": "Petto alto", "weight": 1.35}, {"name": "shoulders", "label": "Spalle", "weight": 1.3}, {"name": "arms", "label": "Braccia", "weight": 1.25}, {"name": "back", "label": "Schiena / densita", "weight": 1.0}, {"name": "lower", "label": "Lower / armonia / forza", "weight": 1.0}, {"name": "performance", "label": "Agilita / performer", "weight": 1.15}], "references": [{"name": "Anatoly / Vladimir Shmondenko", "meaning": "densita muscolare + forza relativa + atletismo"}, {"name": "Yuri Chechi", "meaning": "controllo ginnico + linee atletiche + padronanza del corpo"}, {"name": "Brad Pitt in Troy", "meaning": "proporzioni magre, armoniose, cinematiche"}, {"name": "Tom Hardy in Warrior", "meaning": "fisico denso, atletico, combattivo"}], "rules": ["Il MASTER resta stabile; i metodi sono flessibili.", "Casa e trasferta hanno pari dignita fisiologica.", "Preservare lo stimolo, non il nome dell'esercizio.", "Niente sequenza A-B-C-D obbligatoria.", "Niente muscle confusion o volume di riempimento.", "Pump e fatica sono dati, non prova sufficiente di ipertrofia.", "Progressione solo da esposizioni sufficientemente comparabili.", "Il tempo disponibile e un input, non un tetto fisso.", "Multidisciplinare non significa casuale.", "Non trasformare il soggetto ne in bodybuilder rigido ne in atleta di danza professionistica."]}, "equipment": {"home": {"barbell": true, "ez_bar": true, "pullup_bar": true, "dips": true, "adjustable_dumbbells_each_kg": 30, "flat_bench": true, "trx": true, "backpack": true, "bands": true, "plates_total_kg": 90, "barbell_on_shoulders": true, "commercial_rack_assumed": false}, "travel": {"pullup_bar": false, "dips": true, "trx": true, "backpack_kg": 30, "bands": true, "adjustable_dumbbells_each_kg": 30, "dumbbells_count": 2}}, "constraints": {"knee": {"baseline": 5, "history": "Frattura condilo femorale DX, frattura rotula DX, lussazione anca DX.", "split_squat_default": false, "notes": "Baseline 5/10 non e stop automatico. Reagire a aumento significativo, gonfiore nuovo, instabilita, blocco, perdita ROM/funzione o sintomo diverso."}, "elbow": {"history": "Dolore mediale/interno ricorrente, soprattutto tirate e flessione tipo curl.", "notes": "Performance preservata non esclude irritazione. Adattare se peggiora chiaramente."}}, "history": [{"id": "2026-09-22-lower", "date": "2026-09-22", "location": "home", "focus": "LOWER HYPERTROPHY / STRENGTH", "duration_min": 54, "post": {"fatigue": 2, "quality": 4, "pump": {"chest": 0, "shoulders": 0, "arms": 0}}, "exercises": [{"id": "back_squat", "name": "Back Squat con bilanciere", "pattern": "knee", "muscles": ["lower"], "load": 50, "unit": "kg", "reps": [6, 6, 6], "rir": [2, 2, 1], "tech": "clean", "pain": 0, "rom": "controlled"}, {"id": "barbell_rdl", "name": "Barbell Romanian Deadlift", "pattern": "hinge", "muscles": ["lower", "posterior"], "load": 70, "unit": "kg", "reps": [6, 6, 6], "rir": [2, 2, 1], "tech": "clean", "pain": 0}, {"id": "barbell_hip_thrust", "name": "Barbell Hip Thrust", "pattern": "hip_extension", "muscles": ["lower", "glutes"], "load": 70, "unit": "kg", "reps": [8, 8, 8], "rir": [2, 2, 1], "tech": "clean", "pain": 0}, {"id": "single_leg_calf", "name": "Single-leg Calf Raise", "pattern": "calf", "muscles": ["lower"], "load": 20, "unit": "kg", "reps": [10, 10, 10], "rir": [2, 2, 1], "tech": "clean", "pain": 0}, {"id": "trx_body_saw", "name": "TRX Body Saw", "pattern": "core", "muscles": ["core"], "load": 0, "unit": "kg", "reps": [8, 10], "rir": [2, 2], "tech": "clean", "pain": 0}]}, {"id": "2026-09-23-upper", "date": "2026-09-23", "location": "home", "focus": "UPPER PRIORITY", "duration_min": 47, "post": {"fatigue": 5, "quality": 5, "pump": {"chest": 2, "shoulders": 3, "arms": 2}}, "exercises": [{"id": "feet_elev_weighted_pushup", "name": "Feet-elevated Weighted Push-up", "pattern": "upper_chest_press", "muscles": ["upper_chest", "shoulders", "triceps"], "load": 22, "unit": "kg add", "reps": [7, 7, 7, 7], "rir": [2, 2, 1, 1], "tech": "clean", "pain": 0}, {"id": "db_ohp", "name": "Dumbbell Overhead Press", "pattern": "vertical_press", "muscles": ["shoulders", "triceps"], "load": 10, "unit": "kg/hand", "reps": [8, 8, 8], "rir": [3, 3, 3], "tech": "clean", "pain": 0, "note": "zaino 22 kg indossato, non contato come carico di pressa"}, {"id": "weighted_dips", "name": "Weighted Dips", "pattern": "dip_press", "muscles": ["chest", "triceps", "shoulders"], "load": 15, "unit": "kg add", "reps": [6, 6, 6], "rir": [1, 1, 1], "tech": "clean", "pain": 0}, {"id": "one_arm_db_row", "name": "One-arm Dumbbell Row", "pattern": "horizontal_pull", "muscles": ["back", "biceps"], "load": 30, "unit": "kg", "reps": [8, 8, 8], "rir": [2, 2, null], "tech": "clean", "pain": null}, {"id": "db_lateral_trx_reverse", "name": "DB Lateral Raise + TRX Reverse Fly", "pattern": "delts", "muscles": ["shoulders"], "load": 10, "unit": "kg/hand lateral", "reps": ["10+10", "10+10"], "rir": [2, 1, 1], "tech": "clean", "pain": null, "note": "RIR log ambiguo"}, {"id": "band_pressdown", "name": "Band Triceps Pressdown", "pattern": "triceps", "muscles": ["arms", "triceps"], "load": 0, "unit": "band", "reps": [10, 10], "rir": [2, 2], "tech": "clean", "pain": null}]}], "ledger": {"back_squat": {"status": "CONSOLIDATE", "note": "50 kg: prima reps comparabili, poi carico."}, "barbell_rdl": {"status": "CONSOLIDATE", "note": "70 kg: prima reps comparabili, poi carico."}, "barbell_hip_thrust": {"status": "CONSOLIDATE", "note": "70 kg: prima reps comparabili, poi carico."}, "single_leg_calf": {"status": "CONSOLIDATE", "note": "20 kg baseline."}, "trx_body_saw": {"status": "CONSOLIDATE", "note": "Standardizzare ROM, poi reps."}, "feet_elev_weighted_pushup": {"status": "PROMOTE", "note": "+22 kg: promuovere reps."}, "db_ohp": {"status": "ADAPT", "note": "10 kg/mano sottocaricato a RIR 3/3/3."}, "weighted_dips": {"status": "HOLD", "note": "+15 kg: consolidare."}, "one_arm_db_row": {"status": "CONSOLIDATE", "note": "30 kg; terzo RIR/dolore mancanti."}, "db_lateral_trx_reverse": {"status": "HOLD", "note": "Logging da rendere piu comparabile."}, "band_pressdown": {"status": "PROMOTE", "note": "Promuovere reps."}}, "calendar": [{"offset": 0, "location": "travel", "minutes": 60, "event": "none", "notes": ""}, {"offset": 1, "location": "home", "minutes": 20, "event": "tennis", "notes": "tennis leggero dopo"}, {"offset": 2, "location": "home", "minutes": 20, "event": "show", "notes": "finestra serale molto incerta"}, {"offset": 3, "location": "home", "minutes": 20, "event": "show", "notes": "finestra serale molto incerta"}], "settings": {"diet_started": false, "diet_start_phrase": "SPESA FATTA - INIZIO DIETA", "last_verified_training_date": "2026-09-23"}};
 
 const $=(q,p=document)=>p.querySelector(q);
@@ -4963,7 +4972,7 @@ function cb10ForecastCard(){
 function cb10Top(status){
   const d=cbV9EnsureDay(todayISO()),last=(state.history||[]).slice(-1)[0];
   return `<section class="hero v10Top">
-    <div class="v10Kicker">V10.3 · ENGINE A10.3 · ${todayISO()}</div>
+    <div class="v10Kicker">V10.4 · ENGINE A10.4 · ${todayISO()}</div>
     <div class="v10Title">${status.stage==='plan'?'Il coach ha deciso.':status.stage==='workout'?'Seduta in corso.':status.stage==='done'?'Oggi è chiuso.':status.stage==='missed'?'Zero training registrato.':'Una schermata. Una decisione.'}</div>
     <div class="v10Lead">Tu inserisci la realtà. A10 legge storico, prossime 48–72 h, attrezzatura, recupero e MASTER. Tu non scegli la disciplina.</div>
     <div class="v10Now">
@@ -5171,7 +5180,7 @@ renderProfile=function(){
   if(hero){
     hero.querySelector('.eyebrow').textContent='MASTER · V10';
     hero.querySelector('h1').textContent='Hypertrophy + aesthetics. Sempre.';
-    hero.insertAdjacentHTML('afterend',`<div class="card v10AuditGood"><div class="v10SectionHead"><div><h3>Build production</h3><div class="sub">V10.3 · ENGINE A10.3 · ${CB10.build}</div></div><span class="v10Badge good">OK</span></div>
+    hero.insertAdjacentHTML('afterend',`<div class="card v10AuditGood"><div class="v10SectionHead"><div><h3>Build production</h3><div class="sub">V10.4 · ENGINE A10.4 · ${CB10.build}</div></div><span class="v10Badge good">OK</span></div>
       <div class="small">Storico ${(state.history||[]).length} · missed ${(state.noTrainingDays||[]).length} · decisioni ${(state.v10?.events||[]).filter(x=>x.type==='PLAN_GENERATED').length} · storage ~${cb10StorageKB()} KB.</div>
       <p class="tiny muted">Cloud Sync sperimentale nascosto in V10: finché non è validato end-to-end, il PC/localStorage + backup JSON restano la sorgente affidabile.</p>
     </div>`);
@@ -5844,8 +5853,333 @@ renderToday=function(){
 };
 
 
+
+/* =========================================================
+   V10.4 — DATA INTEGRITY + MIDNIGHT-SAFE ADAPTIVITY
+   - atomic workout commit + read-back verification
+   - recovery from pre-close checkpoint if a completed workout
+     failed to enter history
+   - session-day date is authoritative across midnight
+   - next-session preview anchored to session.date, not wall clock
+   - exact-exercise consecutive-day redundancy guard
+   - prediction snapshots: changes become visible, not magical
+   ========================================================= */
+
+const CB104={build:'2026-09-29',recovery:null,integrity:null};
+
+function cb104DateLabel(date){
+  try{
+    return new Intl.DateTimeFormat('it-IT',{weekday:'long',day:'2-digit',month:'2-digit'})
+      .format(new Date(date+'T12:00:00')).toUpperCase();
+  }catch(e){return date}
+}
+function cb104ActualSets(ex){
+  if(!ex)return 0;
+  if(Array.isArray(ex.setlog)){
+    const n=ex.setlog.filter(s=>s && (s.completed || (+s.reps>0))).length;
+    if(n)return n;
+  }
+  if(Array.isArray(ex.reps))return ex.reps.filter(x=>+x>0).length;
+  return +ex.sets||0;
+}
+function cb104LastExerciseExposure(id,date){
+  let best=null;
+  for(const s of state.history||[]){
+    const gap=daysBetween(date,s.date);
+    if(gap<0)continue;
+    const ex=(s.exercises||[]).find(x=>x.id===id);
+    if(!ex)continue;
+    const sets=cb104ActualSets(ex);
+    if(sets<=0)continue;
+    if(!best || s.date>best.session.date)best={session:s,exercise:ex,gap,sets,quality:cbExerciseQuality(ex)};
+  }
+  return best;
+}
+
+/* Exact exercise repetition on the immediately following calendar day is
+   not biologically forbidden. This is a SOFTWARE anti-redundancy guard:
+   after >=2 meaningful sets, preserve the stimulus with another movement
+   unless no alternative exists. */
+const CB104_BASE_POOL=cbCandidatePool;
+cbCandidatePool=function(ctx){
+  const base=CB104_BASE_POOL(ctx);
+  const filtered=base.filter(e=>{
+    const last=cb104LastExerciseExposure(e.id,ctx.date);
+    if(!last)return true;
+    if(last.gap<=0)return false;
+    if(last.gap===1 && last.sets>=2 && last.quality>=.55)return false;
+    return true;
+  });
+  return filtered.length>=2?filtered:base;
+};
+
+/* Also strengthen value penalty for recent exact patterns that remain
+   eligible (e.g. one light exposure). */
+const CB104_BASE_PATTERN=cbRecentPatternPenalty;
+cbRecentPatternPenalty=function(e,ctx){
+  const base=CB104_BASE_PATTERN(e,ctx);
+  const last=cb104LastExerciseExposure(e.id,ctx.date);
+  if(!last)return base;
+  if(last.gap<=0)return Math.min(base,.05);
+  if(last.gap===1 && last.sets===1)return Math.min(base,.40);
+  if(last.gap===2 && last.sets>=3)return Math.min(base,.70);
+  return base;
+};
+
+function cb104BuildSession(w,postOverride=null){
+  if(!w)throw Error('Nessuna seduta attiva da salvare.');
+  const pd=postOverride||w.postDraft||{};
+  const num=(x,fb=0)=>Number.isFinite(+x)?+x:fb;
+  const session={
+    id:String(w.id),
+    date:w.date, // AUTHORITATIVE: day on which the workout was started/prescribed
+    endedAt:Date.now(),
+    location:w.ctx?.location||'home',
+    focus:w.plan?.label||'SEDUTA',
+    mode:w.plan?.mode||'RESISTANCE',
+    engine:'A10.4',
+    decisionId:w.plan?._decisionMeta?.fingerprint||null,
+    duration_min:num(pd.duration,Math.max(1,Math.round((Date.now()-(w.startedAt||Date.now()))/60000))),
+    pre:{...(w.ctx||{})},
+    post:{
+      fatigue:num(pd.fatigue,5),quality:num(pd.quality,5),
+      pump:{chest:num(pd.pumpChest,0),shoulders:num(pd.pumpShoulders,0),arms:num(pd.pumpArms,0)},
+      notes:pd.notes||''
+    },
+    exercises:(w.plan?.items||[]).map(e=>{
+      const log=w.logs?.[e.id]||{sets:[],note:''};
+      const sets=(log.sets||[]).map(s=>({...s}));
+      return {
+        id:e.id,name:e.name,pattern:e.id,muscles:e.muscles||[],
+        sets:sets.filter(s=>s && (s.completed||(+s.reps>0))).length || +e.sets||0,
+        prescribed_sets:+e.sets||0,target_reps:e.reps,target_rir:e.rir,
+        setlog:sets,reps:sets.map(s=>s.reps),rir:sets.map(s=>s.rir),
+        pain:Math.max(0,...sets.map(s=>+s.pain||0)),
+        tech:sets.some(s=>s.tech==='degraded')?'degraded':(sets.some(s=>s.tech==='ok')?'ok':'clean'),
+        note:log.note||''
+      };
+    })
+  };
+  return session;
+}
+
+function cb104UpdateLedgerFromSession(session,plan){
+  for(const e of session.exercises||[]){
+    const source=(plan?.items||[]).find(x=>x.id===e.id)||e;
+    if(source.nonProgressive)continue;
+    const st=calcStatusFromSet(source,e.setlog||[]);
+    state.ledger=state.ledger||{};
+    state.ledger[e.id]={status:st.status,note:st.note,lastDate:session.date};
+  }
+}
+function cb104VerifyPersistedSession(id){
+  try{
+    const raw=localStorage.getItem(KEY);if(!raw)return false;
+    const s=JSON.parse(raw);
+    return Array.isArray(s.history) && s.history.some(x=>String(x.id)===String(id));
+  }catch(e){return false}
+}
+
+/* Transactional close:
+   1) build session while active workout still exists
+   2) append+persist
+   3) read it back from localStorage
+   4) ONLY THEN clear active workout
+*/
+closeAndAdapt=function(){
+  const w=state.activeWorkout;if(!w)return;
+  try{captureLogs()}catch(e){}
+  try{cbCapturePostDraft()}catch(e){}
+  cb10Checkpoint('before_close_session');
+
+  let session;
+  try{
+    session=cb104BuildSession(w);
+    state.history=state.history||[];
+    state.history=state.history.filter(x=>String(x.id)!==String(session.id));
+    state.history.push(session);
+    state.history.sort((a,b)=>String(a.date).localeCompare(String(b.date))||(+a.endedAt||0)-(+b.endedAt||0));
+
+    cb104UpdateLedgerFromSession(session,w.plan);
+    try{cbA9UpdateCalibration(session)}catch(e){}
+    state.settings=state.settings||{};
+    state.settings.last_verified_training_date=session.date;
+    state.settings.synced_through_date=session.date;
+    const day=cbV9EnsureDay(session.date);
+    day.completedTraining=true;day.completedAt=session.endedAt;
+
+    state.v10=state.v10||{};
+    state.v10.lastCompletedSession={id:session.id,date:session.date,endedAt:session.endedAt,mode:session.mode,label:session.focus};
+    state.v10.commitPending={id:session.id,date:session.date,at:Date.now()};
+
+    // Direct local persist, then immediate read-back.
+    CB_REMOTE_APPLY=true;cbLocalPersist();CB_REMOTE_APPLY=false;
+    if(!cb104VerifyPersistedSession(session.id)){
+      throw Error('La seduta non è stata riletta dal localStorage dopo il salvataggio.');
+    }
+
+    // History is confirmed durable: now clear runner.
+    state.activeWorkout=null;
+    state.activePlan=null;
+    state.v10.commitPending=null;
+    cb10Event('WORKOUT_COMMITTED_VERIFIED',{id:session.id,date:session.date,mode:session.mode});
+    save();
+
+    // Verify once more after runner cleanup.
+    if(!cb104VerifyPersistedSession(session.id)){
+      throw Error('Verifica finale dello storico fallita.');
+    }
+
+    cb104StoreForecastSnapshot(session);
+    save();
+    cb104RenderCommitted(session);
+  }catch(e){
+    // Do NOT destroy the activeWorkout on failure.
+    if(!state.activeWorkout)state.activeWorkout=w;
+    const rec=cb102LogError('atomic-close-v104',e);
+    try{CB_REMOTE_APPLY=true;cbLocalPersist();CB_REMOTE_APPLY=false}catch(_){}
+    $('#view').innerHTML=`<section class="hero integrityBad">
+      <div class="v10Kicker">SALVATAGGIO NON CONFERMATO</div><div class="v10Title">La seduta resta protetta.</div>
+      <div class="v10Lead">${esc(rec.message)}</div></section>
+      <div class="card"><button id="v104RetryClose" class="btn primary">RIPROVA SALVATAGGIO</button>
+      <button id="v104BackupClose" class="btn secondary">BACKUP JSON</button></div>`;
+    $('#v104RetryClose').onclick=closeAndAdapt;
+    $('#v104BackupClose').onclick=()=>download(`CALIBUILDING_V10_4_RECOVERY_${todayISO()}.json`,JSON.stringify(state,null,2));
+  }
+};
+
+function cb104CheckpointCandidates(){
+  try{
+    const arr=JSON.parse(localStorage.getItem(CB10.checkpointKey)||'[]');
+    return arr.filter(x=>x?.label==='before_close_session'&&x?.raw).sort((a,b)=>b.at-a.at);
+  }catch(e){return []}
+}
+function cb104RecoverOrphanedClose(){
+  const cps=cb104CheckpointCandidates();
+  for(const cp of cps){
+    if(Date.now()-cp.at>1000*60*60*72)continue;
+    let snap;
+    try{snap=JSON.parse(cp.raw)}catch(e){continue}
+    const w=snap?.activeWorkout;if(!w?.id)continue;
+    if((state.history||[]).some(s=>String(s.id)===String(w.id)))continue;
+    // "before_close_session" exists only after the user pressed the close action.
+    const session=cb104BuildSession(w,w.postDraft||{});
+    state.history=state.history||[];
+    state.history.push(session);
+    state.history.sort((a,b)=>String(a.date).localeCompare(String(b.date))||(+a.endedAt||0)-(+b.endedAt||0));
+    cb104UpdateLedgerFromSession(session,w.plan);
+    const d=cbV9EnsureDay(session.date);d.completedTraining=true;d.completedAt=session.endedAt;
+    state.settings=state.settings||{};
+    state.settings.last_verified_training_date=session.date;
+    state.settings.synced_through_date=session.date;
+    state.v10=state.v10||{};
+    state.v10.lastCompletedSession={id:session.id,date:session.date,endedAt:session.endedAt,mode:session.mode,label:session.focus,recovered:true};
+    state.activeWorkout=null;state.activePlan=null;
+    CB104.recovery={ok:true,id:session.id,date:session.date,label:session.focus,fromCheckpointAt:cp.at};
+    save();
+    return CB104.recovery;
+  }
+  return null;
+}
+
+function cb104ForecastExactDate(targetDate){
+  const real=state;
+  try{
+    state=deepClone(real);
+    state.a8=state.a8||{};state.a8.explorationEnabled=false;
+    cbV9SyncLegacyHorizon(targetDate);
+    const ctx=cbV9Ctx(targetDate,true);
+    const p=cb10Plan(ctx);
+    return p?deepClone(p):null;
+  }catch(e){return null}
+  finally{state=real}
+}
+function cb104PlanSummary(p){
+  return p?{mode:p.mode,label:p.label,estimatedMin:p.estimatedMin,
+    exerciseIds:(p.items||[]).map(x=>x.id)}:null;
+}
+function cb104StoreForecastSnapshot(session){
+  const target=cbV9DateAdd(session.date,1);
+  const p=cb104ForecastExactDate(target);
+  state.v10=state.v10||{};state.v10.forecasts=state.v10.forecasts||{};
+  const prev=state.v10.forecasts[target]||null;
+  state.v10.forecasts[target]={
+    targetDate:target,sourceSessionId:session.id,sourceSessionDate:session.date,
+    createdAt:Date.now(),plan:cb104PlanSummary(p),previous:prev?.plan||null
+  };
+}
+function cb104RenderCommitted(session){
+  const target=cbV9DateAdd(session.date,1);
+  const snap=state.v10?.forecasts?.[target];
+  const p=snap?.plan;
+  const prev=snap?.previous;
+  const changed=prev&&p&&(prev.mode!==p.mode||prev.label!==p.label||
+    JSON.stringify(prev.exerciseIds)!==JSON.stringify(p.exerciseIds));
+  $('#view').innerHTML=`<section class="hero integrityGood">
+    <div class="v10Kicker">SEDUTA SALVATA E RILETTA DALLO STORAGE</div>
+    <div class="v10Title">${esc(session.focus)}</div>
+    <div class="v10Lead">${cb104DateLabel(session.date)} · ID ${esc(session.id)} · ${(session.exercises||[]).length} esercizi.</div>
+  </section>
+  <div class="card">
+    <div class="absDate">PROSSIMA GIORNATA · ${esc(cb104DateLabel(target))}</div>
+    <h3>${esc(p?.label||'Previsione non disponibile')}</h3>
+    <p class="small muted">${esc(p?.mode||'')} ${p?.estimatedMin?`· ~${p.estimatedMin} min`:''}</p>
+    ${changed?`<div class="forecastChanged small"><b>Previsione aggiornata.</b> Prima: ${esc(prev.label||prev.mode||'—')}. Ora: ${esc(p.label||p.mode||'—')}. Il cambio è tracciato perché sono entrati i dati reali della seduta appena conclusa.</div>`:''}
+    <p class="tiny muted">Questa è una previsione. La prescrizione definitiva di ${esc(cb104DateLabel(target))} nasce dal CHECK reale di quel giorno.</p>
+    <button id="v104Home" class="btn primary">TORNA A OGGI</button>
+  </div>`;
+  $('#v104Home').onclick=()=>nav('today');
+}
+
+/* Visible integrity status in HISTORY. */
+const CB104_PROGRESS_BASE=renderProgress;
+renderProgress=function(){
+  CB104_PROGRESS_BASE();
+  const hero=$('#view .hero');
+  const last=[...(state.history||[])].reverse()[0];
+  hero?.insertAdjacentHTML('afterend',`<div class="card ${last?'integrityGood':'integrityBad'}">
+    <h3>Integrità storico</h3>
+    ${last?`<div class="integrityLine"><span class="v10Badge good">SALVATO</span><div class="small"><b>${esc(cb104DateLabel(last.date))}</b> · ${esc(last.focus||'Seduta')}<br>ID ${esc(String(last.id))}</div></div>`
+      :'<p class="small">Nessuna seduta reale presente nello storico.</p>'}
+    ${CB104.recovery?`<div class="integrityLine"><span class="v10Badge warn">RECUPERATA</span><div class="small">V10.4 ha recuperato automaticamente una chiusura precedente dal checkpoint locale.</div></div>`:''}
+  </div>`);
+};
+
+/* Explain recent exposure in WHY. */
+const CB104_COACH_BASE=renderCoach;
+renderCoach=function(){
+  CB104_COACH_BASE();
+  const p=state.activePlan,ctx=cbV9Ctx(todayISO(),false);
+  if(!p)return;
+  const recent=(p.items||[]).map(e=>({e,last:cb104LastExerciseExposure(e.id,ctx.date)}))
+    .filter(x=>x.last&&x.last.gap<=2);
+  if(recent.length){
+    const hero=$('#view .hero');
+    hero?.insertAdjacentHTML('afterend',`<div class="card"><h3>Recency guard</h3>
+      ${recent.map(x=>`<div class="integrityLine"><div class="small"><b>${esc(x.e.name)}</b> · ultima esposizione ${x.last.gap}g fa · ${x.last.sets} set reali.</div></div>`).join('')}
+      <p class="tiny muted">L'esclusione dell'esatto stesso esercizio a 1 giorno dopo ≥2 set utili è una regola software anti-ridondanza, non una soglia biologica.</p>
+    </div>`);
+  }
+};
+
+/* Boot-time integrity repair before normal use. */
+function cb104BootIntegrity(){
+  state.v10=state.v10||{};
+  state.v10.integrityVersion='10.4';
+  const recovered=cb104RecoverOrphanedClose();
+  CB104.integrity={
+    historyCount:(state.history||[]).length,
+    recovered:!!recovered,
+    lastId:(state.history||[]).slice(-1)[0]?.id||null
+  };
+  save();
+  return CB104.integrity;
+}
+
+
 cb10Ensure();
-state.engine.version='A10.3';state.engine.mode='objective_locked_verified_hybrid_runtime_final';state.version=VERSION;
+state.engine.version='A10.4';state.engine.mode='objective_locked_history_verified_midnight_safe';state.version=VERSION;
+CB104.integrity=cb104BootIntegrity();
 CB103.selfTest=cb103SelfTest();
 CB_REMOTE_APPLY=true;cbLocalPersist();CB_REMOTE_APPLY=false;
 nav('today');
