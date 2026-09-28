@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0b0d10">
 <link rel="manifest" href="manifest.webmanifest">
-<title>CaliBuilding V10.1</title>
+<title>CaliBuilding V10.2</title>
 <style>
 :root{
   --bg:#090b0e;--panel:#11151a;--panel2:#161b21;--line:#242b33;--txt:#f4f6f8;--muted:#96a0aa;
@@ -388,12 +388,21 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .evidenceStrip{padding:9px 10px;border-left:3px solid #48657a;background:#0a1218;border-radius:8px;font-size:11px;line-height:1.45}
 @media(max-width:600px){.hybridGrid{grid-template-columns:1fr}}
 
+
+/* V10.2 — runtime stability hotfix */
+.runtimeBanner{border:1px solid #7a4b4b;background:#1a0e0e;border-radius:14px;padding:10px;margin:10px 0}
+.runtimeBanner b{color:#ff9898}
+.runtimeLoading{display:flex;align-items:center;gap:9px;padding:10px;border:1px solid #4b6040;background:#0e160d;border-radius:13px}
+.runtimeDot{width:10px;height:10px;border-radius:50%;background:var(--accent);animation:cbPulse .9s infinite alternate}
+@keyframes cbPulse{from{opacity:.25;transform:scale(.85)}to{opacity:1;transform:scale(1.08)}}
+.forecastLazy{min-height:94px;display:flex;align-items:center;justify-content:center}
+
 </style>
 </head>
 <body>
 <div class="app">
   <div class="topbar">
-    <div><div class="brand">Cali<span>Building</span></div><div class="version">Adaptive Physique & Performance Coach · V10.1 · A10.1</div></div>
+    <div><div class="brand">Cali<span>Building</span></div><div class="version">Adaptive Physique & Performance Coach · V10.2 · A10.2</div></div>
     <div class="chips"><span class="chip accent">MASTER LOCKED</span></div>
   </div>
   <div id="view"></div>
@@ -408,7 +417,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 
 <script>
 const KEY='CALIBUILDING_V01_STATE';
-const VERSION='0.10.1';
+const VERSION='0.10.2';
 const SEED={"version": "0.1.0", "profile": {"sex": "male", "age": 35, "height_cm": 183, "weight_kg": 80, "experience_years": 15, "level": "advanced", "role": "performer"}, "master": {"locked": true, "goal": "Molto muscoloso e visibilmente ipertrofico, relativamente asciutto, armonioso ed elegante; mantenere mobilita, coordinazione, agilita, dinamismo e credibilita scenica.", "priorities": [{"name": "upper_chest", "label": "Petto alto", "weight": 1.35}, {"name": "shoulders", "label": "Spalle", "weight": 1.3}, {"name": "arms", "label": "Braccia", "weight": 1.25}, {"name": "back", "label": "Schiena / densita", "weight": 1.0}, {"name": "lower", "label": "Lower / armonia / forza", "weight": 1.0}, {"name": "performance", "label": "Agilita / performer", "weight": 1.15}], "references": [{"name": "Anatoly / Vladimir Shmondenko", "meaning": "densita muscolare + forza relativa + atletismo"}, {"name": "Yuri Chechi", "meaning": "controllo ginnico + linee atletiche + padronanza del corpo"}, {"name": "Brad Pitt in Troy", "meaning": "proporzioni magre, armoniose, cinematiche"}, {"name": "Tom Hardy in Warrior", "meaning": "fisico denso, atletico, combattivo"}], "rules": ["Il MASTER resta stabile; i metodi sono flessibili.", "Casa e trasferta hanno pari dignita fisiologica.", "Preservare lo stimolo, non il nome dell'esercizio.", "Niente sequenza A-B-C-D obbligatoria.", "Niente muscle confusion o volume di riempimento.", "Pump e fatica sono dati, non prova sufficiente di ipertrofia.", "Progressione solo da esposizioni sufficientemente comparabili.", "Il tempo disponibile e un input, non un tetto fisso.", "Multidisciplinare non significa casuale.", "Non trasformare il soggetto ne in bodybuilder rigido ne in atleta di danza professionistica."]}, "equipment": {"home": {"barbell": true, "ez_bar": true, "pullup_bar": true, "dips": true, "adjustable_dumbbells_each_kg": 30, "flat_bench": true, "trx": true, "backpack": true, "bands": true, "plates_total_kg": 90, "barbell_on_shoulders": true, "commercial_rack_assumed": false}, "travel": {"pullup_bar": false, "dips": true, "trx": true, "backpack_kg": 30, "bands": true, "adjustable_dumbbells_each_kg": 30, "dumbbells_count": 2}}, "constraints": {"knee": {"baseline": 5, "history": "Frattura condilo femorale DX, frattura rotula DX, lussazione anca DX.", "split_squat_default": false, "notes": "Baseline 5/10 non e stop automatico. Reagire a aumento significativo, gonfiore nuovo, instabilita, blocco, perdita ROM/funzione o sintomo diverso."}, "elbow": {"history": "Dolore mediale/interno ricorrente, soprattutto tirate e flessione tipo curl.", "notes": "Performance preservata non esclude irritazione. Adattare se peggiora chiaramente."}}, "history": [{"id": "2026-09-22-lower", "date": "2026-09-22", "location": "home", "focus": "LOWER HYPERTROPHY / STRENGTH", "duration_min": 54, "post": {"fatigue": 2, "quality": 4, "pump": {"chest": 0, "shoulders": 0, "arms": 0}}, "exercises": [{"id": "back_squat", "name": "Back Squat con bilanciere", "pattern": "knee", "muscles": ["lower"], "load": 50, "unit": "kg", "reps": [6, 6, 6], "rir": [2, 2, 1], "tech": "clean", "pain": 0, "rom": "controlled"}, {"id": "barbell_rdl", "name": "Barbell Romanian Deadlift", "pattern": "hinge", "muscles": ["lower", "posterior"], "load": 70, "unit": "kg", "reps": [6, 6, 6], "rir": [2, 2, 1], "tech": "clean", "pain": 0}, {"id": "barbell_hip_thrust", "name": "Barbell Hip Thrust", "pattern": "hip_extension", "muscles": ["lower", "glutes"], "load": 70, "unit": "kg", "reps": [8, 8, 8], "rir": [2, 2, 1], "tech": "clean", "pain": 0}, {"id": "single_leg_calf", "name": "Single-leg Calf Raise", "pattern": "calf", "muscles": ["lower"], "load": 20, "unit": "kg", "reps": [10, 10, 10], "rir": [2, 2, 1], "tech": "clean", "pain": 0}, {"id": "trx_body_saw", "name": "TRX Body Saw", "pattern": "core", "muscles": ["core"], "load": 0, "unit": "kg", "reps": [8, 10], "rir": [2, 2], "tech": "clean", "pain": 0}]}, {"id": "2026-09-23-upper", "date": "2026-09-23", "location": "home", "focus": "UPPER PRIORITY", "duration_min": 47, "post": {"fatigue": 5, "quality": 5, "pump": {"chest": 2, "shoulders": 3, "arms": 2}}, "exercises": [{"id": "feet_elev_weighted_pushup", "name": "Feet-elevated Weighted Push-up", "pattern": "upper_chest_press", "muscles": ["upper_chest", "shoulders", "triceps"], "load": 22, "unit": "kg add", "reps": [7, 7, 7, 7], "rir": [2, 2, 1, 1], "tech": "clean", "pain": 0}, {"id": "db_ohp", "name": "Dumbbell Overhead Press", "pattern": "vertical_press", "muscles": ["shoulders", "triceps"], "load": 10, "unit": "kg/hand", "reps": [8, 8, 8], "rir": [3, 3, 3], "tech": "clean", "pain": 0, "note": "zaino 22 kg indossato, non contato come carico di pressa"}, {"id": "weighted_dips", "name": "Weighted Dips", "pattern": "dip_press", "muscles": ["chest", "triceps", "shoulders"], "load": 15, "unit": "kg add", "reps": [6, 6, 6], "rir": [1, 1, 1], "tech": "clean", "pain": 0}, {"id": "one_arm_db_row", "name": "One-arm Dumbbell Row", "pattern": "horizontal_pull", "muscles": ["back", "biceps"], "load": 30, "unit": "kg", "reps": [8, 8, 8], "rir": [2, 2, null], "tech": "clean", "pain": null}, {"id": "db_lateral_trx_reverse", "name": "DB Lateral Raise + TRX Reverse Fly", "pattern": "delts", "muscles": ["shoulders"], "load": 10, "unit": "kg/hand lateral", "reps": ["10+10", "10+10"], "rir": [2, 1, 1], "tech": "clean", "pain": null, "note": "RIR log ambiguo"}, {"id": "band_pressdown", "name": "Band Triceps Pressdown", "pattern": "triceps", "muscles": ["arms", "triceps"], "load": 0, "unit": "band", "reps": [10, 10], "rir": [2, 2], "tech": "clean", "pain": null}]}], "ledger": {"back_squat": {"status": "CONSOLIDATE", "note": "50 kg: prima reps comparabili, poi carico."}, "barbell_rdl": {"status": "CONSOLIDATE", "note": "70 kg: prima reps comparabili, poi carico."}, "barbell_hip_thrust": {"status": "CONSOLIDATE", "note": "70 kg: prima reps comparabili, poi carico."}, "single_leg_calf": {"status": "CONSOLIDATE", "note": "20 kg baseline."}, "trx_body_saw": {"status": "CONSOLIDATE", "note": "Standardizzare ROM, poi reps."}, "feet_elev_weighted_pushup": {"status": "PROMOTE", "note": "+22 kg: promuovere reps."}, "db_ohp": {"status": "ADAPT", "note": "10 kg/mano sottocaricato a RIR 3/3/3."}, "weighted_dips": {"status": "HOLD", "note": "+15 kg: consolidare."}, "one_arm_db_row": {"status": "CONSOLIDATE", "note": "30 kg; terzo RIR/dolore mancanti."}, "db_lateral_trx_reverse": {"status": "HOLD", "note": "Logging da rendere piu comparabile."}, "band_pressdown": {"status": "PROMOTE", "note": "Promuovere reps."}}, "calendar": [{"offset": 0, "location": "travel", "minutes": 60, "event": "none", "notes": ""}, {"offset": 1, "location": "home", "minutes": 20, "event": "tennis", "notes": "tennis leggero dopo"}, {"offset": 2, "location": "home", "minutes": 20, "event": "show", "notes": "finestra serale molto incerta"}, {"offset": 3, "location": "home", "minutes": 20, "event": "show", "notes": "finestra serale molto incerta"}], "settings": {"diet_started": false, "diet_start_phrase": "SPESA FATTA - INIZIO DIETA", "last_verified_training_date": "2026-09-23"}};
 
 const $=(q,p=document)=>p.querySelector(q);
@@ -4949,7 +4958,7 @@ function cb10ForecastCard(){
 function cb10Top(status){
   const d=cbV9EnsureDay(todayISO()),last=(state.history||[]).slice(-1)[0];
   return `<section class="hero v10Top">
-    <div class="v10Kicker">V10.1 · ENGINE A10.1 · ${todayISO()}</div>
+    <div class="v10Kicker">V10.2 · ENGINE A10.2 · ${todayISO()}</div>
     <div class="v10Title">${status.stage==='plan'?'Il coach ha deciso.':status.stage==='workout'?'Seduta in corso.':status.stage==='done'?'Oggi è chiuso.':status.stage==='missed'?'Zero training registrato.':'Una schermata. Una decisione.'}</div>
     <div class="v10Lead">Tu inserisci la realtà. A10 legge storico, prossime 48–72 h, attrezzatura, recupero e MASTER. Tu non scegli la disciplina.</div>
     <div class="v10Now">
@@ -5157,7 +5166,7 @@ renderProfile=function(){
   if(hero){
     hero.querySelector('.eyebrow').textContent='MASTER · V10';
     hero.querySelector('h1').textContent='Hypertrophy + aesthetics. Sempre.';
-    hero.insertAdjacentHTML('afterend',`<div class="card v10AuditGood"><div class="v10SectionHead"><div><h3>Build production</h3><div class="sub">V10.1 · ENGINE A10.1 · ${CB10.build}</div></div><span class="v10Badge good">OK</span></div>
+    hero.insertAdjacentHTML('afterend',`<div class="card v10AuditGood"><div class="v10SectionHead"><div><h3>Build production</h3><div class="sub">V10.2 · ENGINE A10.2 · ${CB10.build}</div></div><span class="v10Badge good">OK</span></div>
       <div class="small">Storico ${(state.history||[]).length} · missed ${(state.noTrainingDays||[]).length} · decisioni ${(state.v10?.events||[]).filter(x=>x.type==='PLAN_GENERATED').length} · storage ~${cb10StorageKB()} KB.</div>
       <p class="tiny muted">Cloud Sync sperimentale nascosto in V10: finché non è validato end-to-end, il PC/localStorage + backup JSON restano la sorgente affidabile.</p>
     </div>`);
@@ -5456,8 +5465,201 @@ if('serviceWorker' in navigator && (location.protocol==='https:'||location.hostn
 }
 
 
+
+/* =========================================================
+   V10.2 — RUNTIME STABILITY HOTFIX
+   - decision error boundary
+   - lazy forecast (never blocks the decision)
+   - safe fallback planner
+   - visible runtime diagnostics
+   ========================================================= */
+
+const CB102={
+  build:'2026-09-28',
+  errors:[],
+  lastError:null
+};
+
+function cb102ErrText(e){
+  try{return String(e?.message||e||'Errore sconosciuto')}catch(_){return 'Errore sconosciuto'}
+}
+function cb102LogError(where,e){
+  const rec={where,message:cb102ErrText(e),stack:String(e?.stack||'').slice(0,1200),at:Date.now(),date:todayISO()};
+  CB102.lastError=rec;CB102.errors.push(rec);CB102.errors=CB102.errors.slice(-12);
+  try{
+    state.v10=state.v10||{};
+    state.v10.runtimeErrors=state.v10.runtimeErrors||[];
+    state.v10.runtimeErrors.push(rec);
+    state.v10.runtimeErrors=state.v10.runtimeErrors.slice(-20);
+    CB_REMOTE_APPLY=true;cbLocalPersist();CB_REMOTE_APPLY=false;
+  }catch(_){}
+  return rec;
+}
+window.addEventListener('error',ev=>cb102LogError('window',ev.error||ev.message));
+window.addEventListener('unhandledrejection',ev=>cb102LogError('promise',ev.reason));
+
+function cb102ErrorCard(rec){
+  return `<div class="runtimeBanner"><b>Il motore ha intercettato un errore.</b>
+    <div class="small" style="margin-top:5px">${esc(rec?.message||'Errore non identificato')}</div>
+    <div class="tiny muted" style="margin-top:5px">I dati inseriti sono stati conservati. Build V10.2 · ${esc(rec?.where||'runtime')}</div>
+    <div class="btnrow" style="margin-top:8px"><button id="cb102Retry" class="btn primary">RIPROVA DECISIONE</button><button id="cb102Backup" class="btn secondary">BACKUP JSON</button></div>
+  </div>`;
+}
+function cb102ShowError(rec){
+  $('#v10Dock')?.remove();
+  const view=$('#view');
+  if(!view)return;
+  const old=$('#cb102RuntimeError');if(old)old.remove();
+  view.insertAdjacentHTML('afterbegin',`<div id="cb102RuntimeError">${cb102ErrorCard(rec)}</div>`);
+  if($('#cb102Retry'))$('#cb102Retry').onclick=()=>cb102SafeDecide();
+  if($('#cb102Backup'))$('#cb102Backup').onclick=()=>download(`CALIBUILDING_V10_2_RECOVERY_${todayISO()}.json`,JSON.stringify(state,null,2));
+}
+
+/* Preserve the full objective-lock planner, but never let one malformed
+   historical record make the whole app unusable. */
+const CB102_OBJECTIVE_PLAN=cb10Plan;
+cb10Plan=function(ctx){
+  try{
+    return CB102_OBJECTIVE_PLAN(ctx);
+  }catch(e1){
+    cb102LogError('objective-plan',e1);
+    try{
+      const p=cbA9Plan(ctx);
+      p.analysis=p.analysis||{};
+      p.analysis.inference=p.analysis.inference||[];
+      p.analysis.inference.unshift('V10.2 SAFE FALLBACK: il layer Objective-Lock ha incontrato un dato non compatibile; usato A9 per non bloccare la seduta.');
+      p.runtimeFallback='A9';
+      return p;
+    }catch(e2){
+      cb102LogError('A9-fallback',e2);
+      const p=cbOptimizePlanA6(ctx);
+      p.analysis=p.analysis||{};
+      p.analysis.inference=p.analysis.inference||[];
+      p.analysis.inference.unshift('V10.2 SAFE FALLBACK: usato A6 personalized planner.');
+      p.runtimeFallback='A6';
+      return p;
+    }
+  }
+};
+buildPlan=function(ctx){
+  const p=cb10Plan(ctx);
+  return cbAttachDecisionMeta(p,ctx);
+};
+chooseFocus=function(){return 'A10.2'};
+
+/* Forecast is now LAZY. It cannot block "AGGIORNA + DECIDI". */
+cb10ForecastCard=function(){
+  return `<div class="card" id="cb102ForecastCard">
+    <div class="v10SectionHead"><div><h3>Previsione 48h</h3><div class="sub">Calcolata dopo la decisione, separatamente.</div></div><span class="provisional">PROVVISORIA</span></div>
+    <div id="cb102ForecastBody" class="forecastLazy"><div class="small muted">La previsione verrà caricata senza bloccare il piano di oggi.</div></div>
+  </div>`;
+};
+
+function cb102FmtForecast(f){
+  return f?`${esc(f.label)} · ${esc(f.mode||'')} · ~${esc(f.estimatedMin||'—')} min`:'non disponibile';
+}
+function cb102RenderForecast(){
+  const body=$('#cb102ForecastBody');
+  if(!body||body.dataset.loading==='1'||body.dataset.done==='1')return;
+  body.dataset.loading='1';
+  body.innerHTML=`<div class="runtimeLoading"><span class="runtimeDot"></span><span class="small">Calcolo previsione…</span></div>`;
+  setTimeout(()=>{
+    try{
+      const complete=cb10ForecastScenario(1,'complete');
+      body.innerHTML=`<div class="v10Prediction" style="width:100%">
+        <div class="v10Future"><span class="provisional">DOMANI · SE COMPLETI OGGI</span><div class="name">${cb102FmtForecast(complete)}</div></div>
+        <div class="v10Future"><span class="provisional">ALTERNATIVA</span><div id="cb102MissedForecast" class="small muted">Calcolo scenario “se salti oggi”…</div></div>
+      </div>`;
+      body.dataset.done='1';
+      setTimeout(()=>{
+        const x=$('#cb102MissedForecast');if(!x)return;
+        try{x.innerHTML=cb102FmtForecast(cb10ForecastScenario(1,'missed'))}
+        catch(e){cb102LogError('forecast-missed',e);x.textContent='Scenario non disponibile.'}
+      },30);
+    }catch(e){
+      cb102LogError('forecast',e);
+      body.innerHTML='<div class="small muted">Previsione temporaneamente non disponibile. La prescrizione di oggi resta valida.</div>';
+      body.dataset.done='1';
+    }
+  },40);
+}
+function cb102ScheduleForecast(){
+  if($('#cb102ForecastBody'))setTimeout(cb102RenderForecast,120);
+}
+
+/* The decision gets its own transaction boundary. UI yields before the
+   computation, so the user sees that the button was accepted. */
+function cb102SafeDecide(){
+  try{
+    cb10Checkpoint('before_decision_v102');
+    cb10SaveForms();
+    state.activePlan=null;
+    save();
+  }catch(e){
+    cb102ShowError(cb102LogError('save-inputs',e));return;
+  }
+
+  const btn=$('#v10_decide')||$('#v10DockBtn');
+  if(btn){btn.disabled=true;btn.textContent='CALCOLO IN CORSO…'}
+  cb10Announce('Calcolo della seduta in corso');
+
+  setTimeout(()=>{
+    try{
+      const ctx=cbV9Ctx(todayISO(),false);
+      const p=cb10Decide(ctx);
+      save();
+      cb10Announce(`Decisione pronta: ${p.label}`);
+      renderToday();
+    }catch(e){
+      const rec=cb102LogError('decision',e);
+      try{save()}catch(_){}
+      renderToday();
+      cb102ShowError(rec);
+    }
+  },25);
+}
+cb10SaveAndDecide=cb102SafeDecide;
+
+/* Make the sticky CTA call the same guarded transaction. */
+const CB102_BASE_DOCK=cb10Dock;
+cb10Dock=function(status){
+  CB102_BASE_DOCK(status);
+  if(status?.stage==='input'&&$('#v10DockBtn'))$('#v10DockBtn').onclick=cb102SafeDecide;
+};
+
+/* Wrap Today so any rendering defect becomes a readable diagnostic instead
+   of a frozen-looking screen. */
+const CB102_BASE_TODAY=renderToday;
+renderToday=function(){
+  try{
+    CB102_BASE_TODAY();
+    cb102ScheduleForecast();
+  }catch(e){
+    const rec=cb102LogError('render-today',e);
+    $('#v10Dock')?.remove();
+    $('#view').innerHTML=`<section class="hero v10Top"><div class="v10Kicker">V10.2 · RECOVERY UI</div>
+      <div class="v10Title">I tuoi dati sono ancora salvati.</div>
+      <div class="v10Lead">La schermata ha intercettato un errore di rendering; non viene cancellato lo storico.</div></section>
+      ${cb102ErrorCard(rec)}`;
+    if($('#cb102Retry'))$('#cb102Retry').onclick=()=>cb102SafeDecide();
+    if($('#cb102Backup'))$('#cb102Backup').onclick=()=>download(`CALIBUILDING_V10_2_RECOVERY_${todayISO()}.json`,JSON.stringify(state,null,2));
+  }
+};
+
+/* Fix analysis compatibility: V10.1 writes a101, old plan card expected a10. */
+const CB102_BASE_PLAN_CARD=cb10PlanCard;
+cb10PlanCard=function(p,ctx){
+  p.analysis=p.analysis||{};
+  if(!p.analysis.a10 && p.analysis.a101){
+    const x=p.analysis.a101;
+    p.analysis.a10={sys:x.sys,horizon:x.horizon,scenarios:x.scenarios,needs:x.needs,chosen:x.chosen,experiment:x.experiment};
+  }
+  return CB102_BASE_PLAN_CARD(p,ctx);
+};
+
+
 cb10Ensure();
-state.engine.version='A10.1';state.engine.mode='objective_locked_verified_hybrid_support';state.version=VERSION;
+state.engine.version='A10.2';state.engine.mode='objective_locked_runtime_guarded';state.version=VERSION;
 CB_REMOTE_APPLY=true;cbLocalPersist();CB_REMOTE_APPLY=false;
 nav('today');
 
