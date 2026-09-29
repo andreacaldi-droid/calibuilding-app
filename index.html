@@ -8,52 +8,87 @@
 <title>Cali Power</title>
 <style>
 :root{
- --bg:#070a0e;--surface:#10151b;--surface2:#0a1015;--line:#29343e;--text:#f5f7f8;--muted:#98a5b2;
- --accent:#c8ff55;--accent2:#8be7ff;--ok:#89ff9d;--warn:#ffd36f;--bad:#ff8f8f;
+ --bg:#0b0b0a;--surface:#151412;--surface2:#100f0e;--line:#312e29;
+ --text:#f3efe7;--muted:#aaa398;--accent:#d7b878;--accentSoft:#ad9565;
+ --ok:#a8c6a1;--warn:#d7aa64;--bad:#d9908c;--ink:#17130b;
+ --radius:18px;--space:clamp(14px,1.6vw,24px);
 }
-*{box-sizing:border-box}html{background:var(--bg);color-scheme:dark}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;font-size:16px}
-button,input,select,textarea{font:inherit;color:var(--text);background:#091016;border:1px solid var(--line);border-radius:12px;min-height:44px}
-input,select,textarea{width:100%;padding:10px 11px}textarea{min-height:82px;resize:vertical}button{padding:10px 13px;font-weight:900;cursor:pointer}
-button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid var(--accent2);outline-offset:3px}
-button:disabled{opacity:.5;cursor:not-allowed}.app{max-width:940px;margin:auto;padding:14px 14px 116px}
-.top{display:flex;align-items:center;justify-content:space-between;gap:9px;padding:4px 2px 12px}.brand{font-weight:950;letter-spacing:-.035em;font-size:19px}.build{font-size:10px;color:var(--muted)}
-.hero,.card{border:1px solid var(--line);background:var(--surface);border-radius:18px;padding:14px;margin-bottom:11px}.hero{background:radial-gradient(circle at 88% 0,rgba(200,255,85,.11),transparent 39%),#0d1319}
-.kicker{font-size:10px;font-weight:950;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}h1{font-size:clamp(27px,6vw,41px);line-height:1.03;letter-spacing:-.047em;margin:6px 0 8px}h2,h3{margin:0 0 8px}
-.small{font-size:12px;line-height:1.45}.tiny{font-size:10px;line-height:1.4}.muted{color:var(--muted)}
-.badge{display:inline-flex;padding:4px 8px;border:1px solid var(--line);border-radius:999px;font-size:9px;font-weight:950;letter-spacing:.055em}.badge.ok{color:var(--ok);border-color:#315b3d}.badge.warn{color:var(--warn);border-color:#66552d}.badge.accent{color:var(--accent);border-color:#557039}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.field label{display:block;font-size:10px;color:var(--muted);font-weight:850;margin-bottom:5px}
-.btn.primary{background:var(--accent);color:#07100a;border-color:var(--accent)}.btn.secondary{background:#111820}.btn.danger{border-color:#704040;color:#ffb1b1}.full{width:100%}.cta{min-height:52px;font-size:15px}
-.quick{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.quick button{min-height:36px;border-radius:999px;font-size:11px}
-.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:10px}.metric{border:1px solid var(--line);background:#090e13;border-radius:12px;padding:8px}.metric span{display:block;font-size:9px;text-transform:uppercase;color:var(--muted)}.metric b{font-size:14px}
-.objective{border-color:#557039;background:#0e160d}.objective strong{color:var(--accent)}.plan{border-color:#557039;background:radial-gradient(circle at 90% 0,rgba(200,255,85,.10),transparent 38%),#0e160d}
-.planname{font-size:25px;font-weight:950;line-height:1.05;letter-spacing:-.035em;margin:5px 0 8px}.whygrid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:9px}.whygrid>div{border:1px solid #344234;background:#0a100a;border-radius:11px;padding:8px;font-size:11px}
-.actions{display:grid;grid-template-columns:1.45fr 1fr 1fr;gap:8px;margin-top:10px}.forecast{display:grid;grid-template-columns:1fr 1fr;gap:8px}.future{border:1px solid #334552;background:#0a1117;border-radius:14px;padding:10px}
-.exercise{border:1px solid var(--line);background:#0a1015;border-radius:15px;padding:11px;margin-bottom:9px}.exhead{display:flex;justify-content:space-between;gap:10px}.chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}.chip{font-size:9px;border:1px solid #35414d;border-radius:999px;padding:3px 6px;color:#cbd3da}
-.progress{border-left:3px solid #557039;padding-left:8px;margin-top:8px}.setrow{display:grid;grid-template-columns:52px 1.1fr .7fr .7fr .7fr .9fr;gap:6px;align-items:end;margin-top:7px}.setrow input,.setrow select{padding:8px;min-height:40px}.setlabel{font-size:10px;color:var(--muted);padding-bottom:11px}.done{border-color:#315b3d!important;color:var(--ok)}
-.timerbar{position:sticky;top:7px;z-index:8;display:grid;grid-template-columns:1fr 1fr auto;gap:8px;align-items:center;border:1px solid #455845;background:rgba(10,17,13,.97);backdrop-filter:blur(10px);border-radius:15px;padding:9px;margin-bottom:10px}.clock strong{font-size:22px}
-.timeline{display:grid;gap:7px}.timelineItem{border:1px solid var(--line);background:#0a1015;border-radius:13px;padding:9px;display:grid;grid-template-columns:90px 1fr auto;gap:9px;align-items:center}.recovered{border-color:#66552d;background:#171309}
-.scorebar{height:7px;background:#111820;border-radius:999px;overflow:hidden;margin-top:5px}.scorebar i{display:block;height:100%;background:var(--accent);border-radius:999px}
-.nav{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:min(940px,100%);display:grid;grid-template-columns:repeat(4,1fr);gap:4px;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background:rgba(7,10,13,.96);backdrop-filter:blur(15px);border-top:1px solid var(--line);z-index:30}.nav button{border:0;background:transparent;color:var(--muted);font-size:10px;min-height:52px}.nav button.active{color:var(--accent)}
-dialog{width:min(820px,calc(100% - 20px));max-height:90vh;overflow:auto;border:1px solid var(--line);border-radius:18px;background:var(--surface);color:var(--text);padding:14px}dialog::backdrop{background:rgba(0,0,0,.76)}
-details summary{cursor:pointer;font-weight:850;color:var(--muted);padding:7px 0}.diag{font:10px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);word-break:break-word}
-@media(max-width:720px){.grid3{grid-template-columns:1fr 1fr}.metrics{grid-template-columns:1fr 1fr}.actions,.whygrid,.forecast{grid-template-columns:1fr}.setrow{grid-template-columns:48px 1fr 1fr}.timerbar{grid-template-columns:1fr 1fr}.timerbar button{grid-column:1/-1}.timelineItem{grid-template-columns:74px 1fr}.timelineItem .badge{grid-column:2}}
+*{box-sizing:border-box}
+html{background:var(--bg);color-scheme:dark}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:16px;letter-spacing:-.005em}
+button,input,select,textarea{font:inherit;color:var(--text);background:#100f0e;border:1px solid var(--line);border-radius:12px;min-height:46px}
+input,select,textarea{width:100%;padding:11px 12px}textarea{min-height:82px;resize:vertical}
+button{padding:10px 14px;font-weight:650;cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+button:disabled{opacity:.45;cursor:not-allowed}
+.app{max-width:920px;margin:auto;padding:16px 16px 116px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 2px 18px}
+.brand{font-family:ui-serif,Georgia,Cambria,serif;font-size:24px;font-weight:500;letter-spacing:-.03em}
+.topstatus{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.hero,.card{border:1px solid var(--line);background:var(--surface);border-radius:var(--radius);padding:var(--space);margin-bottom:12px}
+.hero{background:linear-gradient(145deg,#171512 0%,#0f0e0c 72%);box-shadow:0 14px 48px rgba(0,0,0,.18)}
+.kicker{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+h1{font-family:ui-serif,Georgia,Cambria,serif;font-size:clamp(30px,6vw,48px);font-weight:500;line-height:1.02;letter-spacing:-.045em;margin:8px 0 10px}
+h2,h3{font-weight:600;letter-spacing:-.02em;margin:0 0 8px}
+.small{font-size:12px;line-height:1.5}.tiny{font-size:10px;line-height:1.45}.muted{color:var(--muted)}
+.badge{display:inline-flex;align-items:center;padding:5px 8px;border:1px solid var(--line);border-radius:999px;font-size:9px;font-weight:700;letter-spacing:.045em}
+.badge.ok{color:var(--ok);border-color:#405442}.badge.warn{color:var(--warn);border-color:#65533a}.badge.accent{color:var(--accent);border-color:#655c46}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:9px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.field label{display:block;font-size:10px;color:var(--muted);font-weight:650;margin:0 0 5px}
+.btn.primary{background:var(--accent);color:var(--ink);border-color:var(--accent)}
+.btn.secondary{background:#191714}.btn.ghost{background:transparent}.btn.danger{background:transparent;border-color:#6b4340;color:#e3aaa6}
+.full{width:100%}.cta{min-height:54px;font-size:15px}
+.quick{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.quick button{min-height:36px;border-radius:999px;font-size:11px;background:transparent}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}.metric{border-top:1px solid var(--line);padding:10px 0 0}.metric span{display:block;font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}.metric b{font-size:14px;font-weight:600}
+.objective{border-color:#5a4f39;background:#17140f}.objective strong{color:var(--accent)}
+.plan{border-color:#5a4f39;background:linear-gradient(145deg,#19160f,#11100e)}
+.planname{font-family:ui-serif,Georgia,Cambria,serif;font-size:27px;font-weight:500;line-height:1.06;letter-spacing:-.035em;margin:6px 0 9px}
+.whygrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}.whygrid>div{border-top:1px solid #423b30;padding:9px 0;font-size:11px;color:#d7d0c6}
+.actions{display:grid;grid-template-columns:1.6fr 1fr;gap:8px;margin-top:12px}
+.forecast{display:grid;grid-template-columns:1fr 1fr;gap:9px}.future{border:1px solid var(--line);background:#11100e;border-radius:14px;padding:12px}
+.exercise{border:1px solid var(--line);background:#11100f;border-radius:16px;padding:14px;margin-bottom:10px}.exhead{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.exname{font-size:16px;font-weight:650;line-height:1.25}.prescription{font-size:11px;color:var(--muted);margin-top:3px}
+.whyline{margin-top:9px;padding:9px 10px;border-left:2px solid var(--accentSoft);background:#15130f;border-radius:0 9px 9px 0;font-size:12px;line-height:1.45}
+.science{margin-top:6px}.science summary{font-size:11px;color:var(--accentSoft);padding:5px 0}.science p{margin:4px 0 0;font-size:11px;line-height:1.5;color:var(--muted)}
+.progress{border-left:2px solid var(--accentSoft);padding-left:9px;margin-top:8px}
+.setrow{display:grid;grid-template-columns:50px 1.1fr .72fr .72fr .72fr .9fr;gap:6px;align-items:end;margin-top:8px}.setrow input,.setrow select{padding:8px;min-height:40px}.setlabel{font-size:10px;color:var(--muted);padding-bottom:11px}.done{border-color:#405442!important;color:var(--ok)!important}
+.timerbar{position:sticky;top:7px;z-index:8;display:grid;grid-template-columns:1fr 1fr auto;gap:8px;align-items:center;border:1px solid #504735;background:rgba(18,16,13,.96);backdrop-filter:blur(20px);border-radius:16px;padding:10px 12px;margin-bottom:10px;box-shadow:0 8px 30px rgba(0,0,0,.2)}
+.clock strong{font-size:24px;font-weight:500;font-variant-numeric:tabular-nums}
+.countdown{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:100;opacity:0;transition:opacity .12s ease;background:rgba(11,11,10,.22);backdrop-filter:blur(2px)}
+.countdown.show{opacity:1}.countdown span{font-family:ui-serif,Georgia,serif;font-size:min(42vw,240px);font-weight:500;color:var(--text);text-shadow:0 10px 50px rgba(0,0,0,.55)}
+.timeline{display:grid;gap:8px}.timelineItem{border:1px solid var(--line);background:#11100f;border-radius:14px;padding:10px;display:grid;grid-template-columns:92px 1fr auto;gap:10px;align-items:center}.recovered{border-color:#65533a;background:#17140f}
+.nav{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:min(920px,100%);display:grid;grid-template-columns:repeat(4,1fr);gap:2px;padding:7px 10px calc(7px + env(safe-area-inset-bottom));background:rgba(11,11,10,.95);backdrop-filter:blur(22px);border-top:1px solid var(--line);z-index:30}
+.nav button{border:0;background:transparent;color:var(--muted);font-size:10px;min-height:50px}.nav button.active{color:var(--accent)}
+dialog{width:min(760px,calc(100% - 20px));max-height:90vh;overflow:auto;border:1px solid var(--line);border-radius:20px;background:#151412;color:var(--text);padding:16px}dialog::backdrop{background:rgba(0,0,0,.74)}
+details summary{cursor:pointer;font-weight:600;color:var(--muted);padding:7px 0}.diag{font:10px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);word-break:break-word}
+.authrow{display:grid;grid-template-columns:1fr 1fr;gap:8px}.syncdot{width:7px;height:7px;border-radius:50%;display:inline-block;background:currentColor;margin-right:5px}
+.finish{border-color:#5a4f39;background:linear-gradient(145deg,#17140f,#11100e)}
+.contextbar{display:flex;gap:8px;margin:10px 0 0}.contextbar button{flex:1}
+@media(max-width:720px){
+ .grid3{grid-template-columns:1fr 1fr}.metrics{grid-template-columns:1fr 1fr 1fr}.actions,.whygrid,.forecast,.authrow{grid-template-columns:1fr}
+ .setrow{grid-template-columns:46px 1fr 1fr}.timerbar{grid-template-columns:1fr 1fr}.timerbar button{grid-column:1/-1}
+ .timelineItem{grid-template-columns:76px 1fr}.timelineItem .badge{grid-column:2}.top{align-items:flex-start}
+}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
 <div class="app">
- <div class="top"><div><div class="brand">Cali Power</div><div class="build">CORE 1.0 · ENGINE CP1 · 2026-09-29</div></div><span id="integrity" class="badge ok">STORICO VERIFICATO</span></div>
+ <div class="top">
+   <div class="brand">Cali Power</div>
+   <div class="topstatus"><span id="syncBadge" class="badge warn"><span class="syncdot"></span>LOCALE</span><span id="integrity" class="badge ok">STORICO OK</span></div>
+ </div>
  <main id="view"></main>
 </div>
 <nav class="nav" aria-label="Navigazione">
  <button data-tab="today" class="active">OGGI</button><button data-tab="why">PERCHÉ</button><button data-tab="history">STORICO</button><button data-tab="profile">PROFILO</button>
 </nav>
-<dialog id="repairDialog"></dialog><div id="live" aria-live="polite" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden"></div>
+<dialog id="repairDialog"></dialog><dialog id="interruptDialog"></dialog><div id="countdown" class="countdown"><span id="countdownNum"></span></div><div id="live" aria-live="polite" style="position:fixed;left:-9999px;width:1px;height:1px;overflow:hidden"></div>
 <script>
 'use strict';
 
-const APP_VERSION='cali-power-1.0', ENGINE='CP1', KEY='CALI_POWER_STATE_V1';
-const LEGACY_KEYS=['CALIBUILDING_STABLE_V2','CALIBUILDING_STABLE_V1','CALIBUILDING_V01_STATE'];
+const APP_VERSION='cali-power-sync', ENGINE='CP2', KEY='CALI_POWER_STATE_V2';
+const LEGACY_KEYS=['CALI_POWER_STATE_V1','CALIBUILDING_STABLE_V2','CALIBUILDING_STABLE_V1','CALIBUILDING_V01_STATE'];
 const $=q=>document.querySelector(q), $$=q=>[...document.querySelectorAll(q)];
 const deep=x=>JSON.parse(JSON.stringify(x)), clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
 const uid=()=>`${Date.now()}-${Math.random().toString(16).slice(2)}`;
@@ -85,6 +120,7 @@ const REGIONS={
 };
 const MASTER={primary:'Ipertrofia + estetica',secondary:'Forza relativa + controllo',tertiary:'Atletismo + conditioning + endurance'};
 const EVIDENCE=[
+ {pmid:'34644424',topic:'angoli pettorale',note:'posture/inclinazioni diverse possono spostare l’eccitazione regionale del grande pettorale'},
  {pmid:'35438660',topic:'variazione esercizi',note:'variazione sistematica può favorire adattamenti regionali; evitare variazione casuale/ridondante'},
  {pmid:'36662126',topic:'ROM',note:'full ROM e lavoro a lunghezze maggiori sono strumenti utili, senza dogmi universali'},
  {pmid:'39809454',topic:'curl regionali',note:'preacher e incline curl hanno prodotto crescita regionale diversa'},
@@ -190,14 +226,28 @@ const EX=[
 const EXMAP=Object.fromEntries(EX.map(x=>[x.id,x]));
 
 function hasEquipment(e,loc){const have=new Set(EQUIPMENT[loc]||[]);return (e.equip||[]).every(x=>have.has(x))}
-function freshState(){return {schema:1,appVersion:APP_VERSION,engine:ENGINE,master:{goal:'Molto muscoloso e visibilmente ipertrofico, relativamente asciutto, armonioso ed elegante; mantenere mobilità, coordinazione, agilità, dinamismo e credibilità scenica.',references:['Anatoly / Vladimir Shmondenko: densità + forza relativa + atletismo','Yuri Chechi: controllo ginnico + linee atletiche','Brad Pitt / Troy: armonia asciutta','Tom Hardy / Warrior: densità atletica']},profile:{sex:'male',age:35,height_cm:183,weight_kg:80,experience_years:15},constraints:{knee:{baseline:5},elbow:{history:'medial irritation'}},capabilities:{pike:true,wall_handstand:true,support_lsit:true,band_low:true,band_high:true,agility_space:true},history:[],ledger:{},days:{},journal:{closedSessions:[]},forecasts:{},activePlan:null,activeWorkout:null,missed:[],settings:{last_verified_training_date:null},audit:{}}}
+function freshState(){return {schema:2,appVersion:APP_VERSION,engine:ENGINE,master:{goal:'Molto muscoloso e visibilmente ipertrofico, relativamente asciutto, armonioso ed elegante; mantenere mobilità, coordinazione, agilità, dinamismo e credibilità scenica.',references:['Anatoly / Vladimir Shmondenko: densità + forza relativa + atletismo','Yuri Chechi: controllo ginnico + linee atletiche','Brad Pitt / Troy: armonia asciutta','Tom Hardy / Warrior: densità atletica']},profile:{sex:'male',age:35,height_cm:183,weight_kg:80,experience_years:15},constraints:{knee:{baseline:5},elbow:{history:'medial irritation'}},capabilities:{pike:true,wall_handstand:true,support_lsit:true,band_low:true,band_high:true,agility_space:true},history:[],ledger:{},days:{},journal:{closedSessions:[]},forecasts:{},activePlan:null,activeWorkout:null,missed:[],settings:{last_verified_training_date:null,audioCountdown:false},sync:{updatedAtClient:0,deviceId:null},audit:{}}}
 function inferRegions(e){if(EXMAP[e.id])return EXMAP[e.id].regions;const out={};for(const x of e.regions||e.muscles||[]){if(REGIONS[x])out[x]=1;if(x==='upper_chest')out.upper_chest=1;if(x==='shoulders'){out.front_delts=.35;out.side_delts=.35;out.rear_delts=.3}if(x==='back'){out.lats=.55;out.upper_back=.55}if(x==='biceps')out.biceps=1;if(x==='triceps')out.triceps=1;if(x==='arms'){out.biceps=.5;out.triceps=.5}if(x==='lower'){out.quads=.45;out.posterior=.35;out.glutes=.35}if(x==='core')out.core=1}return out}
 function actualSets(e){if(e.exposureOnly)return 0;if(Array.isArray(e.setlog)){const n=e.setlog.filter(s=>s&&(s.done||s.completed||(+s.reps>0))).length;if(n)return n}if(Array.isArray(e.reps))return e.reps.filter(x=>+x>0).length;return Number.isFinite(+e.sets)?+e.sets:0}
 function normalizeHistory(s){s.history=(s.history||[]).filter(x=>!x.syntheticForecast).sort((a,b)=>String(a.date).localeCompare(String(b.date))||(+a.endedAt||0)-(+b.endedAt||0));const trained=new Set(s.history.map(x=>x.date));s.missed=(s.missed||[]).filter(x=>!trained.has(x.date));if(s.history.length)s.settings.last_verified_training_date=s.history[s.history.length-1].date}
 function repairJournal(s){s.journal=s.journal||{closedSessions:[]};s.journal.closedSessions=s.journal.closedSessions||[];const ids=new Set((s.history||[]).map(x=>String(x.id)));for(const x of s.journal.closedSessions)if(x?.id&&!ids.has(String(x.id))){s.history.push(deep(x));ids.add(String(x.id))}normalizeHistory(s)}
 function migrate(raw){const s=freshState();if(!raw||typeof raw!=='object')return s;for(const k of ['profile','master','constraints','capabilities'])if(raw[k])s[k]=deep(raw[k]);s.history=deep(raw.history||[]);s.ledger=deep(raw.ledger||{});s.settings={...s.settings,...(raw.settings||{})};s.days=deep(raw.days||raw.v9?.days||{});s.journal=deep(raw.journal||{closedSessions:[]});s.forecasts=deep(raw.forecasts||raw.v10?.forecasts||{});s.missed=deep(raw.missed||raw.noTrainingDays||[]);s.activePlan=null;s.activeWorkout=null;s.schema=1;s.appVersion=APP_VERSION;s.engine=ENGINE;repairJournal(s);return s}
-let state=freshState();try{const own=localStorage.getItem(KEY);if(own)state=migrate(JSON.parse(own));else for(const k of LEGACY_KEYS){const x=localStorage.getItem(k);if(x){state=migrate(JSON.parse(x));break}}}catch(e){}
-function save(){state.appVersion=APP_VERSION;state.engine=ENGINE;repairJournal(state);localStorage.setItem(KEY,JSON.stringify(state));updateIntegrity()}
+let state=freshState();
+let cloudUser=null,cloudStatus='LOCALE',cloudReady=false,cloudTimer=null,activeTab='today';
+const DEVICE_ID=(()=>{let x=localStorage.getItem('CALI_POWER_DEVICE_ID');if(!x){x='dev-'+uid();localStorage.setItem('CALI_POWER_DEVICE_ID',x)}return x})();
+function cloudPayload(){const {history,journal,...rest}=deep(state);rest.sync=rest.sync||{};rest.sync.deviceId=DEVICE_ID;return rest}
+function setCloudStatus(s){cloudStatus=s;const b=$('#syncBadge');if(!b)return;b.className='badge '+(s==='SYNC'?'ok':s==='SYNC…'?'accent':'warn');b.innerHTML=`<span class="syncdot"></span>${esc(s)}`}
+function scheduleCloudState(){if(!cloudUser||!window.CPCloud)return;clearTimeout(cloudTimer);cloudTimer=setTimeout(()=>window.CPCloud.pushState(cloudPayload()).catch(()=>setCloudStatus('DA SINCRONIZZARE')),650)}
+function saveLocalOnly(){state.appVersion=APP_VERSION;state.engine=ENGINE;state.sync=state.sync||{};state.sync.deviceId=DEVICE_ID;repairJournal(state);localStorage.setItem(KEY,JSON.stringify(state));updateIntegrity()}
+function mergeRemoteSessions(items){if(!Array.isArray(items))return;const by=new Map(state.history.map(x=>[String(x.id),x]));for(const x of items){if(!x?.id)continue;const k=String(x.id),old=by.get(k);if(!old||(+x.endedAt||0)>= (+old.endedAt||0))by.set(k,deep(x))}state.history=[...by.values()];repairJournal(state);saveLocalOnly();if(!state.activeWorkout)nav(activeTab)}
+function applyRemoteState(payload){if(!payload||typeof payload!=='object')return;const hist=state.history,journal=state.journal;const localTs=state.sync?.updatedAtClient||0,remoteTs=payload.sync?.updatedAtClient||0;if(remoteTs<=localTs)return;state={...state,...deep(payload),history:hist,journal};state.activeWorkout=payload.activeWorkout||state.activeWorkout;repairJournal(state);saveLocalOnly();if(!state.activeWorkout)nav(activeTab)}
+window.addEventListener('cp-cloud-ready',()=>{cloudReady=true;setCloudStatus(cloudUser?'SYNC…':'LOGIN')});
+window.addEventListener('cp-auth',async e=>{cloudUser=e.detail?.user||null;if(!cloudUser){setCloudStatus('LOGIN');if(activeTab==='profile')renderProfile();return}setCloudStatus('SYNC…');try{await window.CPCloud.bootstrap(cloudPayload(),state.history);setCloudStatus('SYNC')}catch(err){console.error(err);setCloudStatus('DA SINCRONIZZARE')}if(activeTab==='profile')renderProfile()});
+window.addEventListener('cp-remote-sessions',e=>mergeRemoteSessions(e.detail?.sessions||[]));
+window.addEventListener('cp-remote-state',e=>applyRemoteState(e.detail?.payload));
+window.addEventListener('cp-sync-status',e=>setCloudStatus(e.detail?.status||'SYNC…'));
+try{const own=localStorage.getItem(KEY);if(own)state=migrate(JSON.parse(own));else for(const k of LEGACY_KEYS){const x=localStorage.getItem(k);if(x){state=migrate(JSON.parse(x));break}}}catch(e){}
+function save(pushCloud=true){state.appVersion=APP_VERSION;state.engine=ENGINE;state.sync=state.sync||{};state.sync.deviceId=DEVICE_ID;if(pushCloud)state.sync.updatedAtClient=Date.now();repairJournal(state);localStorage.setItem(KEY,JSON.stringify(state));updateIntegrity();if(pushCloud)scheduleCloudState()}
 function readBack(){try{return JSON.parse(localStorage.getItem(KEY)||'null')}catch{return null}}
 function updateIntegrity(){const e=$('#integrity');if(!e)return;const rb=readBack(),ok=!!rb&&Array.isArray(rb.history);e.className='badge '+(ok?'ok':'warn');e.textContent=ok?'STORICO VERIFICATO':'STORAGE DA VERIFICARE'}
 function download(name,text){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type:'application/json'}));a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),800)}
@@ -287,73 +337,178 @@ function simulate(targetDate,priorPlans){
 function forecast48(p){const d1=addDays(p.date,1),f1=simulate(d1,[p]),d2=addDays(p.date,2),f2=simulate(d2,[p,{...f1,date:d1}]);return [f1,f2]}
 
 function forms(){
- const d=day(today()),d1=day(addDays(today(),1)),d2=day(addDays(today(),2));
- const future=(x,id,label)=>`<div class="future"><div class="kicker">${label}</div><div class="grid2" style="margin-top:7px"><div class="field"><label>Luogo</label><select id="${id}loc"><option value="home" ${x.location==='home'?'selected':''}>Casa</option><option value="travel" ${x.location==='travel'?'selected':''}>Trasferta</option></select></div><div class="field"><label>Minuti</label><input id="${id}mins" type="number" min="0" value="${x.minutes??60}"></div></div><div class="field"><label>Impegno</label><select id="${id}evt"><option value="none">Nessuno</option><option value="tennis" ${x.event==='tennis'?'selected':''}>Tennis</option><option value="show" ${x.event==='show'?'selected':''}>Show</option><option value="travel" ${x.event==='travel'?'selected':''}>Viaggio</option></select></div></div>`;
- return `<div class="card"><h3>Realtà di oggi</h3><div class="small muted">Tu descrivi la realtà. CP1 sceglie modalità, esercizi, angoli, dose e recuperi.</div>
- <div class="grid3" style="margin-top:9px"><div class="field"><label>Luogo</label><select id="loc"><option value="home" ${d.location==='home'?'selected':''}>Casa</option><option value="travel" ${d.location==='travel'?'selected':''}>Trasferta</option></select></div><div class="field"><label>Minuti reali</label><input id="mins" type="number" min="0" value="${d.minutes??60}"></div><div class="field"><label>Impegno</label><select id="evt"><option value="none">Nessuno</option><option value="tennis" ${d.event==='tennis'?'selected':''}>Tennis</option><option value="show" ${d.event==='show'?'selected':''}>Show</option><option value="travel" ${d.event==='travel'?'selected':''}>Viaggio</option></select></div></div>
+ const d=day(today());
+ return `<div class="card"><div class="kicker">CHECK DI OGGI</div><h3 style="margin-top:6px">Come stai, qui e adesso?</h3>
+ <div class="grid3" style="margin-top:10px">
+   <div class="field"><label>Luogo</label><select id="loc"><option value="home" ${d.location==='home'?'selected':''}>Casa</option><option value="travel" ${d.location==='travel'?'selected':''}>Trasferta</option></select></div>
+   <div class="field"><label>Tempo reale</label><input id="mins" type="number" min="0" value="${d.minutes??60}"></div>
+   <div class="field"><label>Sonno /10</label><input id="sleep" type="number" min="1" max="10" value="${d.sleepQ??5}"></div>
+   <div class="field"><label>Energia /10</label><input id="energy" type="number" min="1" max="10" value="${d.energy??6}"></div>
+   <div class="field"><label>Fatica /10</label><input id="fatigue" type="number" min="1" max="10" value="${d.fatigue??4}"></div>
+   <div class="field"><label>Ginocchio /10</label><input id="knee" type="number" min="0" max="10" value="${d.knee??5}"></div>
+   <div class="field"><label>Gomito /10</label><input id="elbow" type="number" min="0" max="10" value="${d.elbow??0}"></div>
+ </div>
  <div class="quick">${[20,30,45,60,75,90].map(x=>`<button data-min="${x}">${x} min</button>`).join('')}</div>
- <div class="grid3" style="margin-top:9px"><div class="field"><label>Sonno /10</label><input id="sleep" type="number" min="1" max="10" value="${d.sleepQ??5}"></div><div class="field"><label>Energia /10</label><input id="energy" type="number" min="1" max="10" value="${d.energy??6}"></div><div class="field"><label>Fatica /10</label><input id="fatigue" type="number" min="1" max="10" value="${d.fatigue??4}"></div><div class="field"><label>Ginocchio /10</label><input id="knee" type="number" min="0" max="10" value="${d.knee??5}"></div><div class="field"><label>Gomito /10</label><input id="elbow" type="number" min="0" max="10" value="${d.elbow??0}"></div></div>
- <details><summary>Segnali nuovi / note</summary><div class="grid2"><label><input id="swelling" type="checkbox" style="width:auto;min-height:auto" ${d.newSwelling?'checked':''}> gonfiore nuovo</label><label><input id="locking" type="checkbox" style="width:auto;min-height:auto" ${d.locking?'checked':''}> blocco</label><label><input id="instability" type="checkbox" style="width:auto;min-height:auto" ${d.instability?'checked':''}> instabilità</label><label><input id="functionLoss" type="checkbox" style="width:auto;min-height:auto" ${d.functionLoss?'checked':''}> perdita ROM/funzione</label></div><div class="field"><label>Nota</label><input id="notes" value="${esc(d.notes||'')}"></div></details></div>
- <details class="card" open><summary>Prossime 48h note</summary><div class="forecast">${future(d1,'d1','DOMANI')}${future(d2,'d2','+2 GIORNI')}</div></details>`;
+ <details><summary>Impegno, sintomi nuovi e note</summary>
+   <div class="field"><label>Impegno oggi</label><select id="evt"><option value="none">Nessuno</option><option value="tennis" ${d.event==='tennis'?'selected':''}>Tennis</option><option value="show" ${d.event==='show'?'selected':''}>Show</option><option value="travel" ${d.event==='travel'?'selected':''}>Viaggio</option></select></div>
+   <div class="grid2"><label><input id="swelling" type="checkbox" style="width:auto;min-height:auto" ${d.newSwelling?'checked':''}> gonfiore nuovo</label><label><input id="locking" type="checkbox" style="width:auto;min-height:auto" ${d.locking?'checked':''}> blocco</label><label><input id="instability" type="checkbox" style="width:auto;min-height:auto" ${d.instability?'checked':''}> instabilità</label><label><input id="functionLoss" type="checkbox" style="width:auto;min-height:auto" ${d.functionLoss?'checked':''}> perdita ROM/funzione</label></div>
+   <div class="field"><label>Nota</label><input id="notes" value="${esc(d.notes||'')}"></div>
+ </details></div>`;
 }
 function readForms(){
- const d=day(today());d.location=$('#loc').value;d.minutes=Math.max(0,+$('#mins').value||0);d.event=$('#evt').value;d.sleepQ=clamp(+$('#sleep').value||5,1,10);d.energy=clamp(+$('#energy').value||6,1,10);d.fatigue=clamp(+$('#fatigue').value||4,1,10);d.knee=clamp(+$('#knee').value||5,0,10);d.elbow=clamp(+$('#elbow').value||0,0,10);d.newSwelling=$('#swelling').checked;d.locking=$('#locking').checked;d.instability=$('#instability').checked;d.functionLoss=$('#functionLoss').checked;d.notes=$('#notes').value;d.checkConfirmed=true;d.checkedAt=Date.now();for(const [n,id] of [[1,'d1'],[2,'d2']]){const x=day(addDays(today(),n));x.location=$(`#${id}loc`).value;x.minutes=Math.max(0,+$(`#${id}mins`).value||0);x.event=$(`#${id}evt`).value}save()
+ const d=day(today());d.location=$('#loc').value;d.minutes=Math.max(0,+$('#mins').value||0);d.sleepQ=clamp(+$('#sleep').value||5,1,10);d.energy=clamp(+$('#energy').value||6,1,10);d.fatigue=clamp(+$('#fatigue').value||4,1,10);d.knee=clamp(+$('#knee').value||5,0,10);d.elbow=clamp(+$('#elbow').value||0,0,10);d.event=$('#evt')?.value||'none';d.newSwelling=!!$('#swelling')?.checked;d.locking=!!$('#locking')?.checked;d.instability=!!$('#instability')?.checked;d.functionLoss=!!$('#functionLoss')?.checked;d.notes=$('#notes')?.value||'';d.checkConfirmed=true;d.checkedAt=Date.now();save()
 }
+
+function directionalForecast(date,assumedPlan){
+ const real=state;try{
+   state=deep(real);
+   if(assumedPlan)state.history.push({id:'SIM-'+assumedPlan.id,date:assumedPlan.date,mode:assumedPlan.mode,syntheticForecast:true,exercises:(assumedPlan.items||[]).filter(x=>EXMAP[x.id]).map(x=>({id:x.id,regions:Object.keys(x.regions||{}),sets:x.sets,reps:Array(x.sets||1).fill(8),rir:Array(x.sets||1).fill(2)}))});
+   const rs=regionState(date),top=Object.entries(rs).sort((a,b)=>b[1].demand-a[1].demand).slice(0,3),avg=top.reduce((a,[,x])=>a+x.demand,0)/Math.max(1,top.length),cap=capability(date);
+   if(avg>=.42)return {mode:'RESISTANCE',label:'Ipertrofia · '+top.map(([r])=>REGIONS[r].label).join(' / ')};
+   if(cap.performer>=.72)return {mode:'CONTROL_PERFORMER',label:'Controllo / performer support'};
+   if(cap.aerobic>=.65)return {mode:'AEROBIC_EASY',label:'Base aerobica facile'};
+   if(cap.intensity>=.72)return {mode:'INTERVALS',label:'Conditioning / intervalli'};
+   return {mode:'RESISTANCE',label:'Ipertrofia · rivalutazione al check'};
+ }finally{state=real}
+}
+function scienceFor(e){
+ if((e.regions?.upper_chest||e.regions?.mid_chest||e.regions?.lower_chest)&&['clavicular','horizontal','decline'].includes(e.angle))return 'Angoli e posture diverse possono spostare il contributo regionale del grande pettorale; la variazione va usata in modo sistematico, non casuale. PMID 34644424 · 35438660.';
+ if((e.regions?.biceps||e.regions?.brachialis)&&['shoulder_extended','shoulder_flexed'].includes(e.angle))return 'La posizione della spalla durante i curl può produrre adattamenti regionali differenti. Cali Power usa questa differenza come criterio, non come rotazione casuale. PMID 39809454 · 35438660.';
+ if(e.regions?.triceps&&e.angle==='overhead')return 'Nello studio sulle estensioni del gomito, la posizione overhead ha prodotto maggiore crescita del tricipite, in particolare del capo lungo, rispetto alla posizione neutra. PMID 35819335.';
+ if(e.kind==='compound'||e.kind==='accessory')return 'La variante viene mantenuta quando serve continuità di progressione e cambiata solo per una ragione biomeccanica, articolare o di stimolo. RIR e tecnica restano i riferimenti operativi. PMID 35438660 · 38970765.';
+ if(e.control)return 'Questo blocco allena controllo corporeo e qualità del gesto a basso costo: è supporto al MASTER, non sostituisce il lavoro ipertrofico.';
+ if(e.athletic)return 'Questo blocco mantiene coordinazione e atletismo con una dose subordinata al MASTER e modulata sul ginocchio.';
+ return 'Supporto scelto per il rapporto beneficio/costo nel contesto della giornata.';
+}
+function cueFor(e){
+ const m={horizontal_press:'Scapole stabili, ROM controllato, traiettoria ripetibile.',dip_press:'Spalle depresse e controllo del fondo; interrompi se il dolore cambia.',vertical_press:'Tronco stabile, traiettoria controllata, niente compensi lombari.',horizontal_pull:'Tira con scapola e gomito; evita slancio.',vertical_pull:'Depressione scapolare prima della tirata; tecnica prima delle reps.',elbow_flexion:'Omero stabile, niente slancio; rispetta il gomito mediale.',elbow_extension:'Omero stabile, ROM tollerato e nessun rimbalzo.',squat:'Profondità autoselezionata e stabile; il baseline del ginocchio non è uno stop automatico.',hinge:'Anca indietro, colonna stabile, tensione sui posteriori.',abduction:'Controllo, niente slancio; mantieni tensione sul deltoide.',rear_delt:'Apri con il deltoide posteriore senza trasformarlo in shrug.',anti_extension:'Bacino e coste controllati; evita estensione lombare.'};
+ return m[e.pattern]||'Tecnica pulita, ROM controllato e RIR reale.';
+}
+function whyForExercise(e,p){
+ const regs=Object.entries(e.regions||{}).sort((a,b)=>(p.rs?.[b[0]]?.demand||0)*b[1]-(p.rs?.[a[0]]?.demand||0)*a[1]);
+ const r=regs[0]?.[0],label=r?REGIONS[r]?.label:null,x=r?p.rs?.[r]:null,last=lastExposure(e.id,p.date);
+ let s=label?`${label} è tra le regioni con domanda utile oggi.`:'È un supporto coerente con la seduta.';
+ if(last&&last.g>=2)s+=` Ultima esposizione comparabile: ${last.g} giorni fa.`;
+ else if(!last&&EXMAP[e.id])s+=' Variante disponibile e non ridondante con la recency recente.';
+ if(e.angle)s+=` Angolo/profilo: ${e.angle}.`;
+ return s;
+}
+function openInterrupt(){
+ const w=state.activeWorkout;if(!w)return;const d=$('#interruptDialog');
+ d.innerHTML=`<h3>È cambiata la giornata?</h3><p class="small muted">Quello che hai già completato non viene mai cancellato.</p>
+ <div class="field"><label>Minuti che ti restano da adesso</label><input id="remainMin" type="number" min="1" value="20"></div>
+ <button id="applyShort" class="btn primary full">ADATTA IL RESTO</button>
+ <button id="finishNow" class="btn secondary full" style="margin-top:8px">DEVO FINIRE ADESSO</button>
+ <button id="closeInterrupt" class="btn ghost full" style="margin-top:8px">ANNULLA</button>`;
+ d.showModal();$('#closeInterrupt').onclick=()=>d.close();$('#applyShort').onclick=()=>{adjustRemainingTime(Math.max(1,+$('#remainMin').value||1));d.close();renderWorkout()};$('#finishNow').onclick=()=>{w.interrupted=true;w.interruptedAt=Date.now();w.interruptionNote='Seduta terminata anticipatamente per imprevisto.';save();d.close();renderPost()}
+}
+function adjustRemainingTime(mins){
+ const w=state.activeWorkout;if(!w)return;let budget=mins*60,newItems=[],removed=[];
+ for(const e of w.plan.items){
+   const log=w.logs[e.id]||{sets:[]},completed=log.sets.filter(s=>s.done||(+s.reps>0)),pending=log.sets.filter(s=>!(s.done||(+s.reps>0)));
+   const secPer=Math.max(45,(e.rest||60)+35);const can=Math.max(0,Math.min(pending.length,Math.floor(budget/secPer)));budget-=can*secPer;
+   const keep=[...completed,...pending.slice(0,can)];
+   if(keep.length){e.sets=keep.length;log.sets=keep;newItems.push(e)}else removed.push(e.name);
+ }
+ w.plan.items=newItems;w.adjustments=w.adjustments||[];w.adjustments.push({type:'TIME_CHANGED',at:Date.now(),remainingMinutes:mins,removed});save()
+}
+
 function planCard(p){
  const top=Object.entries(p.rs||{}).sort((a,b)=>b[1].demand-a[1].demand).slice(0,3);
- return `<div class="card objective"><strong>MASTER LOCKED</strong><div class="small">${MASTER.primary} → ${MASTER.secondary} → ${MASTER.tertiary}</div></div>
+ return `<div class="card objective"><strong>Obiettivo bloccato</strong><div class="small">${MASTER.primary} → ${MASTER.secondary} → ${MASTER.tertiary}</div></div>
  <div class="card plan"><div class="kicker">${esc(p.mode)}</div><div class="planname">${esc(p.label)}</div><p class="small muted">${esc(p.note)}</p>
- <div class="whygrid"><div>${esc(p.why?.[0]||'MASTER')}</div><div>${esc(p.why?.[1]||'storico')}</div><div>${top.map(([r,x])=>`${REGIONS[r].label} ${x.demand.toFixed(2)}`).join(' · ')}</div></div>
- ${p.excludedRecent?.length?`<div class="progress small"><b>Recency guard:</b> esclusi perché troppo recenti: ${p.excludedRecent.map(esc).join(' · ')}</div>`:''}
- ${p.support?`<div class="progress small"><b>Supporto ibrido:</b> ${esc(p.support.type)} · ${esc(p.support.reason)}</div>`:''}
- <div class="actions"><button id="start" class="btn primary">INIZIA SEDUTA</button><button id="less" class="btn secondary">HO MENO TEMPO</button><button id="cant" class="btn secondary">NON POSSO OGGI</button></div></div>`;
+ <div class="whygrid"><div>${esc(p.why?.[0]||'MASTER')}</div><div>${esc(p.why?.[1]||'storico reale')}</div><div>${top.map(([r])=>REGIONS[r].label).join(' · ')}</div></div>
+ ${p.excludedRecent?.length?`<div class="progress small"><b>Recency:</b> non ripeto ${p.excludedRecent.map(esc).join(' · ')}.</div>`:''}
+ <div class="actions"><button id="start" class="btn primary">INIZIA</button><button id="planMore" class="btn secondary">CAMBIA TEMPO / ALTRO</button></div></div>`;
 }
-function forecastCard(p){const [a,b]=forecast48(p);return `<div class="card"><h3>Previsione 48h</h3><div class="forecast"><div class="future"><div class="kicker">${fmt(a.date)} · PROVVISORIA</div><b>${esc(a.label)}</b><div class="small muted">${esc(a.mode)} · ~${a.estimatedMin} min</div></div><div class="future"><div class="kicker">${fmt(b.date)} · PROVVISORIA</div><b>${esc(b.label)}</b><div class="small muted">${esc(b.mode)} · ~${b.estimatedMin} min</div></div></div><p class="tiny muted">Forecast ≠ prescrizione: il piano reale nasce dal CHECK di quel giorno.</p></div>`}
+function forecastCard(p){
+ const a=directionalForecast(addDays(p.date,1),p);
+ return `<div class="card"><div class="kicker">DOMANI · DIREZIONE PROVVISORIA</div><h3 style="margin-top:6px">${esc(a.label)}</h3><div class="small muted">Nessun sonno, energia, dolore o tempo futuro viene inventato. Domani il CHECK reale decide la seduta.</div></div>`;
+}
 function renderToday(){
- const date=today(),done=[...state.history].reverse().find(x=>x.date===date&&!x.syntheticForecast),last=lastSession();if(state.activeWorkout){renderWorkout();return}
- let h=`<section class="hero"><div class="kicker">${fmt(date)} · CALI POWER</div><h1>${done?'Giornata registrata.':'Un coach, non una rotazione.'}</h1><div class="small muted">Ultimo allenamento reale: <b>${last?fmt(last.date):'—'}</b>. Libreria: <b>${EX.length}</b> esercizi/varianti codificati.</div><div class="metrics"><div class="metric"><span>Storico</span><b>${state.history.length}</b></div><div class="metric"><span>Esercizi</span><b>${EX.length}</b></div><div class="metric"><span>Engine</span><b>CP1</b></div><div class="metric"><span>MASTER</span><b>LOCKED</b></div></div></section>`;
- if(done){h+=`<div class="card"><h3>${esc(done.focus)}</h3><div class="small">Seduta del ${fmt(done.date)} salvata e verificata.</div></div>`;state.activePlan=null}
- else{h+=forms()+`<button id="decide" class="btn primary full cta">AGGIORNA + DECIDI</button>`;if(state.activePlan&&state.activePlan.date===date)h+=planCard(state.activePlan)+forecastCard(state.activePlan)}
+ activeTab='today';const date=today(),sessions=state.history.filter(x=>x.date===date&&!x.syntheticForecast),done=sessions.length?sessions[sessions.length-1]:null,last=lastSession();
+ if(state.activeWorkout){renderWorkout();return}
+ let h=`<section class="hero"><div class="kicker">${fmt(date)}</div><h1>${done?'Seduta registrata.':'Come stai oggi?'}</h1><div class="small muted">${last?`Ultimo training day: <b>${fmt(last.date)}</b>.`:'Nessuna seduta registrata.'} Il coach usa lo storico reale, non una rotazione fissa.</div>
+ <div class="metrics"><div class="metric"><span>Storico</span><b>${state.history.length}</b></div><div class="metric"><span>Libreria</span><b>${EX.length}</b></div><div class="metric"><span>Sync</span><b>${esc(cloudUser?'ON':'LOCALE')}</b></div></div></section>`;
+ if(done){
+   const f=directionalForecast(addDays(date,1),null);
+   h+=`<div class="card finish"><div class="kicker">OGGI · FATTO</div><h3>${esc(done.focus)}</h3><div class="small">${done.duration_min??'—'} min · ${(done.exercises||[]).reduce((a,e)=>a+actualSets(e),0)} set registrati${done.interrupted?' · seduta interrotta e salvata':''}.</div></div>
+   <div class="card"><div class="kicker">DOMANI · SOLO DIREZIONE</div><h3 style="margin-top:6px">${esc(f.label)}</h3><div class="small muted">Domani apri Cali Power, inserisci come stai davvero e premi DECIDI. Fine.</div></div>`;
+   state.activePlan=null;save(false)
+ }else{
+   h+=forms()+`<button id="decide" class="btn primary full cta">DECIDI</button>`;
+   if(state.activePlan&&state.activePlan.date===date)h+=planCard(state.activePlan)+forecastCard(state.activePlan)
+ }
  $('#view').innerHTML=h;$$('.quick button').forEach(b=>b.onclick=()=>$('#mins').value=b.dataset.min);
- if($('#decide'))$('#decide').onclick=()=>{readForms();state.activePlan=decide(ctx(date));save();announce('Decisione pronta');renderToday()};
- if($('#start'))$('#start').onclick=startWorkout;if($('#less'))$('#less').onclick=()=>{const v=prompt('Quanti minuti hai davvero?',String(day(date).minutes));if(v!==null){day(date).minutes=Math.max(0,+v||0);state.activePlan=decide(ctx(date));save();renderToday()}};
- if($('#cant'))$('#cant').onclick=()=>{if(confirm('Registrare zero training oggi?')){state.missed.push({id:uid(),date,reason:'cannot_train'});state.activePlan=null;save();renderToday()}}
+ if($('#decide'))$('#decide').onclick=()=>{readForms();state.activePlan=decide(ctx(date));save();renderToday()};
+ if($('#start'))$('#start').onclick=startWorkout;
+ if($('#planMore'))$('#planMore').onclick=()=>{
+   const d=$('#interruptDialog');d.innerHTML=`<h3>Prima di iniziare</h3><div class="field"><label>Nuovo tempo reale</label><input id="preMins" type="number" min="0" value="${day(date).minutes||60}"></div><button id="recalc" class="btn primary full">RICALCOLA</button><button id="noTrain" class="btn secondary full" style="margin-top:8px">NON POSSO ALLENARMI OGGI</button><button id="xplan" class="btn ghost full" style="margin-top:8px">ANNULLA</button>`;d.showModal();
+   $('#xplan').onclick=()=>d.close();$('#recalc').onclick=()=>{day(date).minutes=Math.max(0,+$('#preMins').value||0);state.activePlan=decide(ctx(date));save();d.close();renderToday()};
+   $('#noTrain').onclick=()=>{state.missed.push({id:uid(),date,reason:'cannot_train',prescribed:state.activePlan?.label});state.activePlan=null;save();d.close();renderToday()}
+ };
 }
 let ticker=null;
 function startWorkout(){const p=state.activePlan;if(!p)return;state.activeWorkout={id:uid(),date:p.date,startedAt:Date.now(),plan:deep(p),logs:{},restEndAt:null};for(const e of p.items)state.activeWorkout.logs[e.id]={sets:Array.from({length:e.sets||1},()=>({load:'',reps:'',rir:'',pain:0,tech:'clean',done:false})),note:''};save();renderWorkout()}
 function clock(sec){sec=Math.max(0,Math.floor(sec));return `${String(Math.floor(sec/60)).padStart(2,'0')}:${String(sec%60).padStart(2,'0')}`}
-function updateTimers(){const w=state.activeWorkout;if(!w)return;const a=$('#elapsed'),r=$('#rest');if(a)a.textContent=clock((Date.now()-w.startedAt)/1000);if(r){const left=w.restEndAt?Math.ceil((w.restEndAt-Date.now())/1000):0;r.textContent=left>0?clock(left):'—';if(left<=0&&w.restEndAt){w.restEndAt=null;save();announce('Recupero terminato')}}}
+function updateTimers(){
+ const w=state.activeWorkout;if(!w)return;const a=$('#elapsed'),r=$('#rest'),cd=$('#countdown'),num=$('#countdownNum');
+ if(a)a.textContent=clock((Date.now()-w.startedAt)/1000);
+ if(r){
+   const left=w.restEndAt?Math.ceil((w.restEndAt-Date.now())/1000):0;r.textContent=left>0?clock(left):'—';
+   if(left>0&&left<=10){if(cd&&num){num.textContent=String(left);cd.classList.add('show')}}
+   else if(cd)cd.classList.remove('show');
+   if(left<=0&&w.restEndAt){
+     if(cd&&num){num.textContent='0';cd.classList.add('show');setTimeout(()=>cd.classList.remove('show'),650)}
+     w.restEndAt=null;save();announce('Recupero terminato')
+   }
+ }
+}
 function startRest(sec){state.activeWorkout.restEndAt=Date.now()+sec*1000;save();updateTimers()}
 function exerciseHTML(e,log){
- const chips=[e.pattern,e.angle,e.lengthBias].filter(Boolean).map(x=>`<span class="chip">${esc(x)}</span>`).join('');
- const comp=e.components?`<div class="tiny muted">score ${e.score.toFixed(2)} · regionale ${e.components.regional.toFixed(2)} · overlap ${e.components.overlap.toFixed(2)} · angle ${e.components.angle.toFixed(2)}</div>`:'';
+ const p=state.activeWorkout?.plan||state.activePlan||{date:today(),rs:regionState(today())};
  const pr=e.progression?`<div class="progress small"><b>${esc(e.progression.status)}</b> · ${esc(e.progression.text)}</div>`:'';
- return `<div class="exercise"><div class="exhead"><div><b>${esc(e.name)}</b><div class="tiny muted">${esc(e.reps)} · RIR ${esc(e.rir)} · recupero ${e.rest||0}s</div></div><span class="badge">${e.sets||1} set</span></div><div class="chips">${chips}</div>${comp}${pr}
- ${(log.sets||[]).map((s,i)=>`<div class="setrow"><div class="setlabel">SET ${i+1}</div><div class="field"><label>Carico</label><input id="${e.id}_${i}_load" value="${esc(s.load)}"></div><div class="field"><label>Reps</label><input id="${e.id}_${i}_reps" inputmode="numeric" value="${esc(s.reps)}"></div><div class="field"><label>RIR</label><input id="${e.id}_${i}_rir" inputmode="decimal" value="${esc(s.rir)}"></div><div class="field"><label>Dolore</label><input id="${e.id}_${i}_pain" type="number" min="0" max="10" value="${esc(s.pain)}"></div><div class="field"><label>Tecnica</label><select id="${e.id}_${i}_tech"><option value="clean" ${s.tech==='clean'?'selected':''}>pulita</option><option value="ok" ${s.tech==='ok'?'selected':''}>ok</option><option value="degraded" ${s.tech==='degraded'?'selected':''}>degradata</option></select></div><button id="${e.id}_${i}_done" class="btn secondary ${s.done?'done':''}">${s.done?'✓ FATTO':'SEGNA FATTO'}</button></div>`).join('')}</div>`
+ return `<div class="exercise"><div class="exhead"><div><div class="exname">${esc(e.name)}</div><div class="prescription">${esc(e.reps)} · RIR ${esc(e.rir)} · recupero ${e.rest||0}s</div></div><span class="badge">${e.sets||1} set</span></div>
+ <div class="whyline"><b>Perché oggi:</b> ${esc(whyForExercise(e,p))}<br><b>Focus:</b> ${esc(cueFor(e))}</div>
+ <details class="science"><summary>Spiegazione scientifica</summary><p>${esc(scienceFor(e))}</p></details>${pr}
+ ${(log.sets||[]).map((s,i)=>`<div class="setrow"><div class="setlabel">SET ${i+1}</div><div class="field"><label>Carico</label><input id="${e.id}_${i}_load" value="${esc(s.load)}"></div><div class="field"><label>Reps</label><input id="${e.id}_${i}_reps" inputmode="numeric" value="${esc(s.reps)}"></div><div class="field"><label>RIR</label><input id="${e.id}_${i}_rir" inputmode="decimal" value="${esc(s.rir)}"></div><div class="field"><label>Dolore</label><input id="${e.id}_${i}_pain" type="number" min="0" max="10" value="${esc(s.pain)}"></div><div class="field"><label>Tecnica</label><select id="${e.id}_${i}_tech"><option value="clean" ${s.tech==='clean'?'selected':''}>pulita</option><option value="ok" ${s.tech==='ok'?'selected':''}>ok</option><option value="degraded" ${s.tech==='degraded'?'selected':''}>degradata</option></select></div><button id="${e.id}_${i}_done" class="btn secondary ${s.done?'done':''}">${s.done?'✓ FATTO':'SEGNA FATTO'}</button></div>`).join('')}</div>`;
 }
 function renderWorkout(){
- clearInterval(ticker);const w=state.activeWorkout;if(!w){renderToday();return}
- $('#view').innerHTML=`<section class="hero"><div class="kicker">SEDUTA · ${fmt(w.date)}</div><h1>${esc(w.plan.label)}</h1><div class="small muted">Training day fissato all'avvio: la mezzanotte non sposta la seduta.</div></section>
- <div class="timerbar"><div class="clock"><div class="tiny muted">CRONO SEDUTA</div><strong id="elapsed">00:00</strong></div><div class="clock"><div class="tiny muted">RECUPERO</div><strong id="rest">—</strong></div><button id="clearRest">STOP RECUPERO</button></div>
- ${w.plan.items.map(e=>exerciseHTML(e,w.logs[e.id])).join('')}<button id="post" class="btn primary full cta">POST · CHIUDI SEDUTA</button>`;
- $('#clearRest').onclick=()=>{w.restEndAt=null;save();updateTimers()};for(const e of w.plan.items){const log=w.logs[e.id];(log.sets||[]).forEach((s,i)=>{for(const k of ['load','reps','rir','pain','tech']){const el=$(`#${e.id}_${i}_${k}`);if(el)el.oninput=()=>{s[k]=el.value;save()}}const b=$(`#${e.id}_${i}_done`);if(b)b.onclick=()=>{s.done=!s.done;b.textContent=s.done?'✓ FATTO':'SEGNA FATTO';b.classList.toggle('done',s.done);save();if(s.done&&e.rest)startRest(e.rest)}})}$('#post').onclick=renderPost;updateTimers();ticker=setInterval(updateTimers,1000)
+ activeTab='today';clearInterval(ticker);const w=state.activeWorkout;if(!w){renderToday();return}
+ $('#view').innerHTML=`<section class="hero"><div class="kicker">SEDUTA · ${fmt(w.date)}</div><h1>${esc(w.plan.label)}</h1><div class="small muted">Il training day resta ${w.date} anche se finisci dopo mezzanotte.</div></section>
+ <div class="timerbar"><div class="clock"><div class="tiny muted">SEDUTA</div><strong id="elapsed">00:00</strong></div><div class="clock"><div class="tiny muted">RECUPERO</div><strong id="rest">—</strong></div><button id="clearRest" class="btn ghost">STOP RECUPERO</button></div>
+ ${w.plan.items.map(e=>exerciseHTML(e,w.logs[e.id])).join('')}
+ <div class="contextbar"><button id="interrupt" class="btn secondary">TEMPO CAMBIATO / IMPREVISTO</button></div>
+ <button id="post" class="btn primary full cta" style="margin-top:8px">FINISCI SEDUTA</button>`;
+ $('#clearRest').onclick=()=>{w.restEndAt=null;save();updateTimers()};$('#interrupt').onclick=openInterrupt;
+ for(const e of w.plan.items){const log=w.logs[e.id];(log.sets||[]).forEach((s,i)=>{for(const k of ['load','reps','rir','pain','tech']){const el=$(`#${e.id}_${i}_${k}`);if(el)el.oninput=()=>{s[k]=el.value;save()}}const b=$(`#${e.id}_${i}_done`);if(b)b.onclick=()=>{s.done=!s.done;b.textContent=s.done?'✓ FATTO':'SEGNA FATTO';b.classList.toggle('done',s.done);save();if(s.done&&e.rest)startRest(e.rest)}})}
+ $('#post').onclick=renderPost;updateTimers();ticker=setInterval(updateTimers,1000)
 }
-function renderPost(){clearInterval(ticker);const w=state.activeWorkout;if(!w)return;$('#view').innerHTML=`<section class="hero"><div class="kicker">POST · ${fmt(w.date)}</div><h1>Salva il reale.</h1><div class="small muted">Journal → history → rilettura storage → solo dopo chiusura runner.</div></section>
- <div class="card"><div class="grid3"><div class="field"><label>Durata min</label><input id="pdur" type="number" value="${Math.max(1,Math.round((Date.now()-w.startedAt)/60000))}"></div><div class="field"><label>Qualità /10</label><input id="pqual" type="number" min="1" max="10" value="5"></div><div class="field"><label>Fatica /10</label><input id="pfat" type="number" min="1" max="10" value="5"></div><div class="field"><label>Pump petto</label><input id="ppc" type="number" min="0" max="10" value="0"></div><div class="field"><label>Pump spalle</label><input id="pps" type="number" min="0" max="10" value="0"></div><div class="field"><label>Pump braccia</label><input id="ppa" type="number" min="0" max="10" value="0"></div></div><div class="field"><label>Note</label><textarea id="pnotes"></textarea></div><button id="commit" class="btn primary full cta">SALVA E VERIFICA STORICO</button></div>`;$('#commit').onclick=commitWorkout}
+function renderPost(){
+ clearInterval(ticker);const w=state.activeWorkout;if(!w)return;activeTab='today';
+ $('#view').innerHTML=`<section class="hero"><div class="kicker">POST</div><h1>${w.interrupted?'Salviamo ciò che hai fatto.':'Seduta completata.'}</h1><div class="small muted">${w.interrupted?'Nessun set futuro viene contato.':'Tre dati e chiudiamo.'}</div></section>
+ <div class="card"><div class="grid3"><div class="field"><label>Durata min</label><input id="pdur" type="number" value="${Math.max(1,Math.round((Date.now()-w.startedAt)/60000))}"></div><div class="field"><label>Qualità /10</label><input id="pqual" type="number" min="1" max="10" value="5"></div><div class="field"><label>Fatica /10</label><input id="pfat" type="number" min="1" max="10" value="5"></div></div>
+ <details><summary>Pump e note (opzionali)</summary><div class="grid3"><div class="field"><label>Pump petto</label><input id="ppc" type="number" min="0" max="10" value="0"></div><div class="field"><label>Pump spalle</label><input id="pps" type="number" min="0" max="10" value="0"></div><div class="field"><label>Pump braccia</label><input id="ppa" type="number" min="0" max="10" value="0"></div></div><div class="field"><label>Note</label><textarea id="pnotes">${esc(w.interruptionNote||'')}</textarea></div></details>
+ <button id="commit" class="btn primary full cta">SALVA · FINE</button></div>`;$('#commit').onclick=commitWorkout
+}
 function makeSession(){
  const w=state.activeWorkout;const exercises=w.plan.items.map(e=>{const l=w.logs[e.id]||{sets:[]},setlog=l.sets.map(x=>({...x,reps:x.reps===''?null:+x.reps,rir:x.rir===''?null:+x.rir,pain:+x.pain||0}));return {id:e.id,name:e.name,regions:Object.keys(e.regions||{}),sets:setlog.filter(x=>x.done||(+x.reps>0)).length,setlog,reps:setlog.map(x=>x.reps),rir:setlog.map(x=>x.rir),pain:Math.max(0,...setlog.map(x=>x.pain)),tech:setlog.some(x=>x.tech==='degraded')?'degraded':'clean'}});
- return {id:w.id,date:w.date,endedAt:Date.now(),location:day(w.date).location,focus:w.plan.label,mode:w.plan.mode,engine:ENGINE,duration_min:+$('#pdur').value||0,post:{quality:+$('#pqual').value||5,fatigue:+$('#pfat').value||5,pump:{chest:+$('#ppc').value||0,shoulders:+$('#pps').value||0,arms:+$('#ppa').value||0},notes:$('#pnotes').value||''},exercises}
+ return {id:w.id,date:w.date,startedAt:w.startedAt,endedAt:Date.now(),location:day(w.date).location,focus:w.plan.label,mode:w.plan.mode,engine:ENGINE,duration_min:+$('#pdur').value||0,interrupted:!!w.interrupted,adjustments:deep(w.adjustments||[]),post:{quality:+$('#pqual').value||5,fatigue:+$('#pfat').value||5,pump:{chest:+($('#ppc')?.value||0),shoulders:+($('#pps')?.value||0),arms:+($('#ppa')?.value||0)},notes:$('#pnotes')?.value||''},exercises}
 }
-function commitWorkout(){
- const s=makeSession(),btn=$('#commit');btn.disabled=true;btn.textContent='SALVATAGGIO + VERIFICA…';
- state.journal.closedSessions=state.journal.closedSessions.filter(x=>String(x.id)!==String(s.id));state.journal.closedSessions.push(deep(s));state.journal.closedSessions=state.journal.closedSessions.slice(-8);save();
+async function commitWorkout(){
+ const s=makeSession(),btn=$('#commit');btn.disabled=true;btn.textContent='SALVATAGGIO…';
+ state.journal.closedSessions=state.journal.closedSessions.filter(x=>String(x.id)!==String(s.id));state.journal.closedSessions.push(deep(s));state.journal.closedSessions=state.journal.closedSessions.slice(-8);save(false);
  state.history=state.history.filter(x=>String(x.id)!==String(s.id));state.history.push(deep(s));save();
- let rb=readBack(),ok=rb?.history?.some(x=>String(x.id)===String(s.id))&&rb?.journal?.closedSessions?.some(x=>String(x.id)===String(s.id));if(!ok){btn.disabled=false;btn.textContent='RIPROVA SALVATAGGIO';alert('Salvataggio non verificato. La seduta resta aperta.');return}
+ let rb=readBack(),ok=rb?.history?.some(x=>String(x.id)===String(s.id))&&rb?.journal?.closedSessions?.some(x=>String(x.id)===String(s.id));
+ if(!ok){btn.disabled=false;btn.textContent='RIPROVA';alert('Salvataggio locale non verificato. La seduta resta aperta.');return}
+ if(cloudUser&&window.CPCloud){try{await window.CPCloud.pushSession(s);setCloudStatus('SYNC')}catch(e){console.error(e);setCloudStatus('DA SINCRONIZZARE')}}
  state.activeWorkout=null;state.activePlan=null;save();rb=readBack();if(!rb?.history?.some(x=>String(x.id)===String(s.id))){alert('Verifica finale fallita. Esporta backup.');return}
- const target=addDays(s.date,1),f=decide(ctx(target));state.forecasts[target]={createdAt:Date.now(),sourceSession:s.id,plan:{mode:f.mode,label:f.label,estimatedMin:f.estimatedMin}};save();
- $('#view').innerHTML=`<section class="hero"><div class="kicker">SALVATO E RILETTO</div><h1>${esc(s.focus)}</h1><div class="small">Training day: <b>${fmt(s.date)}</b>.</div></section><div class="card"><div class="kicker">PROSSIMA GIORNATA · ${fmt(target)}</div><h3>${esc(f.label)}</h3><div class="small muted">${esc(f.mode)} · ~${f.estimatedMin} min · previsione provvisoria</div><button id="homeAfter" class="btn primary full" style="margin-top:9px">TORNA A OGGI</button></div>`;$('#homeAfter').onclick=()=>nav('today')
+ const target=addDays(s.date,1),f=directionalForecast(target,null);state.forecasts[target]={createdAt:Date.now(),sourceSession:s.id,direction:f};save();
+ $('#view').innerHTML=`<section class="hero finish"><div class="kicker">SALVATO</div><h1>Fine.</h1><div class="small">La seduta del <b>${fmt(s.date)}</b> è nello storico${cloudUser?' e inviata al cloud':''}.</div></section>
+ <div class="card"><div class="kicker">DOMANI · DIREZIONE</div><h3 style="margin-top:6px">${esc(f.label)}</h3><div class="small muted">Domani: apri → come stai → DECIDI. Nessuna readiness futura è stata inventata.</div></div>`;
 }
 function renderWhy(){
+ activeTab='why';
  const p=state.activePlan;if(!p){$('#view').innerHTML=`<section class="hero"><div class="kicker">PERCHÉ</div><h1>Nessuna decisione attiva.</h1></section>`;return}
  const rows=Object.entries(p.rs||{}).sort((a,b)=>b[1].demand-a[1].demand);$('#view').innerHTML=`<section class="hero"><div class="kicker">AUDIT · ${esc(p.mode)}</div><h1>${esc(p.label)}</h1><div class="small muted">Qui vedi cosa ha guidato la decisione.</div></section>
  <div class="card objective"><strong>OBJECTIVE LOCK</strong><div class="small">${MASTER.primary} > ${MASTER.secondary} > ${MASTER.tertiary}</div></div>
@@ -369,22 +524,89 @@ function openRepair(){
  d.showModal();for(let i=0;i<3;i++)addRepairRow();$('#addRow').onclick=addRepairRow;$('#rcancel').onclick=()=>d.close();$('#rsave').onclick=()=>{const date=$('#rdate').value;if(!date)return;const exercises=[];$$('#repairRows .card').forEach(row=>{const i=row.id.slice(2),id0=$(`.known[data-i="${i}"]`).value,name=$(`.cname[data-i="${i}"]`).value.trim(),regs=$(`.creg[data-i="${i}"]`).value.split(',').map(x=>x.trim()).filter(x=>REGIONS[x]),sets=+$(`.csets[data-i="${i}"]`).value||0,note=$(`.cnote[data-i="${i}"]`).value.trim();if(!id0&&!name)return;const id=id0||'custom_'+slug(name);exercises.push({id,name:id0?EXMAP[id0].name:name||id,regions:id0?Object.keys(EXMAP[id0].regions):regs,sets:sets||null,reps:[],rir:[],exposureOnly:!sets,note})});state.history.push({id:uid(),date,location:$('#rloc').value,focus:$('#rfocus').value||'SESSIONE REALE · RECUPERATA',mode:'RESISTANCE',duration_min:+$('#rdur').value||null,recovered:true,source:'manual_recovery',post:{},exercises});save();d.close();renderHistory()}
 }
 function renderHistory(){
+ activeTab='history';
  const h=[...state.history].reverse(),last=lastSession();$('#view').innerHTML=`<section class="hero"><div class="kicker">STORICO · SOURCE OF TRUTH</div><h1>${last?`Ultimo: ${fmt(last.date)}`:'Nessuna seduta'}</h1><div class="small muted">Se manca una seduta, Cali Power non la inventa.</div></section><div class="card"><button id="repair" class="btn secondary full">AGGIUNGI / RECUPERA SESSIONE</button></div><div class="timeline">${h.map(s=>`<div class="timelineItem ${s.recovered?'recovered':''}"><div><b>${esc(s.date)}</b></div><div><b>${esc(s.focus||'Seduta')}</b><div class="tiny muted">${esc(s.mode||'')} · ${s.duration_min??'—'} min · ${(s.exercises||[]).length} esercizi</div></div><span class="badge ${s.recovered?'warn':'ok'}">${s.recovered?'RECUPERATA':'REALE'}</span></div>`).join('')}</div>`;$('#repair').onclick=openRepair
 }
 function selfTest(){
  const checks=[];checks.push(['exercise_library',EX.length>=65,`${EX.length} esercizi`]);checks.push(['home_library',EX.filter(e=>e.loc.includes('home')).length>=55,`${EX.filter(e=>e.loc.includes('home')).length}`]);checks.push(['travel_library',EX.filter(e=>e.loc.includes('travel')).length>=45,`${EX.filter(e=>e.loc.includes('travel')).length}`]);checks.push(['chest_angles',new Set(EX.filter(e=>e.regions.upper_chest||e.regions.mid_chest||e.regions.lower_chest).map(e=>e.angle)).size>=3,'angoli multipli']);checks.push(['arm_positions',new Set(EX.filter(e=>e.regions.biceps||e.regions.triceps).map(e=>e.angle)).size>=6,'posizioni multiple']);checks.push(['timer',typeof updateTimers==='function','runner chrono+rest']);checks.push(['unlimited_history',typeof addRepairRow==='function','dinamico']);checks.push(['atomic_save',typeof commitWorkout==='function','journal→history→readback']);return checks
 }
 function renderProfile(){
- const tests=selfTest();$('#view').innerHTML=`<section class="hero"><div class="kicker">PROFILO</div><h1>Cali Power</h1><div class="small muted">CORE 1.0 · Engine CP1 · icona e nome desktop stabili.</div></section><div class="card objective"><strong>MASTER LOCKED</strong><div class="small">${esc(state.master?.goal||'')}</div></div>
- <div class="card"><h3>Dati</h3><div class="actions"><button id="backup" class="btn secondary">BACKUP JSON</button><label class="btn secondary" style="display:flex;align-items:center;justify-content:center">IMPORTA JSON<input id="import" type="file" accept=".json" style="display:none"></label><button id="resetPlan" class="btn secondary">AZZERA SOLO PIANO</button></div></div>
- <div class="card"><h3>Regression guard</h3>${tests.map(([n,ok,t])=>`<div class="timelineItem"><div>${esc(n)}</div><div class="small">${esc(t)}</div><span class="badge ${ok?'ok':'warn'}">${ok?'PASS':'FAIL'}</span></div>`).join('')}</div>
- <div class="card"><h3>Evidence map</h3>${EVIDENCE.map(x=>`<div class="timelineItem"><div>PMID ${x.pmid}</div><div class="small"><b>${esc(x.topic)}</b> · ${esc(x.note)}</div><span class="badge">SOURCE</span></div>`).join('')}</div>
- <div class="card"><h3>Storage</h3><div class="diag">${KEY}<br>History ${state.history.length} · Journal ${state.journal.closedSessions.length}<br>Ultimo verificato ${esc(state.settings.last_verified_training_date||'—')}</div></div>`;
- $('#backup').onclick=backup;$('#resetPlan').onclick=()=>{state.activePlan=null;save();renderProfile()};$('#import').onchange=e=>{const f=e.target.files?.[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{state=migrate(JSON.parse(r.result));save();alert('Import completato. Controlla STORICO prima di allenarti.');nav('history')}catch(err){alert('JSON non valido: '+err.message)}};r.readAsText(f)}
+ activeTab='profile';const tests=selfTest();const email=cloudUser?.email||'';
+ $('#view').innerHTML=`<section class="hero"><div class="kicker">PROFILO</div><h1>Cali Power</h1><div class="small muted">Il motore resta complesso. L'uso quotidiano no.</div></section>
+ <div class="card"><div class="kicker">SYNC PC ↔ TELEFONO</div>${cloudUser?`<h3 style="margin-top:6px">${esc(email)}</h3><div class="small muted">Stesso account su entrambi i dispositivi. Le sessioni sono sincronizzate per ID e non vengono sostituite con un semplice “ultimo dispositivo vince”.</div><button id="logout" class="btn secondary full" style="margin-top:10px">ESCI DALL'ACCOUNT</button>`:`<h3 style="margin-top:6px">Accedi una volta per dispositivo</h3><div class="field"><label>Email</label><input id="authEmail" type="email" autocomplete="email"></div><div class="field"><label>Password</label><input id="authPass" type="password" autocomplete="current-password"></div><div class="authrow"><button id="login" class="btn primary">ACCEDI</button><button id="signup" class="btn secondary">CREA ACCOUNT</button></div><div id="authMsg" class="small muted" style="margin-top:8px">Sul PC crea/accedi per primo; poi usa lo stesso account sul telefono.</div>`}</div>
+ <div class="card objective"><strong>MASTER</strong><div class="small">${esc(state.master?.goal||'')}</div></div>
+ <div class="card"><h3>Dati locali</h3><div class="authrow"><button id="backup" class="btn secondary">BACKUP JSON</button><label class="btn secondary" style="display:flex;align-items:center;justify-content:center">IMPORTA JSON<input id="import" type="file" accept=".json" style="display:none"></label></div></div>
+ <details class="card"><summary>Dettagli tecnici e fonti</summary><div class="small muted">Build ${APP_VERSION} · Engine ${ENGINE} · Libreria ${EX.length} esercizi/varianti.</div>${tests.map(([n,ok,t])=>`<div class="timelineItem"><div>${esc(n)}</div><div class="small">${esc(t)}</div><span class="badge ${ok?'ok':'warn'}">${ok?'PASS':'FAIL'}</span></div>`).join('')}<div style="margin-top:10px">${EVIDENCE.map(x=>`<div class="tiny muted">PMID ${x.pmid} · ${esc(x.topic)} — ${esc(x.note)}</div>`).join('')}</div></details>`;
+ $('#backup').onclick=backup;$('#import').onchange=e=>{const f=e.target.files?.[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{state=migrate(JSON.parse(r.result));state.sync=state.sync||{};state.sync.updatedAtClient=Date.now();save();alert('Import completato. Lo storico viene sincronizzato dopo il login.');nav('history')}catch(err){alert('JSON non valido: '+err.message)}};r.readAsText(f)};
+ if($('#login'))$('#login').onclick=async()=>{const msg=$('#authMsg');try{msg.textContent='Accesso…';await window.CPCloud.signIn($('#authEmail').value.trim(),$('#authPass').value);msg.textContent='Connesso.'}catch(e){msg.textContent='Errore: '+(e?.message||e)}};
+ if($('#signup'))$('#signup').onclick=async()=>{const msg=$('#authMsg');try{msg.textContent='Creazione account…';await window.CPCloud.signUp($('#authEmail').value.trim(),$('#authPass').value);msg.textContent='Account creato e connesso.'}catch(e){msg.textContent='Errore: '+(e?.message||e)}};
+ if($('#logout'))$('#logout').onclick=()=>window.CPCloud.signOut();
 }
-function nav(t){$$('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.tab===t));if(t==='today')renderToday();if(t==='why')renderWhy();if(t==='history')renderHistory();if(t==='profile')renderProfile()}
+function nav(t){activeTab=t;$$('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.tab===t));if(t==='today')renderToday();if(t==='why')renderWhy();if(t==='history')renderHistory();if(t==='profile')renderProfile()}
 $$('.nav button').forEach(b=>b.onclick=()=>nav(b.dataset.tab));
 if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).then(r=>r.update().catch(()=>{})).catch(()=>{})}
-repairJournal(state);save();nav('today');
+repairJournal(state);save(false);nav('today');
 </script>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut as fbSignOut } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+import { getFirestore, doc, setDoc, getDoc, collection, getDocs, onSnapshot } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBmi-NgaT6_cumEEKTM2Du_v3EoyjBRK1o",
+  authDomain: "cali-power.firebaseapp.com",
+  projectId: "cali-power",
+  storageBucket: "cali-power.firebasestorage.app",
+  messagingSenderId: "745170782726",
+  appId: "1:745170782726:web:87a3357fb09c350b5b9187"
+};
+
+const app=initializeApp(firebaseConfig),auth=getAuth(app),db=getFirestore(app);
+let stopMeta=null,stopSessions=null,currentUid=null;
+const emit=(name,detail={})=>window.dispatchEvent(new CustomEvent(name,{detail}));
+const status=s=>emit('cp-sync-status',{status:s});
+
+async function pushState(payload){
+ const u=auth.currentUser;if(!u)throw new Error('Non autenticato');
+ status('SYNC…');
+ await setDoc(doc(db,'users',u.uid,'meta','app'),{payload,updatedAtClient:payload?.sync?.updatedAtClient||Date.now(),deviceId:payload?.sync?.deviceId||null},{merge:true});
+ status('SYNC');
+}
+async function pushSession(session){
+ const u=auth.currentUser;if(!u)throw new Error('Non autenticato');
+ status('SYNC…');
+ await setDoc(doc(db,'users',u.uid,'sessions',String(session.id)),{...session,cloudUpdatedAtClient:Date.now()},{merge:true});
+ status('SYNC');
+}
+async function bootstrap(localPayload,localSessions=[]){
+ const u=auth.currentUser;if(!u)return;
+ status('SYNC…');
+ if(stopMeta)stopMeta();if(stopSessions)stopSessions();
+ const metaRef=doc(db,'users',u.uid,'meta','app'),sessionsRef=collection(db,'users',u.uid,'sessions');
+ const [m,sn]=await Promise.all([getDoc(metaRef),getDocs(sessionsRef)]);
+ const remoteMeta=m.exists()?m.data():null,remoteSessions=sn.docs.map(x=>x.data());
+ if(remoteSessions.length)emit('cp-remote-sessions',{sessions:remoteSessions});
+ const remotePayload=remoteMeta?.payload,lt=localPayload?.sync?.updatedAtClient||0,rt=remotePayload?.sync?.updatedAtClient||0;
+ if(remotePayload&&rt>lt)emit('cp-remote-state',{payload:remotePayload});
+ else await pushState(localPayload);
+ for(const s of localSessions){if(s?.id)await setDoc(doc(db,'users',u.uid,'sessions',String(s.id)),{...s,cloudUpdatedAtClient:Date.now()},{merge:true})}
+ stopSessions=onSnapshot(sessionsRef,snap=>emit('cp-remote-sessions',{sessions:snap.docs.map(x=>x.data())}),()=>status('DA SINCRONIZZARE'));
+ stopMeta=onSnapshot(metaRef,snap=>{const x=snap.data()?.payload;if(x)emit('cp-remote-state',{payload:x})},()=>status('DA SINCRONIZZARE'));
+ status('SYNC');
+}
+window.CPCloud={
+ signUp:(email,password)=>createUserWithEmailAndPassword(auth,email,password),
+ signIn:(email,password)=>signInWithEmailAndPassword(auth,email,password),
+ signOut:()=>fbSignOut(auth),
+ pushState,pushSession,bootstrap,
+ get user(){return auth.currentUser}
+};
+emit('cp-cloud-ready',{});
+onAuthStateChanged(auth,u=>{
+ currentUid=u?.uid||null;
+ emit('cp-auth',{user:u?{uid:u.uid,email:u.email}:null});
+});
+</script>
+
 </body></html>
