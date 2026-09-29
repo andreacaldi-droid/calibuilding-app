@@ -1,0 +1,23 @@
+CALI POWER — MASTER SPEC
+Primary: hypertrophy + aesthetics.
+Secondary: relative strength + control.
+Tertiary: athleticism + conditioning + endurance.
+
+Non-negotiable:
+- Real history is the only source of truth.
+- Session date is fixed at START and survives midnight.
+- Atomic close: journal -> history -> localStorage read-back -> clear runner.
+- No fixed A-B-C-D.
+- No fixed 3+3 strength/run quota.
+- Exercise selection uses regions, movement pattern, angle, muscle-length bias, recency, regional overlap,
+  progression continuity, joint fit, equipment/location and real time.
+- Systematic variation, not random exercise rotation.
+- Runner keeps total clock + rest timer + load/reps/RIR/pain/technique.
+- POST keeps duration/quality/fatigue/pump/notes.
+- Manual history accepts unlimited exercises and does not invent unknown values.
+- Forecasts are provisional and never become history.
+- Home and travel have equal physiological status.
+- Control layer includes support/L-sit/handstand/bodyline/scapular/locomotion options.
+- Hybrid layer includes easy aerobic, intervals and strength-biased HIFT.
+- I90 contributes concurrent structure, aerobic base, intervals and metcon concepts; Cali Power does not copy
+  fixed 3+3 scheduling, mandatory day separation, or treat Zone 2 as universally optimal.

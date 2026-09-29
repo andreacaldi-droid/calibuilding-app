@@ -1,11 +1,12 @@
 {
-  "name": "CaliBuilding",
-  "short_name": "CaliBuilding",
-  "start_url": "./",
+  "id": "./cali-power",
+  "name": "Cali Power",
+  "short_name": "Cali Power",
+  "start_url": "./?app=cali-power",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#080b0f",
-  "theme_color": "#0b0e12",
+  "background_color": "#070a0e",
+  "theme_color": "#0a0d11",
   "icons": [
     {
       "src": "icon-192.png",

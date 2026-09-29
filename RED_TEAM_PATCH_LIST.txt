@@ -1,0 +1,11 @@
+CALI POWER — RED TEAM / PATCH LIST
+Physiology: old engine collapsed regions into coarse muscles. PATCH: regional demand + systematic angle variation.
+Sports medicine: exact exercise ID was insufficient for overlap/joint cost. PATCH: regional overlap + knee/elbow costs.
+Hypertrophy: too few chest/shoulder/arm options. PATCH: multi-angle chest, delts, biceps/triceps positions and length biases.
+Hybrid: aerobic/HIFT risked becoming separate identity. PATCH: Objective Lock keeps them subordinate to hypertrophy goal.
+Powerbuilding coordinate: compounds were too sparse. PATCH: squat/hinge/press/pull/weighted calisthenics retained with progression continuity.
+Chechi/control coordinate: control was reduced to generic mobility. PATCH: support hold, L-sit, handstand, bodyline, scapular control, locomotion.
+I90: useful concurrent structure but rigid 3+3/separation/Zone2 claims are not copied. PATCH: capability gaps without rigid quota.
+Software: previous builds regressed timer/history. PATCH: write-ahead journal, read-back verification, self-tests, stable PWA identity.
+UX: previous version exposed complexity but lost functionality. PATCH: daily one-screen flow; complexity moved to PERCHÉ/PROFILO.
+Data integrity: 28/09 source state lacked full workout log. PATCH: only confirmed exposures are restored; missing details remain unknown.
