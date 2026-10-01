@@ -231,16 +231,18 @@ function inferRegions(e){if(EXMAP[e.id])return EXMAP[e.id].regions;const out={};
 function actualSets(e){if(e.exposureOnly)return 0;if(Array.isArray(e.setlog)){const n=e.setlog.filter(s=>s&&(s.done||s.completed||(+s.reps>0))).length;if(n)return n}if(Array.isArray(e.reps))return e.reps.filter(x=>+x>0).length;return Number.isFinite(+e.sets)?+e.sets:0}
 function normalizeHistory(s){s.history=(s.history||[]).filter(x=>!x.syntheticForecast).sort((a,b)=>String(a.date).localeCompare(String(b.date))||(+a.endedAt||0)-(+b.endedAt||0));const trained=new Set(s.history.map(x=>x.date));s.missed=(s.missed||[]).filter(x=>!trained.has(x.date));if(s.history.length)s.settings.last_verified_training_date=s.history[s.history.length-1].date}
 function repairJournal(s){s.journal=s.journal||{closedSessions:[]};s.journal.closedSessions=s.journal.closedSessions||[];const ids=new Set((s.history||[]).map(x=>String(x.id)));for(const x of s.journal.closedSessions)if(x?.id&&!ids.has(String(x.id))){s.history.push(deep(x));ids.add(String(x.id))}normalizeHistory(s)}
-function migrate(raw){const s=freshState();if(!raw||typeof raw!=='object')return s;for(const k of ['profile','master','constraints','capabilities'])if(raw[k])s[k]=deep(raw[k]);s.history=deep(raw.history||[]);s.ledger=deep(raw.ledger||{});s.settings={...s.settings,...(raw.settings||{})};s.days=deep(raw.days||raw.v9?.days||{});s.journal=deep(raw.journal||{closedSessions:[]});s.forecasts=deep(raw.forecasts||raw.v10?.forecasts||{});s.missed=deep(raw.missed||raw.noTrainingDays||[]);s.activePlan=null;s.activeWorkout=null;s.schema=1;s.appVersion=APP_VERSION;s.engine=ENGINE;repairJournal(s);return s}
+function migrate(raw){const s=freshState();if(!raw||typeof raw!=='object')return s;for(const k of ['profile','master','constraints','capabilities'])if(raw[k])s[k]=deep(raw[k]);s.history=deep(raw.history||[]);s.ledger=deep(raw.ledger||{});s.settings={...s.settings,...(raw.settings||{})};s.days=deep(raw.days||raw.v9?.days||{});s.journal=deep(raw.journal||{closedSessions:[]});s.forecasts=deep(raw.forecasts||raw.v10?.forecasts||{});s.missed=deep(raw.missed||raw.noTrainingDays||[]);s.activePlan=(raw.activePlan?.date===today())?deep(raw.activePlan):null;
+s.activeWorkout=(raw.activeWorkout?.id&&raw.activeWorkout?.plan&&raw.activeWorkout?.logs&&raw.activeWorkout?.date)?deep(raw.activeWorkout):null;
+s.schema=1;s.appVersion=APP_VERSION;s.engine=ENGINE;repairJournal(s);return s}
 let state=freshState();
 let cloudUser=null,cloudStatus='LOCALE',cloudReady=false,cloudTimer=null,activeTab='today';
 const DEVICE_ID=(()=>{let x=localStorage.getItem('CALI_POWER_DEVICE_ID');if(!x){x='dev-'+uid();localStorage.setItem('CALI_POWER_DEVICE_ID',x)}return x})();
-function cloudPayload(){const {history,journal,...rest}=deep(state);rest.sync=rest.sync||{};rest.sync.deviceId=DEVICE_ID;return rest}
+function cloudPayload(){const {history,journal,activeWorkout,...rest}=deep(state);rest.activeWorkout=null;rest.sync=rest.sync||{};rest.sync.deviceId=DEVICE_ID;return rest}
 function setCloudStatus(s){cloudStatus=s;const b=$('#syncBadge');if(!b)return;b.className='badge '+(s==='SYNC'?'ok':s==='SYNC…'?'accent':'warn');b.innerHTML=`<span class="syncdot"></span>${esc(s)}`}
 function scheduleCloudState(){if(!cloudUser||!window.CPCloud)return;clearTimeout(cloudTimer);cloudTimer=setTimeout(()=>window.CPCloud.pushState(cloudPayload()).catch(()=>setCloudStatus('DA SINCRONIZZARE')),650)}
 function saveLocalOnly(){state.appVersion=APP_VERSION;state.engine=ENGINE;state.sync=state.sync||{};state.sync.deviceId=DEVICE_ID;repairJournal(state);localStorage.setItem(KEY,JSON.stringify(state));updateIntegrity()}
 function mergeRemoteSessions(items){if(!Array.isArray(items))return;const by=new Map(state.history.map(x=>[String(x.id),x]));for(const x of items){if(!x?.id)continue;const k=String(x.id),old=by.get(k);if(!old||(+x.endedAt||0)>= (+old.endedAt||0))by.set(k,deep(x))}state.history=[...by.values()];repairJournal(state);saveLocalOnly();if(!state.activeWorkout)nav(activeTab)}
-function applyRemoteState(payload){if(!payload||typeof payload!=='object')return;const hist=state.history,journal=state.journal;const localTs=state.sync?.updatedAtClient||0,remoteTs=payload.sync?.updatedAtClient||0;if(remoteTs<=localTs)return;state={...state,...deep(payload),history:hist,journal};state.activeWorkout=payload.activeWorkout||state.activeWorkout;repairJournal(state);saveLocalOnly();if(!state.activeWorkout)nav(activeTab)}
+function applyRemoteState(payload){if(!payload||typeof payload!=='object')return;const hist=state.history,journal=state.journal,localWorkout=state.activeWorkout;const localTs=state.sync?.updatedAtClient||0,remoteTs=payload.sync?.updatedAtClient||0;if(remoteTs<=localTs)return;state={...state,...deep(payload),history:hist,journal};state.activeWorkout=localWorkout||null;repairJournal(state);saveLocalOnly();if(!state.activeWorkout)nav(activeTab)}
 window.addEventListener('cp-cloud-ready',()=>{cloudReady=true;setCloudStatus(cloudUser?'SYNC…':'LOGIN')});
 window.addEventListener('cp-auth',async e=>{cloudUser=e.detail?.user||null;if(!cloudUser){setCloudStatus('LOGIN');if(activeTab==='profile')renderProfile();return}setCloudStatus('SYNC…');try{await window.CPCloud.bootstrap(cloudPayload(),state.history);setCloudStatus('SYNC')}catch(err){console.error(err);setCloudStatus('DA SINCRONIZZARE')}if(activeTab==='profile')renderProfile()});
 window.addEventListener('cp-remote-sessions',e=>mergeRemoteSessions(e.detail?.sessions||[]));
@@ -289,23 +291,52 @@ function progression(e,date){
 }
 function estimateItemMin(e,sets){return sets*((e.rest||60)/60+.65)}
 function buildResistance(c,rs){
- const scored=candidates(c,rs,'hypertrophy'),topRegions=Object.entries(rs).sort((a,b)=>b[1].demand-a[1].demand).slice(0,7).map(x=>x[0]),items=[],patterns=new Map(),angles=new Map();let used=0;
- const budget=Math.max(10,c.time),maxItems=budget>=80?9:budget>=60?8:budget>=45?7:budget>=30?5:3;
- for(const e of scored){
-   const patternCount=patterns.get(e.pattern)||0,angleCount=angles.get(e.angle)||0;
-   let diversity=1;if(patternCount>=2)diversity*=.62;if(angleCount>=2)diversity*=.78;
-   const topCoverage=Object.keys(e.regions).some(r=>topRegions.includes(r))?1:.72;
-   const adjusted=e.score*diversity*topCoverage;
-   const sets=e.kind==='compound'?3:e.kind==='accessory'?2:2,est=estimateItemMin(e,sets);
-   if(items.length>=2&&used+est>budget*1.05)continue;
-   if(adjusted<.10&&items.length>=3)continue;
-   items.push({...e,sets,score:adjusted,progression:progression(e,c.date)});
-   patterns.set(e.pattern,patternCount+1);angles.set(e.angle,angleCount+1);used+=est;
-   if(items.length>=maxItems||used>=budget*.88)break;
+ const available=candidates(c,rs,'hypertrophy');
+ const items=[],usedPatterns=new Map(),groupCounts=new Map(),regionalCoverage=new Map();
+ const groupOf=e=>{
+  if(['squat','single_leg'].includes(e.pattern))return 'knee_dominant';
+  if(['hinge','hip_extension','knee_flexion'].includes(e.pattern))return 'hip_dominant';
+  if(['horizontal_pull','vertical_pull','scapular_pull','shoulder_extension'].includes(e.pattern))return 'pull';
+  if(['horizontal_press','dip_press','vertical_press','fly'].includes(e.pattern))return 'push';
+  if(['elbow_flexion','elbow_extension'].includes(e.pattern))return 'arms';
+  if(['abduction','scaption','rear_delt'].includes(e.pattern))return 'delts';
+  if(['anti_extension','trunk_flexion','anti_rotation','anti_lateral_flexion','bodyline','loaded_carry'].includes(e.pattern))return 'core';
+  return 'athletic';
+ };
+ const budget=Math.max(8,c.time),maxItems=budget>=85?9:budget>=60?7:budget>=45?6:budget>=30?4:2;
+ let usedMin=0;const candidatesLeft=[...available];
+ while(candidatesLeft.length&&items.length<maxItems){
+  let choice=null,best=-1;
+  for(const e of candidatesLeft){
+   const group=groupOf(e),patternN=usedPatterns.get(e.pattern)||0,groupN=groupCounts.get(group)||0;
+   if(patternN>=1)continue; // one major motion pattern per session, no three almost identical rows/squats
+   if(groupN>=2)continue;
+   const sets=e.kind==='compound'?3:e.kind==='accessory'?2:2;
+   const estimate=estimateItemMin(e,sets);
+   if(items.length>=1&&usedMin+estimate>budget*1.06)continue;
+   const affected=Object.entries(e.regions||{}),sum=affected.reduce((a,[,w])=>a+w,0)||1;
+   const already=affected.reduce((a,[r,w])=>a+w*(regionalCoverage.get(r)||0),0)/sum;
+   const novel=1/(1+already*.65);
+   const diversity=(groupN===0?1:.57)*novel;
+   const score=e.score*diversity*(e.fatigueCost?.82:1);
+   if(score>best){best=score;choice={e,sets,estimate,group,score}}
+  }
+  if(!choice)break;
+  const {e,sets,estimate,group,score}=choice;
+  items.push({...e,sets,score,progression:progression(e,c.date)});
+  usedPatterns.set(e.pattern,(usedPatterns.get(e.pattern)||0)+1);
+  groupCounts.set(group,(groupCounts.get(group)||0)+1);
+  for(const [r,w] of Object.entries(e.regions||{}))regionalCoverage.set(r,(regionalCoverage.get(r)||0)+w*sets);
+  usedMin+=estimate;
+  const i=candidatesLeft.findIndex(x=>x.id===e.id);
+  candidatesLeft.splice(i,1);
+  if(usedMin>=budget*.92)break;
  }
  const excluded=EX.filter(e=>e.loc.includes(c.location)&&hasEquipment(e,c.location)&&exactPenalty(e,c)===0).map(e=>e.name);
- const regionalNames=Object.entries(rs).sort((a,b)=>b[1].demand-a[1].demand).slice(0,3).map(([r])=>REGIONS[r].label).join(' · ');
- return {mode:'RESISTANCE',label:`CALI POWER · HYPERTROPHY / ${regionalNames}`,estimatedMin:Math.max(10,Math.min(c.time,Math.round(used||10))),items,note:'Objective Lock: ipertrofia + estetica guidano selezione, angoli, continuità e costo.',excludedRecent:excluded}
+ const priority=Object.entries(rs).sort((a,b)=>b[1].demand-a[1].demand).slice(0,3).map(([r])=>REGIONS[r].label).join(' / ');
+ return {mode:'RESISTANCE',label:`ADAPTIVE · ${priority}`,
+  estimatedMin:Math.max(8,Math.min(c.time,Math.round(usedMin||8))),items,
+  note:'Scelta per stimolo, progressione, schemi non ridondanti e dose sostenibile.',excludedRecent:excluded};
 }
 function daysSinceMode(date,modes){for(let i=state.history.length-1;i>=0;i--){const s=state.history[i];if(s.date>date)continue;if(modes.includes(String(s.mode||'')))return days(date,s.date)}return 99}
 function capability(date){const a=daysSinceMode(date,['AEROBIC_EASY','HYBRID_HIFT']),i=daysSinceMode(date,['INTERVALS','HYBRID_HIFT']),p=daysSinceMode(date,['CONTROL_PERFORMER']);return {aerobic:clamp((a-5)/10,0,1),intensity:clamp((i-8)/14,0,1),performer:clamp((p-5)/10,0,1)}}
@@ -521,7 +552,10 @@ function wireRepair(){ $$('.known').forEach(s=>s.onchange=()=>{const i=s.dataset
 function addRepairRow(){const box=$('#repairRows');box.insertAdjacentHTML('beforeend',repairRow(repairRows));repairRows++;wireRepair()}
 function openRepair(){
  repairRows=0;const d=$('#repairDialog');d.innerHTML=`<h3>Aggiungi / recupera sessione</h3><p class="small muted">Aggiungi quanti esercizi servono. Se non ricordi set/dettagli, lascia vuoto: viene registrata solo l'esposizione.</p><div class="grid3"><div class="field"><label>Data</label><input id="rdate" type="date" value="${addDays(today(),-1)}"></div><div class="field"><label>Luogo</label><select id="rloc"><option value="home">Casa</option><option value="travel">Trasferta</option></select></div><div class="field"><label>Durata (fac.)</label><input id="rdur" type="number"></div></div><div class="field"><label>Descrizione</label><input id="rfocus" value="SESSIONE REALE · RECUPERATA"></div><div id="repairRows"></div><button id="addRow" class="btn secondary full">+ AGGIUNGI ESERCIZIO</button><div class="actions"><button id="rsave" class="btn primary">SALVA DATI CONFERMATI</button><button id="rcancel" class="btn secondary">ANNULLA</button></div>`;
- d.showModal();for(let i=0;i<3;i++)addRepairRow();$('#addRow').onclick=addRepairRow;$('#rcancel').onclick=()=>d.close();$('#rsave').onclick=()=>{const date=$('#rdate').value;if(!date)return;const exercises=[];$$('#repairRows .card').forEach(row=>{const i=row.id.slice(2),id0=$(`.known[data-i="${i}"]`).value,name=$(`.cname[data-i="${i}"]`).value.trim(),regs=$(`.creg[data-i="${i}"]`).value.split(',').map(x=>x.trim()).filter(x=>REGIONS[x]),sets=+$(`.csets[data-i="${i}"]`).value||0,note=$(`.cnote[data-i="${i}"]`).value.trim();if(!id0&&!name)return;const id=id0||'custom_'+slug(name);exercises.push({id,name:id0?EXMAP[id0].name:name||id,regions:id0?Object.keys(EXMAP[id0].regions):regs,sets:sets||null,reps:[],rir:[],exposureOnly:!sets,note})});state.history.push({id:uid(),date,location:$('#rloc').value,focus:$('#rfocus').value||'SESSIONE REALE · RECUPERATA',mode:'RESISTANCE',duration_min:+$('#rdur').value||null,recovered:true,source:'manual_recovery',post:{},exercises});save();d.close();renderHistory()}
+ d.showModal();for(let i=0;i<3;i++)addRepairRow();$('#addRow').onclick=addRepairRow;$('#rcancel').onclick=()=>d.close();$('#rsave').onclick=()=>{const date=$('#rdate').value;if(!date)return;const exercises=[];$$('#repairRows .card').forEach(row=>{const i=row.id.slice(2),id0=$(`.known[data-i="${i}"]`).value,name=$(`.cname[data-i="${i}"]`).value.trim(),regs=$(`.creg[data-i="${i}"]`).value.split(',').map(x=>x.trim()).filter(x=>REGIONS[x]),sets=+$(`.csets[data-i="${i}"]`).value||0,note=$(`.cnote[data-i="${i}"]`).value.trim();if(!id0&&!name)return;const id=id0||'custom_'+slug(name);exercises.push({id,name:id0?EXMAP[id0].name:name||id,regions:id0?Object.keys(EXMAP[id0].regions):regs,sets:sets||null,reps:[],rir:[],exposureOnly:!sets,note})});const manual={id:uid(),date,location:$('#rloc').value,focus:$('#rfocus').value||'SESSIONE REALE · RECUPERATA',mode:'RESISTANCE',duration_min:+$('#rdur').value||null,recovered:true,source:'manual_recovery',post:{},exercises};
+    state.history.push(manual);save();
+    if(cloudUser&&window.CPCloud)window.CPCloud.pushSession(manual).catch(()=>setCloudStatus('DA SINCRONIZZARE'));
+    d.close();renderHistory()}
 }
 function renderHistory(){
  activeTab='history';
@@ -537,7 +571,9 @@ function renderProfile(){
  <div class="card objective"><strong>MASTER</strong><div class="small">${esc(state.master?.goal||'')}</div></div>
  <div class="card"><h3>Dati locali</h3><div class="authrow"><button id="backup" class="btn secondary">BACKUP JSON</button><label class="btn secondary" style="display:flex;align-items:center;justify-content:center">IMPORTA JSON<input id="import" type="file" accept=".json" style="display:none"></label></div></div>
  <details class="card"><summary>Dettagli tecnici e fonti</summary><div class="small muted">Build ${APP_VERSION} · Engine ${ENGINE} · Libreria ${EX.length} esercizi/varianti.</div>${tests.map(([n,ok,t])=>`<div class="timelineItem"><div>${esc(n)}</div><div class="small">${esc(t)}</div><span class="badge ${ok?'ok':'warn'}">${ok?'PASS':'FAIL'}</span></div>`).join('')}<div style="margin-top:10px">${EVIDENCE.map(x=>`<div class="tiny muted">PMID ${x.pmid} · ${esc(x.topic)} — ${esc(x.note)}</div>`).join('')}</div></details>`;
- $('#backup').onclick=backup;$('#import').onchange=e=>{const f=e.target.files?.[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{state=migrate(JSON.parse(r.result));state.sync=state.sync||{};state.sync.updatedAtClient=Date.now();save();alert('Import completato. Lo storico viene sincronizzato dopo il login.');nav('history')}catch(err){alert('JSON non valido: '+err.message)}};r.readAsText(f)};
+ $('#backup').onclick=backup;$('#import').onchange=e=>{const f=e.target.files?.[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{state=migrate(JSON.parse(r.result));state.sync=state.sync||{};state.sync.updatedAtClient=Date.now();save();if(cloudUser&&window.CPCloud)
+              for(const item of state.history)window.CPCloud.pushSession(item).catch(()=>setCloudStatus('DA SINCRONIZZARE'));
+              alert('Import completato. Controlla STORICO e badge SYNC.');nav('history')}catch(err){alert('JSON non valido: '+err.message)}};r.readAsText(f)};
  if($('#login'))$('#login').onclick=async()=>{const msg=$('#authMsg');try{msg.textContent='Accesso…';await window.CPCloud.signIn($('#authEmail').value.trim(),$('#authPass').value);msg.textContent='Connesso.'}catch(e){msg.textContent='Errore: '+(e?.message||e)}};
  if($('#signup'))$('#signup').onclick=async()=>{const msg=$('#authMsg');try{msg.textContent='Creazione account…';await window.CPCloud.signUp($('#authEmail').value.trim(),$('#authPass').value);msg.textContent='Account creato e connesso.'}catch(e){msg.textContent='Errore: '+(e?.message||e)}};
  if($('#logout'))$('#logout').onclick=()=>window.CPCloud.signOut();

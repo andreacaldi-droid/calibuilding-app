@@ -1,0 +1,14 @@
+CALI POWER — PATCH DI SICUREZZA NON OBBLIGATORIA
+Libreria/esercizi, MASTER originale, Firebase e icona CP restano invariati.
+Correzioni:
+1) una seduta attiva non viene piu' azzerata al riavvio/ricarica dello stato;
+2) lo stato remoto non sovrascrive il runner attivo di questo dispositivo;
+3) il runner locale non viene inviato nel documento cloud del profilo;
+4) selezione esercizi: non accumula molte varianti uguali (es. tre squat o tre rematori);
+5) una sessione recuperata manualmente viene inviata al cloud se connessi;
+6) quando importi un backup mentre sei loggato, invia le sessioni separate al cloud.
+
+Prima: esporta un BACKUP JSON della Cali Power funzionante.
+Non aggiornare mentre un allenamento e' ancora aperto.
+Carica su GitHub Pages i file nel pacchetto. Al termine riapri e controlla STORICO e SYNC.
+Test browser eseguito con storage mock, non sul Firebase remoto di produzione.
