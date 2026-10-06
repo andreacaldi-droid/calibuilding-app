@@ -1,25 +1,22 @@
 {
-  "id": "./cali-power",
-  "name": "Cali Power",
-  "short_name": "Cali Power",
-  "start_url": "./?app=cali-power",
+  "name": "CALI POWER",
+  "short_name": "CALI POWER",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#0b0b0a",
-  "theme_color": "#0b0b0a",
-  "description": "Adaptive hypertrophy-first physique, strength and performance coach.",
+  "background_color": "#07100b",
+  "theme_color": "#07120c",
+  "description": "Adaptive Physique & Performance Coach",
   "icons": [
     {
       "src": "icon-192.png",
       "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/png"
     },
     {
       "src": "icon-512.png",
       "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/png"
     }
   ]
 }
