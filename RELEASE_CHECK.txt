@@ -1,0 +1,18 @@
+HYBRIDPOWER HP1.0 / H11 — STATIC RELEASE CHECK
+Date: 2026-10-09
+
+PASS — HTML contains 2 JavaScript blocks; both pass `node --check`.
+PASS — sw.js passes `node --check`.
+PASS — manifest.webmanifest parses as valid JSON.
+PASS — legacy localStorage key CALIBUILDING_V01_STATE retained for in-place migration.
+PASS — H11 / HP1.0 brand and engine markers present.
+PASS — no Math.random in the release; controlled exploration disabled.
+PASS — barbell bench safety gate present.
+PASS — DB bench, barbell OHP, EZ curl, overhead triceps, TRX and Chechi/isometric candidates present.
+PASS — `ULTIMA VOLTA` / exact prior exposure display retained.
+PASS — set-level integrity signature override present.
+PASS — no-work sessions filtered from H11 family recency.
+PASS — old/current dumbbell equipment field variants supported.
+PASS — PWA cache versioned with activation takeover.
+
+LIMITATION — no end-to-end browser click test could be run in this environment because browser navigation is blocked by administrative policy. Use the rollback instructions if the deployed browser exhibits a runtime issue.

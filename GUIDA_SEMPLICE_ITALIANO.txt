@@ -1,0 +1,61 @@
+HYBRIDPOWER HP1.2 LUX — GUIDA SEMPLICE
+
+COSA C'È DENTRO
+- Nuova icona più elegante e minimale
+- Nuovo aspetto: rosso, oro, viola
+- Timer recupero
+- Timer tenute / isometrie dentro l'esercizio
+- Timer totale seduta
+- Pulsante “Rifai oggi” se clicchi per errore
+- Indicazione chiara: tieni il carico / aumenta il carico
+- Storico mantenuto
+- Sync cloud su Cloudflare
+
+COSA FARE
+
+1. Apri la tua app che usi ora.
+2. Vai in PROFILO.
+3. Premi ESPORTA STATO JSON / BACKUP JSON.
+4. Salva il file. NON perderlo.
+
+5. Scarica questo ZIP HP1.2 LUX.
+6. Apri GitHub e vai nel tuo repository dell’app.
+7. Carica tutti i file dello ZIP e sostituisci quelli vecchi.
+8. Fai COMMIT CHANGES.
+
+9. Vai su Cloudflare.
+10. Apri Workers & Pages.
+11. Crea / apri il progetto collegato al tuo repository GitHub.
+12. Nelle impostazioni metti:
+   - Build command: exit 0
+   - Build output directory: .
+
+13. Controlla che il database D1 esista:
+   nome: hybridpower-sync
+14. Nel progetto Pages vai su:
+   Settings → Bindings → Add binding → D1 database
+15. Nome variabile: DB
+16. Seleziona: hybridpower-sync
+17. Fai di nuovo DEPLOY.
+
+18. Apri il nuovo sito Cloudflare (indirizzo pages.dev).
+19. Vai in PROFILO.
+20. Premi IMPORTA STATO JSON.
+21. Scegli il backup che hai salvato al punto 4.
+
+22. Vai in STORICO.
+23. Controlla che ci siano tutte le tue sedute.
+24. Se lo storico c’è, allora è tutto giusto.
+
+25. Torna in PROFILO.
+26. Attiva CLOUD SYNC.
+27. Salva il codice sync se l’app te lo mostra.
+
+28. Da ora usa solo la versione Cloudflare.
+29. Vai su OGGI → CHECK → DECIDI.
+30. Allenati.
+
+IMPORTANTE
+- Non riparti da zero.
+- Lo storico continua.
+- Non disinstallare la vecchia app finché non hai controllato lo storico nella nuova.

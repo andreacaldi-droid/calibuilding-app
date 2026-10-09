@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#07120c">
 <link rel="manifest" href="manifest.webmanifest">
-<title>CALI POWER V10.3.1</title>
+<title>HYBRIDPOWER</title>
 <style>
 :root{
   --bg:#090b0e;--panel:#11151a;--panel2:#161b21;--line:#242b33;--txt:#f4f6f8;--muted:#96a0aa;
-  --accent:#c8ff55;--accent2:#70e1f5;--warn:#ffcb66;--bad:#ff6b6b;--ok:#8cff9c;--blue:#6bb6ff;
+  --accent:#c8ff55;--accent2:#70e1f5;--warn:#ffcb66;--bad:#d12f54;--ok:#8cff9c;--blue:#6bb6ff;
   --radius:18px;--shadow:0 16px 40px rgba(0,0,0,.28)
 }
 *{box-sizing:border-box}
@@ -430,11 +430,60 @@ body{background:
 .v103Decision{margin-top:6px;font-size:11px;color:#c8d8ce}
 
 </style>
+
+<style id="hp12-lux-theme">
+:root{
+  --bg:#5E114B !important;
+  --bg2:#7A163F !important;
+  --card:#6C1348 !important;
+  --panel:#711539 !important;
+  --line:#E3B865 !important;
+  --text:#FFF7EE !important;
+  --muted:#F0D7BE !important;
+  --primary:#C92B4F !important;
+  --secondary:#8F2AC8 !important;
+  --accent:#E3B865 !important;
+  --good:#E3B865 !important;
+  --warn:#F4C66A !important;
+  --bad:#C92B4F !important;
+}
+html,body{background:linear-gradient(180deg,#7A163F 0%,#5E114B 52%,#8F2AC8 100%) !important;}
+body{color:var(--text)!important;}
+.card,.panel,.sheet,.modal,.drawer,.tile,.row-card,.exercise-card,.session-card,.stat-card,.cta-card{
+  background:rgba(110,21,72,.78)!important;
+  border:1px solid rgba(227,184,101,.45)!important;
+  box-shadow:0 10px 30px rgba(72,0,45,.22)!important;
+}
+button,.btn,.chip.active,.nav .active,.tab.active,.primary{
+  background:linear-gradient(135deg,#C92B4F 0%,#E3B865 100%)!important;
+  color:#2C071C!important;
+  border:0!important;
+}
+.secondary,.ghost,.outline{
+  background:rgba(143,42,200,.18)!important;
+  color:var(--text)!important;
+  border:1px solid rgba(227,184,101,.45)!important;
+}
+input,select,textarea{
+  background:rgba(255,247,238,.10)!important;
+  color:var(--text)!important;
+  border:1px solid rgba(227,184,101,.40)!important;
+}
+small,.muted,.subtle,.caption{color:var(--muted)!important;}
+a,.link,.highlight,.decision-up,.decision-maintain{color:#FFE8A6!important;}
+.progress,.bar,.ring-bg{background:rgba(255,247,238,.18)!important;}
+.topbar,.navbar,.bottom-nav,header,footer{
+  backdrop-filter:blur(10px)!important;
+  background:rgba(94,17,75,.55)!important;
+  border-color:rgba(227,184,101,.25)!important;
+}
+</style>
+
 </head>
 <body>
 <div class="app">
   <div class="topbar">
-    <div><div class="brand">CALI <span>POWER</span></div><div class="version">Adaptive Physique & Performance Coach · V10.3.1 · A10.3.1</div></div>
+    <div><div class="brand">HYBRID<span>POWER</span></div><div class="version">Adaptive Hybrid Physique & Performance Coach · HP1.2 · H12</div></div>
     <div class="chips"><span class="chip accent">MASTER LOCKED</span></div>
   </div>
   <div id="view"></div>
@@ -449,8 +498,8 @@ body{background:
 
 <script>
 const KEY='CALIBUILDING_V01_STATE';
-const VERSION='0.10.3.1';
-const SEED={"version": "0.1.0", "profile": {"sex": "male", "age": 35, "height_cm": 183, "weight_kg": 80, "experience_years": 15, "level": "advanced", "role": "performer"}, "master": {"locked": true, "goal": "Molto muscoloso e visibilmente ipertrofico, relativamente asciutto, armonioso ed elegante; mantenere mobilita, coordinazione, agilita, dinamismo e credibilita scenica.", "priorities": [{"name": "upper_chest", "label": "Petto alto", "weight": 1.35}, {"name": "shoulders", "label": "Spalle", "weight": 1.3}, {"name": "arms", "label": "Braccia", "weight": 1.25}, {"name": "back", "label": "Schiena / densita", "weight": 1.0}, {"name": "lower", "label": "Lower / armonia / forza", "weight": 1.0}, {"name": "performance", "label": "Agilita / performer", "weight": 1.15}], "references": [{"name": "Anatoly / Vladimir Shmondenko", "meaning": "densita muscolare + forza relativa + atletismo"}, {"name": "Yuri Chechi", "meaning": "controllo ginnico + linee atletiche + padronanza del corpo"}, {"name": "Brad Pitt in Troy", "meaning": "proporzioni magre, armoniose, cinematiche"}, {"name": "Tom Hardy in Warrior", "meaning": "fisico denso, atletico, combattivo"}], "rules": ["Il MASTER resta stabile; i metodi sono flessibili.", "Casa e trasferta hanno pari dignita fisiologica.", "Preservare lo stimolo, non il nome dell'esercizio.", "Niente sequenza A-B-C-D obbligatoria.", "Niente muscle confusion o volume di riempimento.", "Pump e fatica sono dati, non prova sufficiente di ipertrofia.", "Progressione solo da esposizioni sufficientemente comparabili.", "Il tempo disponibile e un input, non un tetto fisso.", "Multidisciplinare non significa casuale.", "Non trasformare il soggetto ne in bodybuilder rigido ne in atleta di danza professionistica."]}, "equipment": {"home": {"barbell": true, "ez_bar": true, "pullup_bar": true, "dips": true, "adjustable_dumbbells_each_kg": 30, "flat_bench": true, "trx": true, "backpack": true, "bands": true, "plates_total_kg": 90, "barbell_on_shoulders": true, "commercial_rack_assumed": false}, "travel": {"pullup_bar": false, "dips": true, "trx": true, "backpack_kg": 30, "bands": true, "adjustable_dumbbells_each_kg": 30, "dumbbells_count": 2}}, "constraints": {"knee": {"baseline": 5, "history": "Frattura condilo femorale DX, frattura rotula DX, lussazione anca DX.", "split_squat_default": false, "notes": "Baseline 5/10 non e stop automatico. Reagire a aumento significativo, gonfiore nuovo, instabilita, blocco, perdita ROM/funzione o sintomo diverso."}, "elbow": {"history": "Dolore mediale/interno ricorrente, soprattutto tirate e flessione tipo curl.", "notes": "Performance preservata non esclude irritazione. Adattare se peggiora chiaramente."}}, "history": [{"id": "2026-09-22-lower", "date": "2026-09-22", "location": "home", "focus": "LOWER HYPERTROPHY / STRENGTH", "duration_min": 54, "post": {"fatigue": 2, "quality": 4, "pump": {"chest": 0, "shoulders": 0, "arms": 0}}, "exercises": [{"id": "back_squat", "name": "Back Squat con bilanciere", "pattern": "knee", "muscles": ["lower"], "load": 50, "unit": "kg", "reps": [6, 6, 6], "rir": [2, 2, 1], "tech": "clean", "pain": 0, "rom": "controlled"}, {"id": "barbell_rdl", "name": "Barbell Romanian Deadlift", "pattern": "hinge", "muscles": ["lower", "posterior"], "load": 70, "unit": "kg", "reps": [6, 6, 6], "rir": [2, 2, 1], "tech": "clean", "pain": 0}, {"id": "barbell_hip_thrust", "name": "Barbell Hip Thrust", "pattern": "hip_extension", "muscles": ["lower", "glutes"], "load": 70, "unit": "kg", "reps": [8, 8, 8], "rir": [2, 2, 1], "tech": "clean", "pain": 0}, {"id": "single_leg_calf", "name": "Single-leg Calf Raise", "pattern": "calf", "muscles": ["lower"], "load": 20, "unit": "kg", "reps": [10, 10, 10], "rir": [2, 2, 1], "tech": "clean", "pain": 0}, {"id": "trx_body_saw", "name": "TRX Body Saw", "pattern": "core", "muscles": ["core"], "load": 0, "unit": "kg", "reps": [8, 10], "rir": [2, 2], "tech": "clean", "pain": 0}]}, {"id": "2026-09-23-upper", "date": "2026-09-23", "location": "home", "focus": "UPPER PRIORITY", "duration_min": 47, "post": {"fatigue": 5, "quality": 5, "pump": {"chest": 2, "shoulders": 3, "arms": 2}}, "exercises": [{"id": "feet_elev_weighted_pushup", "name": "Feet-elevated Weighted Push-up", "pattern": "upper_chest_press", "muscles": ["upper_chest", "shoulders", "triceps"], "load": 22, "unit": "kg add", "reps": [7, 7, 7, 7], "rir": [2, 2, 1, 1], "tech": "clean", "pain": 0}, {"id": "db_ohp", "name": "Dumbbell Overhead Press", "pattern": "vertical_press", "muscles": ["shoulders", "triceps"], "load": 10, "unit": "kg/hand", "reps": [8, 8, 8], "rir": [3, 3, 3], "tech": "clean", "pain": 0, "note": "zaino 22 kg indossato, non contato come carico di pressa"}, {"id": "weighted_dips", "name": "Weighted Dips", "pattern": "dip_press", "muscles": ["chest", "triceps", "shoulders"], "load": 15, "unit": "kg add", "reps": [6, 6, 6], "rir": [1, 1, 1], "tech": "clean", "pain": 0}, {"id": "one_arm_db_row", "name": "One-arm Dumbbell Row", "pattern": "horizontal_pull", "muscles": ["back", "biceps"], "load": 30, "unit": "kg", "reps": [8, 8, 8], "rir": [2, 2, null], "tech": "clean", "pain": null}, {"id": "db_lateral_trx_reverse", "name": "DB Lateral Raise + TRX Reverse Fly", "pattern": "delts", "muscles": ["shoulders"], "load": 10, "unit": "kg/hand lateral", "reps": ["10+10", "10+10"], "rir": [2, 1, 1], "tech": "clean", "pain": null, "note": "RIR log ambiguo"}, {"id": "band_pressdown", "name": "Band Triceps Pressdown", "pattern": "triceps", "muscles": ["arms", "triceps"], "load": 0, "unit": "band", "reps": [10, 10], "rir": [2, 2], "tech": "clean", "pain": null}]}], "ledger": {"back_squat": {"status": "CONSOLIDATE", "note": "50 kg: prima reps comparabili, poi carico."}, "barbell_rdl": {"status": "CONSOLIDATE", "note": "70 kg: prima reps comparabili, poi carico."}, "barbell_hip_thrust": {"status": "CONSOLIDATE", "note": "70 kg: prima reps comparabili, poi carico."}, "single_leg_calf": {"status": "CONSOLIDATE", "note": "20 kg baseline."}, "trx_body_saw": {"status": "CONSOLIDATE", "note": "Standardizzare ROM, poi reps."}, "feet_elev_weighted_pushup": {"status": "PROMOTE", "note": "+22 kg: promuovere reps."}, "db_ohp": {"status": "ADAPT", "note": "10 kg/mano sottocaricato a RIR 3/3/3."}, "weighted_dips": {"status": "HOLD", "note": "+15 kg: consolidare."}, "one_arm_db_row": {"status": "CONSOLIDATE", "note": "30 kg; terzo RIR/dolore mancanti."}, "db_lateral_trx_reverse": {"status": "HOLD", "note": "Logging da rendere piu comparabile."}, "band_pressdown": {"status": "PROMOTE", "note": "Promuovere reps."}}, "calendar": [{"offset": 0, "location": "travel", "minutes": 60, "event": "none", "notes": ""}, {"offset": 1, "location": "home", "minutes": 20, "event": "tennis", "notes": "tennis leggero dopo"}, {"offset": 2, "location": "home", "minutes": 20, "event": "show", "notes": "finestra serale molto incerta"}, {"offset": 3, "location": "home", "minutes": 20, "event": "show", "notes": "finestra serale molto incerta"}], "settings": {"diet_started": false, "diet_start_phrase": "SPESA FATTA - INIZIO DIETA", "last_verified_training_date": "2026-09-23"}};
+const VERSION='1.1.0';
+const SEED={"version":"0.1.0","profile":{"sex":"male","age":35,"height_cm":183,"weight_kg":80,"experience_years":15,"level":"advanced","role":"performer"},"master":{"locked":true,"goal":"Molto muscoloso e visibilmente ipertrofico, relativamente asciutto, armonioso ed elegante; mantenere mobilita, coordinazione, agilita, dinamismo e credibilita scenica.","priorities":[{"name":"upper_chest","label":"Petto alto","weight":1.35},{"name":"shoulders","label":"Spalle","weight":1.3},{"name":"arms","label":"Braccia","weight":1.25},{"name":"back","label":"Schiena / densita","weight":1.0},{"name":"lower","label":"Lower / armonia / forza","weight":1.0},{"name":"performance","label":"Agilita / performer","weight":1.15}],"references":[{"name":"Anatoly / Vladimir Shmondenko","meaning":"densita muscolare + forza relativa + atletismo"},{"name":"Yuri Chechi","meaning":"controllo ginnico + linee atletiche + padronanza del corpo"},{"name":"Brad Pitt in Troy","meaning":"proporzioni magre, armoniose, cinematiche"},{"name":"Tom Hardy in Warrior","meaning":"fisico denso, atletico, combattivo"}],"rules":["Il MASTER resta stabile; i metodi sono flessibili.","Casa e trasferta hanno pari dignita fisiologica.","Preservare lo stimolo, non il nome dell'esercizio.","Niente sequenza A-B-C-D obbligatoria.","Niente muscle confusion o volume di riempimento.","Pump e fatica sono dati, non prova sufficiente di ipertrofia.","Progressione solo da esposizioni sufficientemente comparabili.","Il tempo disponibile e un input, non un tetto fisso.","Multidisciplinare non significa casuale.","Non trasformare il soggetto ne in bodybuilder rigido ne in atleta di danza professionistica."]},"equipment":{"home":{"barbell":true,"ez_bar":true,"pullup_bar":true,"dips":true,"adjustable_dumbbells_each_kg":30,"flat_bench":true,"trx":true,"backpack":true,"bands":true,"plates_total_kg":90,"barbell_on_shoulders":true,"commercial_rack_assumed":false},"travel":{"pullup_bar":false,"dips":true,"trx":true,"backpack_kg":30,"bands":true,"adjustable_dumbbells_each_kg":30,"dumbbells_count":2}},"constraints":{"knee":{"baseline":5,"history":"Pregressa storia articolare ginocchio/anca DX: usare il baseline e i segnali funzionali come gate.","split_squat_default":false,"notes":"Baseline 5/10 non e stop automatico. Reagire a aumento significativo, gonfiore nuovo, instabilita, blocco, perdita ROM/funzione o sintomo diverso."},"elbow":{"history":"Irritazione mediale/interna ricorrente: monitorare tirate e flessione del gomito.","notes":"Performance preservata non esclude irritazione. Adattare se peggiora chiaramente."}},"history":[],"ledger":{},"calendar":[{"offset":0,"location":"home","minutes":60,"event":"none","notes":""},{"offset":1,"location":"home","minutes":0,"event":"none","notes":""},{"offset":2,"location":"home","minutes":0,"event":"none","notes":""},{"offset":3,"location":"home","minutes":0,"event":"none","notes":""}],"settings":{"diet_started":false,"diet_start_phrase":"SPESA FATTA - INIZIO DIETA","last_verified_training_date":""}};
 
 const $=(q,p=document)=>p.querySelector(q);
 const $$=(q,p=document)=>[...p.querySelectorAll(q)];
@@ -2103,7 +2152,7 @@ function exerciseLogger(e,idx,w){
    - State stays usable offline; pushes are debounced.
    ========================================================= */
 const CB_SYNC_TOKEN_KEY='CALIBUILDING_V05_SYNC_SECRET';
-const CB_SYNC_ENDPOINT='/.netlify/functions/state-sync';
+const CB_SYNC_ENDPOINT='/api/state-sync';
 let CB_SYNC_TIMER=null;
 let CB_SYNC_BUSY=false;
 let CB_LAST_SYNC_ERROR='';
@@ -4811,9 +4860,8 @@ resetSeed=function(){
   state=deepClone(SEED);cb10Ensure();state.activePlan=null;save();nav('today');
 };
 
-/* Cloud was not reliable in the previous prototype. V10 production UI is local-first. */
-cbCloudBoot=async function(){CB_LAST_SYNC_ERROR='';};
-cbScheduleCloudPush=function(){};
+/* HYBRIDPOWER HP1.2 LUX: Cloudflare-native encrypted sync enabled.
+   The original cbCloudBoot / cbScheduleCloudPush implementations remain active. */
 function cb10HideCloudUI(){
   [...document.querySelectorAll('.card')].forEach(c=>{
     const t=c.querySelector('h3')?.textContent||'';
@@ -5192,7 +5240,6 @@ const CB10_BASE_PROFILE=renderProfile;
 renderProfile=function(){
   $('#v10Dock')?.remove();
   CB10_BASE_PROFILE();
-  cb10HideCloudUI();
 
   const hero=$('#view .hero');
   if(hero){
@@ -6140,7 +6187,7 @@ renderToday=function(){
     }
   }
   const topVersion=document.querySelector('.version');
-  if(topVersion)topVersion.textContent='Adaptive Physique & Performance Coach · V10.3.1 · A10.3.1';
+  if(topVersion)topVersion.textContent='Adaptive Hybrid Physique & Performance Coach · HP1.2 · H12';
 };
 
 /* Runner: bind iso controls, show voice toggle. */
@@ -6195,5 +6242,540 @@ CB_REMOTE_APPLY=true;cbLocalPersist();CB_REMOTE_APPLY=false;
 nav('today');
 
 </script>
+
+<script>
+/* =========================================================
+   HYBRIDPOWER HP1.2 LUX — ENGINE H12
+   Deterministic, history-authoritative, objective-locked.
+   No random exercise rotation. Systematic variation only.
+   Same storage key/schema as Cali Power for in-place migration.
+   ========================================================= */
+const HP={
+  version:'HP1.2',
+  engine:'H12',
+  build:'2026-10-09',
+  schema:1
+};
+
+/* ---------- visual identity ---------- */
+(function hpStyle(){
+  const s=document.createElement('style');
+  s.textContent=`
+    :root{--accent:#75e06e;--ok:#8cff9c;--bad:#ff5a5f;--warn:#ffbf69}
+    body{background:linear-gradient(180deg,#07110b,#0a0f0c 48%,#080b09)}
+    .hero{background:radial-gradient(circle at 82% 0%,rgba(117,224,110,.16),transparent 36%),var(--panel)}
+    .brand span{color:#ff5a5f}.brand{color:#75e06e}
+    .hpBadge{display:inline-flex;align-items:center;padding:5px 9px;border-radius:999px;border:1px solid #285b32;color:#a8ffb4;font-size:11px;font-weight:850}
+    .hpAudit{border-color:#285b32;background:linear-gradient(180deg,rgba(38,92,49,.12),rgba(17,21,26,.96))}
+    .hpBlocked{border-color:#603035;background:rgba(90,28,35,.12)}
+    .hpScore{font-weight:900;font-size:18px}
+    .hpMini{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+    @media(max-width:560px){.hpMini{grid-template-columns:1fr}}
+  `;
+  document.head.appendChild(s);
+})();
+
+function hpBrandDom(){
+  document.title='HYBRIDPOWER';
+  const brand=document.querySelector('.brand');
+  if(brand)brand.innerHTML='HYBRID<span>POWER</span>';
+  const v=document.querySelector('.version');
+  if(v)v.textContent='Adaptive Hybrid Physique & Performance Coach · HP1.2 · H12';
+}
+function hpEnsure(){
+  try{cb103EnsureDataIntegrity()}catch(_){}
+  state.equipment=state.equipment||deepClone(SEED.equipment||{});
+  state.modalities=state.modalities||{};
+  if(state.modalities.easy_aerobic_enabled===undefined)state.modalities.easy_aerobic_enabled=true;
+  if(state.modalities.intervals_enabled===undefined)state.modalities.intervals_enabled=true;
+  if(state.modalities.running_available===undefined)state.modalities.running_available=true;
+  if(state.modalities.mobility_skill_enabled===undefined)state.modalities.mobility_skill_enabled=true;
+  if(state.modalities.power_skill_enabled===undefined)state.modalities.power_skill_enabled=true;
+  state.hp=state.hp||{};
+  state.hp.schema=HP.schema;
+  state.hp.safeBenchRack=state.hp.safeBenchRack===true;
+  state.hp.lastBuild=state.hp.lastBuild||null;
+  state.a8=state.a8||{};
+  state.a8.explorationEnabled=false; // no "try something new" logic: variation must be objective-driven.
+  if(state.hp.lastBuild!==HP.build){
+    if(!state.activeWorkout)state.activePlan=null;
+    state.hp.lastBuild=HP.build;
+    state.hp.migratedAt=Date.now();
+  }
+  state.engine=state.engine||{};
+  state.engine.version=HP.engine;
+  state.engine.mode='hybrid_objective_locked_history_authoritative';
+}
+
+/* ---------- richer exercise library ---------- */
+const HP_CATALOG=[
+  // CHEST / PRESS
+  {id:'feet_elev_weighted_pushup',loc:['home','travel'],name:'Feet-elevated Weighted Push-up',sets:3,reps:'6-10',rest:150,loadHint:'Usa altezza piedi e zavorra standardizzate.',muscles:['upper_chest','shoulders','triceps'],regions:['upper_chest','front_delts','triceps'],note:'Anchor petto alto: progressione misurabile su reps/carico.',hp:{family:'chest_upper_press',tool:'bodyweight',strength:.72,stability:.84}},
+  {id:'feet_elev_band_pushup',loc:['home','travel'],name:'Feet-elevated Band-resisted Push-up',sets:3,reps:'8-15',rest:120,loadHint:'Standardizza altezza piedi e tensione elastico.',muscles:['upper_chest','shoulders','triceps'],regions:['upper_chest','front_delts','triceps'],note:'Alternativa quando la zavorra non è pratica o serve un profilo diverso.',hp:{family:'chest_upper_press',tool:'band',strength:.50,stability:.68}},
+  {id:'db_bench_press',loc:['home'],name:'Flat Dumbbell Bench Press',sets:3,reps:'6-12',rest:150,requires:['flat_bench','dumbbells'],loadHint:'Storico presente: usa i dati reali per la progressione.',muscles:['chest','shoulders','triceps'],regions:['mid_chest','front_delts','triceps'],note:'Pressa orizzontale stabile e sovraccaricabile.',hp:{family:'chest_horizontal_press',tool:'dumbbells',strength:.82,stability:.90}},
+  {id:'barbell_bench_press',loc:['home'],name:'Barbell Bench Press',sets:3,reps:'5-8',rest:180,requires:['barbell','flat_bench','safe_bench_rack'],loadHint:'Solo con rack/spotter/setup di racking realmente sicuro.',muscles:['chest','shoulders','triceps'],regions:['mid_chest','front_delts','triceps'],note:'NON entra automaticamente finché il setup sicuro non è confermato.',hp:{family:'chest_horizontal_press',tool:'barbell',strength:1.0,stability:.95}},
+  {id:'weighted_dips',loc:['home','travel'],name:'Weighted Dips',sets:3,reps:'5-8',rest:150,requires:['dips'],loadHint:'Progressione solo se gomito e tecnica restano stabili.',muscles:['chest','triceps','shoulders'],regions:['lower_chest','triceps','front_delts'],note:'Pressa declinata / tricipiti; non sostituisce il petto alto.',hp:{family:'chest_dip_press',tool:'bodyweight',strength:.90,stability:.82}},
+
+  // SHOULDERS
+  {id:'db_ohp',loc:['home','travel'],name:'Dumbbell Overhead Press',sets:3,reps:'6-10',rest:150,requires:['dumbbells'],loadHint:'Progressione da storico reale; nessun carico “fisso” inventato.',muscles:['shoulders','triceps'],regions:['front_delts','triceps'],note:'Pressa verticale con libertà scapolo-omerale.',hp:{family:'shoulder_vertical_press',tool:'dumbbells',strength:.83,stability:.84}},
+  {id:'barbell_ohp',loc:['home'],name:'Barbell Overhead Press',sets:3,reps:'4-8',rest:180,requires:['barbell','barbell_on_shoulders'],loadHint:'Prima esposizione: trova baseline a RIR ~2; poi progressione comparabile.',muscles:['shoulders','triceps'],regions:['front_delts','triceps'],note:'Variante forza/press verticale; entra solo se il suo valore supera quello delle alternative.',hp:{family:'shoulder_vertical_press',tool:'barbell',strength:1.0,stability:.90}},
+  {id:'pike_pushup',loc:['home','travel'],name:'Pike Push-up / Pike Press',sets:2,reps:'6-12',rest:120,requires:['pike_capability'],loadHint:'Progressione via leva, ROM e reps.',muscles:['shoulders','triceps','core'],regions:['front_delts','triceps','core'],note:'Componente dinamica ginnica; non usata per “varietà” se una pressa stabile è più utile.',hp:{family:'shoulder_vertical_press',tool:'calisthenics',strength:.66,stability:.58,skill:.85}},
+  {id:'db_lateral_raise',loc:['home','travel'],name:'Dumbbell Lateral Raise',sets:2,reps:'10-20',rest:75,requires:['dumbbells'],loadHint:'ROM controllato; progressione reps prima del carico se serve.',muscles:['shoulders'],regions:['side_delts'],note:'Deltoide laterale.',hp:{family:'shoulder_lateral',tool:'dumbbells',strength:.34,stability:.80}},
+  {id:'lean_away_band_lateral',loc:['home','travel'],name:'Lean-away Band Lateral Raise',sets:2,reps:'12-20',rest:60,requires:['bands'],loadHint:'Standardizza leva e tensione.',muscles:['shoulders'],regions:['side_delts'],note:'Variante laterale scelta solo quando completa il profilo di stimolo.',hp:{family:'shoulder_lateral',tool:'band',strength:.28,stability:.64}},
+  {id:'band_lateral_raise',loc:['home','travel'],name:'Band Lateral Raise',sets:2,reps:'15-25',rest:60,requires:['bands'],loadHint:'Tensione ripetibile.',muscles:['shoulders'],regions:['side_delts'],note:'Accessorio a basso costo.',hp:{family:'shoulder_lateral',tool:'band',strength:.22,stability:.64}},
+  {id:'trx_reverse_fly',loc:['home','travel'],name:'TRX Reverse Fly',sets:2,reps:'10-15',rest:75,requires:['trx'],loadHint:'Progressione via angolo del corpo.',muscles:['shoulders','back'],regions:['rear_delts','upper_back'],note:'Deltoide posteriore + controllo scapolare.',hp:{family:'shoulder_rear',tool:'trx',strength:.30,stability:.55,skill:.48}},
+  {id:'band_face_pull',loc:['home','travel'],name:'Band Face Pull',sets:2,reps:'12-20',rest:60,requires:['bands'],loadHint:'Tensione e punto di ancoraggio standardizzati.',muscles:['shoulders','back'],regions:['rear_delts','upper_back'],note:'Rear delts / scapole; complementare, non “correttivo magico”.',hp:{family:'shoulder_rear',tool:'band',strength:.24,stability:.68}},
+  {id:'trx_high_row',loc:['home','travel'],name:'TRX High Row',sets:2,reps:'8-15',rest:75,requires:['trx'],loadHint:'Regola angolo; mantieni traiettoria costante.',muscles:['back','biceps','shoulders'],regions:['upper_back','rear_delts','biceps'],note:'Tirata alta per densità + posteriori spalla.',hp:{family:'shoulder_rear_row',tool:'trx',strength:.42,stability:.58,skill:.38}},
+
+  // BACK
+  {id:'pullup',loc:['home'],name:'Pull-up / Weighted Pull-up',sets:3,reps:'4-8',rest:180,requires:['pullup_bar'],loadHint:'Usa BW o zavorra in base allo storico e al RIR.',muscles:['back','biceps'],regions:['lats','upper_back','biceps'],note:'Forza relativa + dorsali; gomito monitorato.',hp:{family:'pull_vertical',tool:'calisthenics',strength:1.0,stability:.84,skill:.65}},
+  {id:'one_arm_db_row',loc:['home','travel'],name:'One-arm Dumbbell Row',sets:3,reps:'6-12',rest:120,requires:['dumbbells'],loadHint:'Progressione da storico reale.',muscles:['back','biceps'],regions:['lats','upper_back','biceps'],note:'Tirata orizzontale stabile.',hp:{family:'pull_horizontal',tool:'dumbbells',strength:.78,stability:.88}},
+  {id:'barbell_row',loc:['home'],name:'Barbell Row',sets:3,reps:'5-10',rest:150,requires:['barbell'],loadHint:'Prima esposizione: baseline RIR ~2 e busto standardizzato.',muscles:['back','biceps','posterior'],regions:['upper_back','lats','biceps','posterior'],note:'Densità/forza; costo lombare e gomito contano nella selezione.',hp:{family:'pull_horizontal',tool:'barbell',strength:.92,stability:.78}},
+  {id:'trx_row',loc:['home','travel'],name:'TRX Row',sets:3,reps:'8-15',rest:90,requires:['trx'],loadHint:'Progressione via angolo/zavorra se standardizzabile.',muscles:['back','biceps'],regions:['upper_back','lats','biceps'],note:'Tirata orizzontale + controllo corporeo.',hp:{family:'pull_horizontal',tool:'trx',strength:.55,stability:.55,skill:.50}},
+
+  // ARMS
+  {id:'band_pressdown',loc:['home','travel'],name:'Band Triceps Pressdown',sets:2,reps:'10-20',rest:60,requires:['bands'],loadHint:'Reps/tensione standardizzate.',muscles:['triceps'],regions:['triceps'],note:'Tricipite in posizione più accorciata.',hp:{family:'triceps_pressdown',tool:'band',strength:.26,stability:.78}},
+  {id:'band_overhead_triceps',loc:['home','travel'],name:'Band Overhead Triceps Extension',sets:2,reps:'10-20',rest:75,requires:['bands'],loadHint:'Ancoraggio stabile; nessun dolore mediale.',muscles:['triceps'],regions:['triceps'],note:'Lavoro overhead a maggiore lunghezza del capo lungo; entra se tollerato e utile.',hp:{family:'triceps_overhead',tool:'band',strength:.30,stability:.68}},
+  {id:'ez_overhead_triceps',loc:['home'],name:'EZ-bar Overhead Triceps Extension',sets:2,reps:'8-15',rest:90,requires:['ez_bar'],loadHint:'Solo con gomito tranquillo; baseline conservativa.',muscles:['triceps'],regions:['triceps'],note:'Variante overhead più caricabile ma con costo articolare maggiore.',hp:{family:'triceps_overhead',tool:'ez_bar',strength:.56,stability:.74}},
+  {id:'hammer_curl',loc:['home','travel'],name:'Dumbbell Hammer Curl',sets:2,reps:'8-15',rest:75,requires:['dumbbells'],loadHint:'Presa neutra; monitora gomito mediale.',muscles:['biceps'],regions:['biceps','brachialis'],note:'Flessione neutra / brachiale-brachioradiale.',hp:{family:'biceps_neutral',tool:'dumbbells',strength:.44,stability:.86}},
+  {id:'cross_body_hammer',loc:['home','travel'],name:'Cross-body Hammer Curl',sets:2,reps:'8-15',rest:75,requires:['dumbbells'],loadHint:'Ripeti setup e traiettoria.',muscles:['biceps'],regions:['biceps','brachialis'],note:'Variante neutra già presente nello storico.',hp:{family:'biceps_neutral',tool:'dumbbells',strength:.42,stability:.82}},
+  {id:'db_supinated_curl',loc:['home','travel'],name:'Dumbbell Supinated Curl',sets:2,reps:'8-15',rest:75,requires:['dumbbells'],loadHint:'Supinazione solo se gomito tollera.',muscles:['biceps'],regions:['biceps','brachialis'],note:'Flessione supinata; completa il pattern senza rotazioni casuali.',hp:{family:'biceps_supinated',tool:'dumbbells',strength:.46,stability:.82}},
+  {id:'ez_bar_curl',loc:['home'],name:'EZ-bar Curl',sets:2,reps:'6-12',rest:90,requires:['ez_bar'],loadHint:'Baseline conservativa; gomito prima del carico.',muscles:['biceps'],regions:['biceps','brachialis'],note:'Variante più caricabile; presa semi-supinata.',hp:{family:'biceps_supinated',tool:'ez_bar',strength:.62,stability:.90}},
+
+  // LOWER
+  {id:'back_squat',loc:['home'],name:'Back Squat con bilanciere',sets:3,reps:'5-8',rest:180,requires:['barbell','barbell_on_shoulders'],loadHint:'Usa lo storico; baseline ginocchio non è stop automatico.',muscles:['quads','glutes','core'],regions:['quads','glutes','core'],note:'ROM controllato; nessuna profondità forzata.',hp:{family:'knee_squat',tool:'barbell',strength:1.0,stability:.92}},
+  {id:'double_db_squat',loc:['travel'],name:'Double-Dumbbell Squat controllato',sets:3,reps:'8-12',rest:150,requires:['dumbbells'],loadHint:'Carico/tempo/pausa per rendere il set comparabile.',muscles:['quads','glutes','core'],regions:['quads','glutes','core'],note:'Equivalente di stimolo quando sei fuori casa.',hp:{family:'knee_squat',tool:'dumbbells',strength:.72,stability:.82}},
+  {id:'barbell_rdl',loc:['home'],name:'Barbell Romanian Deadlift',sets:3,reps:'5-10',rest:180,requires:['barbell'],loadHint:'Progressione da storico; presa/gomito monitorati.',muscles:['posterior','glutes','back'],regions:['posterior','glutes','upper_back'],note:'Hinge principale.',hp:{family:'hinge_bilateral',tool:'barbell',strength:1.0,stability:.93}},
+  {id:'double_db_rdl',loc:['travel'],name:'Double-Dumbbell Romanian Deadlift',sets:3,reps:'8-15',rest:150,requires:['dumbbells'],loadHint:'Standardizza carico e ROM.',muscles:['posterior','glutes','back'],regions:['posterior','glutes'],note:'Hinge trasferta.',hp:{family:'hinge_bilateral',tool:'dumbbells',strength:.74,stability:.86}},
+  {id:'single_leg_rdl',loc:['home','travel'],name:'Single-leg Dumbbell RDL',sets:2,reps:'8-12',rest:120,requires:['dumbbells'],loadHint:'Stabilità prima del carico.',muscles:['posterior','glutes','core'],regions:['posterior','glutes','core'],note:'Hinge unilaterale / controllo; non default se il bilaterale è più produttivo.',hp:{family:'hinge_unilateral',tool:'dumbbells',strength:.55,stability:.55,skill:.60}},
+  {id:'barbell_hip_thrust',loc:['home'],name:'Barbell Hip Thrust',sets:3,reps:'6-12',rest:150,requires:['barbell','flat_bench'],loadHint:'Progressione da storico.',muscles:['glutes','posterior'],regions:['glutes','posterior'],note:'Estensione d’anca stabile.',hp:{family:'hip_extension',tool:'barbell',strength:.90,stability:.94}},
+  {id:'db_floor_glute_bridge',loc:['travel'],name:'DB / Backpack Floor Glute Bridge',sets:3,reps:'10-20',rest:120,requires:['dumbbells'],loadHint:'DB/zaino sul bacino, setup ripetibile.',muscles:['glutes','posterior'],regions:['glutes','posterior'],note:'Alternativa trasferta.',hp:{family:'hip_extension',tool:'dumbbells',strength:.50,stability:.88}},
+  {id:'single_leg_calf',loc:['home','travel'],name:'Single-leg Calf Raise',sets:2,reps:'10-20',rest:75,requires:['dumbbells'],loadHint:'Pausa e ROM costanti.',muscles:['calves'],regions:['calves'],note:'Polpacci.',hp:{family:'calf',tool:'dumbbells',strength:.40,stability:.84}},
+
+  // CHECHI / ISO-DYNAMIC / CONTROL
+  {id:'trx_body_saw',loc:['home','travel'],name:'TRX Body Saw',sets:2,reps:'8-15',rest:75,requires:['trx'],loadHint:'Progressione via ROM e reps.',muscles:['core'],regions:['core'],note:'Core dinamico + controllo.',hp:{family:'core_dynamic',tool:'trx',strength:.30,stability:.50,skill:.72}},
+  {id:'hollow_hold',loc:['home','travel'],name:'Hollow-body Hold',sets:2,reps:'25-45 sec',rest:60,loadHint:'Tenuta pulita; non a cedimento tecnico.',muscles:['core'],regions:['core'],note:'Isometria di linea e controllo.',hp:{family:'core_iso',tool:'calisthenics',strength:.18,stability:.70,skill:.80,iso:true}},
+  {id:'tuck_lsit',loc:['home','travel'],name:'Tuck / L-sit Progression',sets:2,reps:'15-35 sec',rest:75,requires:['support_lsit'],loadHint:'Progressione via secondi/forma/leva.',muscles:['core','triceps'],regions:['core','triceps'],note:'Compressione + supporto; qualità prima della durata.',hp:{family:'support_iso',tool:'calisthenics',strength:.28,stability:.55,skill:1.0,iso:true}},
+  {id:'support_hold',loc:['home','travel'],name:'Dip Support Hold',sets:2,reps:'20-40 sec',rest:75,requires:['dips'],loadHint:'Depressione scapolare e linea pulita.',muscles:['core','triceps','shoulders'],regions:['core','triceps','front_delts'],note:'Supporto isometrico; non serve inserirlo se press/tricipiti sono già saturi.',hp:{family:'support_iso',tool:'calisthenics',strength:.30,stability:.62,skill:.90,iso:true}},
+  {id:'wall_handstand',loc:['home','travel'],name:'Wall Handstand Hold',sets:2,reps:'20-40 sec',rest:90,requires:['wall_handstand'],loadHint:'Linea, controllo scapolare e respirazione.',muscles:['shoulders','core'],regions:['front_delts','core'],note:'Skill/isometria; dose piccola e non a fallimento.',hp:{family:'inverted_iso',tool:'calisthenics',strength:.30,stability:.45,skill:1.0,iso:true}}
+];
+
+const HP_META={
+  feet_elev_weighted_pushup:{credits:{upper_chest:1,chest:.28,shoulders:.34,triceps:.48},fatigue:.82,time:2.55,performer:.48},
+  feet_elev_band_pushup:{credits:{upper_chest:.92,chest:.25,shoulders:.32,triceps:.45},fatigue:.70,time:2.25,performer:.55},
+  db_bench_press:{credits:{chest:1,upper_chest:.10,shoulders:.20,triceps:.38},fatigue:.75,time:2.45,performer:.12},
+  barbell_bench_press:{credits:{chest:1,upper_chest:.10,shoulders:.20,triceps:.45},fatigue:.90,time:2.75,performer:.08},
+  weighted_dips:{credits:{chest:.88,triceps:.72,shoulders:.25},fatigue:.92,time:2.65,joint:'elbow',performer:.42},
+  db_ohp:{credits:{shoulders:1,triceps:.45},fatigue:.88,time:2.50,performer:.40},
+  barbell_ohp:{credits:{shoulders:1,triceps:.48},fatigue:.98,time:2.75,performer:.34},
+  pike_pushup:{credits:{shoulders:.90,triceps:.42,core:.18},fatigue:.72,time:2.20,performer:.85},
+  db_lateral_raise:{credits:{shoulders:1},fatigue:.36,time:1.50,performer:.15},
+  lean_away_band_lateral:{credits:{shoulders:.92},fatigue:.31,time:1.40,performer:.22},
+  band_lateral_raise:{credits:{shoulders:.82},fatigue:.28,time:1.35,performer:.18},
+  trx_reverse_fly:{credits:{shoulders:.70,back:.40},fatigue:.34,time:1.45,joint:'elbow',performer:.55},
+  band_face_pull:{credits:{shoulders:.55,back:.38},fatigue:.30,time:1.35,joint:'elbow',performer:.50},
+  trx_high_row:{credits:{back:.72,shoulders:.42,biceps:.25},fatigue:.45,time:1.60,joint:'elbow',performer:.55},
+  pullup:{credits:{back:1,biceps:.55},fatigue:.95,time:2.75,joint:'elbow',performer:.72},
+  one_arm_db_row:{credits:{back:1,biceps:.42},fatigue:.74,time:2.15,joint:'elbow',performer:.38},
+  barbell_row:{credits:{back:1,biceps:.42,posterior:.12},fatigue:.92,time:2.60,joint:'elbow',performer:.24},
+  trx_row:{credits:{back:.90,biceps:.38},fatigue:.54,time:1.80,joint:'elbow',performer:.62},
+  band_pressdown:{credits:{triceps:1},fatigue:.30,time:1.30,joint:'elbow',performer:.06},
+  band_overhead_triceps:{credits:{triceps:1},fatigue:.34,time:1.40,joint:'elbow',performer:.08},
+  ez_overhead_triceps:{credits:{triceps:1},fatigue:.43,time:1.55,joint:'elbow',performer:.05},
+  hammer_curl:{credits:{biceps:1},fatigue:.34,time:1.45,joint:'elbow',performer:.08},
+  cross_body_hammer:{credits:{biceps:1},fatigue:.34,time:1.45,joint:'elbow',performer:.10},
+  db_supinated_curl:{credits:{biceps:1},fatigue:.36,time:1.50,joint:'elbow',performer:.08},
+  ez_bar_curl:{credits:{biceps:1},fatigue:.42,time:1.60,joint:'elbow',performer:.05},
+  back_squat:{credits:{quads:1,glutes:.45,core:.15},fatigue:1.15,time:3.25,joint:'knee',performer:.26},
+  double_db_squat:{credits:{quads:1,glutes:.45,core:.18},fatigue:1.02,time:2.95,joint:'knee',performer:.30},
+  barbell_rdl:{credits:{posterior:1,glutes:.58,back:.10},fatigue:1.08,time:3.10,joint:'elbow',performer:.22},
+  double_db_rdl:{credits:{posterior:1,glutes:.58,back:.08},fatigue:1.00,time:2.90,joint:'elbow',performer:.24},
+  single_leg_rdl:{credits:{posterior:.78,glutes:.55,core:.24},fatigue:.80,time:2.35,joint:'elbow',performer:.58},
+  barbell_hip_thrust:{credits:{glutes:1,posterior:.30},fatigue:.78,time:2.30,performer:.10},
+  db_floor_glute_bridge:{credits:{glutes:1,posterior:.25},fatigue:.68,time:2.00,performer:.10},
+  single_leg_calf:{credits:{calves:1},fatigue:.43,time:1.55,performer:.20},
+  trx_body_saw:{credits:{core:1},fatigue:.42,time:1.50,performer:.72},
+  hollow_hold:{credits:{core:.82},fatigue:.24,time:1.20,performer:.85},
+  tuck_lsit:{credits:{core:.78,triceps:.22},fatigue:.32,time:1.35,performer:1.0},
+  support_hold:{credits:{core:.38,triceps:.28,shoulders:.18},fatigue:.30,time:1.30,performer:.95},
+  wall_handstand:{credits:{shoulders:.30,core:.42},fatigue:.34,time:1.45,performer:1.0}
+};
+Object.assign(CB_META,HP_META);
+
+const HP_FAMILY={
+  weighted_pushup:'chest_horizontal_press',band_resisted_pushup:'chest_horizontal_press',trx_chest_press:'chest_horizontal_press',band_mid_fly:'chest_horizontal_isolation',band_high_low_fly:'chest_lower_isolation',
+  db_lateral_trx_reverse:'shoulder_mixed',band_reverse_fly:'shoulder_rear',seated_db_calf:'calf',
+  ...Object.fromEntries(HP_CATALOG.map(x=>[x.id,x.hp.family]))
+};
+function hpFamilyOf(e){return e?.hp?.family||HP_FAMILY[e?.id]||e?.id||'unknown'}
+function hpSets(e){try{return cbSessionSetCount(e)}catch(_){return Array.isArray(e?.reps)?e.reps.length:(+e?.sets||0)}}
+function hpFamilyStats(fam,date=todayISO(),days=14){
+  let sets=0,last=null;
+  for(const s of state.history||[]){
+    if(!cb103SessionHasRealWork(s))continue;
+    const gap=daysBetween(date,s.date);
+    if(gap<0||gap>=days)continue;
+    for(const e of s.exercises||[]){
+      if((HP_FAMILY[e.id]||e.id)!==fam)continue;
+      const n=hpSets(e);
+      if(n<=0)continue;
+      sets+=n;
+      if(!last||s.date>last)last=s.date;
+    }
+  }
+  return {sets,last,days:last?Math.max(0,daysBetween(date,last)):99};
+}
+function hpLastSkillDate(){
+  let last=null;
+  const skillF=new Set(['core_iso','support_iso','inverted_iso','core_dynamic']);
+  for(const s of state.history||[]){
+    if(!cb103SessionHasRealWork(s))continue;
+    for(const e of s.exercises||[]){
+      if(skillF.has(HP_FAMILY[e.id]||e.id) && hpSets(e)>0 && (!last||s.date>last))last=s.date;
+    }
+  }
+  return last;
+}
+function hpRequirementOK(r,loc){
+  const eq=state.equipment?.[loc]||SEED.equipment?.[loc]||{};
+  if(r==='dumbbells')return (+eq.adjustable_dumbbells_each_kg||0)>0||(+eq.db_each_kg||0)>0||(+eq.dumbbells_count||0)>0;
+  if(r==='barbell')return !!eq.barbell;
+  if(r==='ez_bar')return !!eq.ez_bar;
+  if(r==='flat_bench')return !!eq.flat_bench;
+  if(r==='pullup_bar')return !!eq.pullup_bar;
+  if(r==='dips')return !!eq.dips;
+  if(r==='trx')return !!eq.trx;
+  if(r==='bands')return !!eq.bands;
+  if(r==='barbell_on_shoulders')return !!eq.barbell_on_shoulders;
+  if(r==='safe_bench_rack')return !!eq.commercial_rack_assumed||state.hp?.safeBenchRack===true;
+  if(r==='pike_capability')return state.capabilities?.pike!==false;
+  if(r==='wall_handstand')return state.capabilities?.wall_handstand!==false;
+  if(r==='support_lsit')return state.capabilities?.support_lsit!==false;
+  return true;
+}
+function hpEquipmentAllows(e,loc){return (e.requires||[]).every(r=>hpRequirementOK(r,loc))}
+function hpPoolAll(ctx){
+  const loc=ctx.location==='travel'?'travel':'home';
+  return HP_CATALOG.filter(e=>e.loc.includes(loc)&&hpEquipmentAllows(e,loc)).map(deepClone);
+}
+cbCandidatePool=function(ctx){
+  hpEnsure();
+  let arr=hpPoolAll(ctx);
+  // Articular filter is a gate/penalty, not a diagnosis.
+  if(ctx.elbow>=6)arr=arr.filter(e=>!['ez_overhead_triceps','ez_bar_curl','barbell_row'].includes(e.id));
+  if(ctx.elbow>=8)arr=arr.filter(e=>!(CB_META[e.id]?.joint==='elbow'));
+  if(ctx.knee>=8)arr=arr.filter(e=>!(CB_META[e.id]?.joint==='knee'));
+  return arr;
+};
+
+/* ---------- systematic variation, not muscle confusion ---------- */
+const HP_BASE_MARGINAL=cbA6MarginalValue;
+cbA6MarginalValue=function(e,setsAlready,planned,ctx,ms){
+  let v=HP_BASE_MARGINAL(e,setsAlready,planned,ctx,ms);
+  const fam=hpFamilyOf(e),fs=hpFamilyStats(fam,ctx.date,14);
+  // systematic family exposure: modest leverage only; muscle demand remains primary.
+  const recency=fs.days>=7?1.08:fs.days>=4?1.05:fs.days===3?1.02:fs.days===2?.98:fs.days===1?.90:.78;
+  const volume=fs.sets>=10?.91:fs.sets>=7?.96:fs.sets<=2?1.04:1;
+  v*=recency*volume;
+
+  // Preserve comparable anchors; new exercises need a reason to displace an established one.
+  const exact=cb103LastExposure?.(e.id);
+  if(exact){
+    const st=state.ledger?.[e.id]?.status||'';
+    v*=['PROMOTE','ADAPT','CONSOLIDATE'].includes(st)?1.055:1.025;
+  }else v*=.965;
+
+  // Do not stack redundant variants of the same family in the same session.
+  const sameFamily=(planned||[]).some(p=>hpFamilyOf(p.ex)===fam&&p.ex.id!==e.id);
+  if(sameFamily)v*=.58;
+
+  // Modest strength leverage when the strength gap is meaningful. Never overrides recovery/safety.
+  const strengthNeed=cbA9Needs(ctx,ms).strength||.3;
+  const strength=e.hp?.strength||.3;
+  v*=1+.055*strengthNeed*strength;
+
+  // Dynamic/skill variants are useful only if performer exposure is stale.
+  if((e.hp?.skill||0)>.65){
+    const last=hpLastSkillDate(),gap=last?daysBetween(ctx.date,last):99;
+    const skillNeed=clamp(.25+gap/8,0.25,1.08);
+    v*=.90+.12*skillNeed;
+  }
+  return v;
+};
+
+cbSetLimit=function(e){
+  if(['barbell_bench_press','barbell_ohp','pullup','barbell_row','back_squat','barbell_rdl'].includes(e.id))return 4;
+  if(['feet_elev_weighted_pushup','db_bench_press','db_ohp','weighted_dips','one_arm_db_row','barbell_hip_thrust','double_db_squat','double_db_rdl'].includes(e.id))return 3;
+  if(['hollow_hold','tuck_lsit','support_hold','wall_handstand','pike_pushup','trx_body_saw'].includes(e.id))return 2;
+  return 3;
+};
+cbMinUsefulSets=function(e){return 2};
+cbTargetRir=function(e,ctx){
+  if(e.hp?.iso)return 'RPE 7-8/10';
+  if(['ez_bar_curl','db_supinated_curl','hammer_curl','cross_body_hammer','ez_overhead_triceps','band_overhead_triceps','band_pressdown'].includes(e.id)){
+    return ctx.elbow>=3?'2-3':'1-2';
+  }
+  const acc=['db_lateral_raise','lean_away_band_lateral','band_lateral_raise','trx_reverse_fly','band_face_pull','single_leg_calf'].includes(e.id);
+  if(ctx.fatigue>=7||ctx.energy<=4)return acc?'2-3':'2-3';
+  return acc?'1-2':'2 → 1-2';
+};
+cbSequenceRank=function(e){
+  if(['barbell_bench_press','db_bench_press','feet_elev_weighted_pushup','db_ohp','barbell_ohp','weighted_dips','pullup','one_arm_db_row','barbell_row','back_squat','double_db_squat','barbell_rdl','double_db_rdl','barbell_hip_thrust'].includes(e.id))return 1;
+  if(['pike_pushup','trx_row','trx_high_row','single_leg_rdl'].includes(e.id))return 2;
+  if(e.hp?.iso)return 4;
+  return 3;
+};
+cbProgressionHint=function(e){
+  const l=state.ledger?.[e.id],x=cb103LastExposure?.(e.id);
+  if(!l||!x)return `${e.loadHint||''} · BASELINE: scegli setup/carico che chiuda il range con ~RIR 2; nessun aumento automatico finché non esiste un confronto reale.`;
+  const s=l.lastSummary?` Ultima: ${l.lastSummary}.`:'';
+  if(l.status==='PROMOTE')return `${e.loadHint||''} · PROMOTE: aggiungi reps totali o il minimo step di carico mantenendo il target RIR.${s}`;
+  if(l.status==='ADAPT')return `${e.loadHint||''} · ADAPT: aumenta difficoltà solo rispetto all'ultima comparabile.${s}`;
+  if(l.status==='CONSOLIDATE')return `${e.loadHint||''} · CONSOLIDATE: stesso setup, migliora reps/qualità prima di aumentare.${s}`;
+  if(l.status==='REGRESS')return `${e.loadHint||''} · REGRESS: riduci costo o scegli variante tollerata.${s}`;
+  return `${e.loadHint||''} · HOLD: mantieni e raccogli un'esposizione più comparabile.${s}`;
+};
+
+/* ---------- stronger history integrity signature ---------- */
+cb103IntegritySig=function(){
+  const rows=(state.history||[]).map(s=>({
+    id:s.id,date:s.date,focus:s.focus,
+    ex:(s.exercises||[]).map(e=>({
+      id:e.id,name:e.name,regions:e.regions,muscles:e.muscles,
+      sets:cb103Setlog(e).map(x=>({load:x.load,reps:x.reps,rir:x.rir,pain:x.pain,tech:x.tech,completed:x.completed,done:x.done}))
+    }))
+  }));
+  return cbHashString(JSON.stringify(rows));
+};
+
+/* ---------- performer / Chechi iso-dynamic micro-dose ---------- */
+function hpPerformanceNeed(ctx){
+  const last=hpLastSkillDate(),gap=last?Math.max(0,daysBetween(ctx.date,last)):99;
+  const p=(state.master?.priorities||[]).find(x=>x.name==='performance')?.weight||1.15;
+  return clamp((.24+gap/8)*p/1.15,.20,1.10);
+}
+function hpConflictPenalty(e,items){
+  const ids=new Set((items||[]).map(x=>x.id));
+  const shoulderSets=(items||[]).filter(x=>['db_ohp','barbell_ohp','pike_pushup','db_lateral_raise','lean_away_band_lateral','band_lateral_raise','weighted_dips'].includes(x.id)).reduce((a,x)=>a+(+x.sets||0),0);
+  const triSets=(items||[]).filter(x=>['weighted_dips','db_ohp','barbell_ohp','band_pressdown','band_overhead_triceps','ez_overhead_triceps'].includes(x.id)).reduce((a,x)=>a+(+x.sets||0),0);
+  if(e.id==='wall_handstand'&&shoulderSets>=5)return .55;
+  if(['tuck_lsit','support_hold'].includes(e.id)&&triSets>=5)return .65;
+  if(e.id==='trx_body_saw'&&ids.has('barbell_rdl'))return .90;
+  return 1;
+}
+function hpAddPerformerDose(p,ctx){
+  if(!p||!['RESISTANCE','RESISTANCE_LIGHT'].includes(p.mode))return p;
+  const need=hpPerformanceNeed(ctx),spare=(+ctx.time||0)-(+p.estimatedMin||0);
+  if(need<.66||spare<5||ctx.energy<5||ctx.fatigue>6)return p;
+  const candidates=hpPoolAll(ctx).filter(e=>['hollow_hold','tuck_lsit','support_hold','wall_handstand','trx_body_saw'].includes(e.id));
+  const ranked=candidates.map(e=>{
+    const fs=hpFamilyStats(hpFamilyOf(e),ctx.date,14);
+    const rec=fs.days>=6?1.12:fs.days>=3?1.03:fs.days<=1?.72:.92;
+    const s=(e.hp?.skill||.5)/Math.max(.2,CB_META[e.id]?.fatigue||.4)*rec*hpConflictPenalty(e,p.items);
+    return {e,s};
+  }).sort((a,b)=>b.s-a.s);
+  const pick=ranked[0]?.e;if(!pick)return p;
+  const x=deepClone(pick);x.sets=2;x.rir='RPE 7-8/10';x.loadHint=cbProgressionHint(x);x.engineValue=Math.round(ranked[0].s*100)/100;
+  p.items=[...(p.items||[]),x];
+  p.estimatedMin=Math.min(ctx.time,Math.round((+p.estimatedMin||0)+4));
+  p.label=`${p.label} + CONTROL`;
+  p.analysis=p.analysis||{};p.analysis.inference=p.analysis.inference||[];
+  p.analysis.inference.push(`Chechi/iso-dynamic micro-dose: ${x.name} inserito perché la componente controllo è sottoesposta e il budget di fatica/tempo lo consente.`);
+  return p;
+}
+
+/* ---------- true hybrid strength + endurance plan (I90-inspired concept, not a copy) ---------- */
+function hpHybridPlan(ctx,ms,md){
+  const pool=cbCandidatePool(ctx);
+  const ranked=pool.filter(e=>!e.hp?.iso).map(e=>({e,v:cbA6MarginalValue(e,0,[],ctx,ms)})).sort((a,b)=>b.v-a.v);
+  const anchors=[];
+  for(const row of ranked){
+    if(anchors.length>=2)break;
+    const fam=hpFamilyOf(row.e);
+    const group=/squat|hinge|hip_extension|calf/.test(fam)?'lower':'upper';
+    if(!anchors.some(a=>a.group===group)||anchors.length===0)anchors.push({group,e:deepClone(row.e),v:row.v});
+  }
+  const items=[];
+  anchors.slice(0,ctx.time>=50?2:1).forEach((a,i)=>{
+    a.e.sets=i===0?3:2;a.e.rir='2';a.e.loadHint=cbProgressionHint(a.e);a.e.engineValue=Math.round(a.v*100)/100;items.push(a.e);
+  });
+  const baseline=state.constraints?.knee?.baseline??5;
+  const runOK=state.modalities?.running_available!==false && ctx.knee<=baseline && !ctx.newSwelling&&!ctx.locking&&!ctx.instability&&!ctx.functionLoss;
+  const blockMin=ctx.time>=55?14:10;
+  items.push({
+    id:runOK?'hp_run_engine':'hp_lowimpact_engine',
+    name:runOK?'Corsa tecnica / intervalli moderati':'Conditioning low-impact',
+    sets:1,reps:`${blockMin} min`,rir:'RPE 5-7/10',rest:0,logType:'duration',nonProgressive:true,
+    muscles:['conditioning','performance'],
+    loadHint:runOK?'Alterna tratti facili e moderati; nessuno sprint massimale.':'Camminata rapida / marcia / locomozione controllata senza salti.',
+    note:'Conditioning subordinato a recupero e priorità ipertrofiche; non è un WOD casuale.'
+  });
+  if(ctx.time>=50)items.push({id:'active_mobility',name:'Mobility / linee performer',sets:1,reps:'5 min',rir:'facile',rest:0,logType:'duration',nonProgressive:true,muscles:['performance'],loadHint:'Scapole, torace, anche, caviglie.',note:'ROM attivo, nessun forcing.'});
+  return {
+    mode:'CROSSFIT_HYBRID',focus:'hybrid_power',label:'HYBRID POWER · STRENGTH + ENGINE',
+    estimatedMin:Math.min(ctx.time,Math.round((anchors.length?18:0)+blockMin+6)),
+    note:'Approccio ibrido usato solo quando non sottrae una finestra ad alto valore a ipertrofia/forza.',
+    items,
+    analysis:{muscles:ms,evidence:[
+      'Concurrent training può coesistere con forza e ipertrofia, ma frequenza/intensità/modalità del conditioning possono creare interferenza.',
+      'La seduta protegge prima gli anchor di forza e usa conditioning dosato, non circuiti casuali.'
+    ],personal:[md.why],inference:[
+      'I90 è usato come ispirazione concettuale forza+endurance, non come protocollo copiato.',
+      'Se la domanda ipertrofica è alta, H12 preferisce resistance puro.'
+    ],a11:{hybrid:true}}
+  };
+}
+cbA8CrossfitPlan=hpHybridPlan;
+
+/* ---------- objective hierarchy: physique first, hybrid meaningfully present ---------- */
+function hpMasterFit(mode,needs){
+  const v=CB_A9_MODE_VECTOR[mode]||CB_A9_MODE_VECTOR.RESISTANCE;
+  return (
+    .36*needs.hypertrophy*v.hypertrophy +
+    .18*needs.aesthetics*v.hypertrophy +
+    .14*needs.strength*v.strength +
+    .12*needs.control*v.control +
+    .10*needs.athletic*v.athletic +
+    .06*needs.conditioning*v.conditioning +
+    .04*needs.mobility*v.mobility
+  );
+}
+cb10Scenarios=function(ctx,ms){
+  const base=cbA7Scenarios(ctx,ms),needs=cbA9Needs(ctx,ms),sys=cbA6SystemicReadiness(ctx),h=cbV9Horizon(ctx);
+  const out=base.map(s=>{
+    const fit=hpMasterFit(s.mode,needs),cal=cbA9Calibration(s.mode);
+    const conf=Math.max(s.modeModel?.confidence||0,cal.confidence||0);
+    const personalBound=.015+.045*conf;
+    const personalRaw=clamp((s.modeModel?.factor||1)*(cal.factor||1),1-personalBound,1+personalBound);
+    let score=(.70*s.score+.30*fit)*personalRaw;
+    const highPhysique=needs.hypertrophy>=.72||needs.aesthetics>=.74;
+    if(highPhysique&&!['RESISTANCE','RESISTANCE_LIGHT'].includes(s.mode))score*=.79;
+    if(needs.hypertrophy>=.60&&s.mode==='INTERVALS')score*=.84;
+    if(s.mode==='CROSSFIT_HYBRID'){
+      const hybridNeed=(needs.control+needs.athletic+needs.conditioning)/3;
+      score*=1+.13*Math.max(0,hybridNeed-.45);
+      if(needs.hypertrophy>=.78)score*=.82;
+    }
+    if(s.mode==='PERFORMER_RECOVERY'&&needs.control>=.65&&sys.score<.95)score*=1.08;
+    if(['RESISTANCE','RESISTANCE_LIGHT'].includes(s.mode)&&h.scarcity>.55)score*=1.05;
+    return {...s,scoreA10:score,confidence:conf,personalFactor:personalRaw,masterFit:fit};
+  }).sort((a,b)=>b.scoreA10-a.scoreA10);
+  return {rows:out,needs,sys,h};
+};
+
+const HP_BASE_PLAN=cb10Plan;
+cb10Plan=function(ctx){
+  const ms=cbA6MuscleStates(ctx),md=cb10Choose(ctx,ms),phase=cbPhysiqueSignal();
+  let p;
+  if(md.mode==='GATE')p=cbA6GatePlan(ctx,ms,md);
+  else if(md.mode==='RECOVERY')p=cbA6RecoveryPlan(ctx,ms,md);
+  else if(md.mode==='AEROBIC_EASY')p=cbEasyAerobicPlan(ctx,ms,md.why);
+  else if(md.mode==='INTERVALS')p=cbIntervalsPlan(ctx,ms,md.why);
+  else if(md.mode==='PERFORMER_RECOVERY')p=cbPerformerRecoveryPlan(ctx,ms,md.why);
+  else if(md.mode==='CROSSFIT_HYBRID')p=hpHybridPlan(ctx,ms,md);
+  else p=cbA6ResistancePlan(ctx,ms,md,md.mode==='RESISTANCE_LIGHT');
+  if(['RESISTANCE','RESISTANCE_LIGHT'].includes(p.mode))p=hpAddPerformerDose(p,ctx);
+  p.phase=phase;p.analysis=p.analysis||{};
+  p.analysis.a10={sys:md.sys,horizon:md.h,scenarios:md.rows||[],needs:md.needs,chosen:md.chosen||null,experiment:null};
+  p.analysis.muscles=ms;
+  p.analysis.personal=p.analysis.personal||[];p.analysis.inference=p.analysis.inference||[];
+  p.analysis.personal.unshift(md.why);
+  p.analysis.inference.push('H12: nessuna rotazione casuale. Varianti/angoli entrano solo per domanda, recupero, storico, famiglia di stimolo e attrezzatura.');
+  p.analysis.inference.push('H12: esercizi anchor ricevono un piccolo vantaggio di continuità; una variante nuova deve offrire valore superiore per entrare.');
+  p.analysis.inference.push('H12: componente Chechi/iso-dynamic e conditioning sono strumenti subordinati al MASTER, non obblighi giornalieri.');
+  return p;
+};
+buildPlan=function(ctx){return cbAttachDecisionMeta(cb10Plan(ctx),ctx)};
+chooseFocus=function(){return 'H12'};
+
+/* ---------- plan signatures invalidate correctly when history detail changes ---------- */
+const HP_BASE_SIGNATURE=cb10Signature;
+cb10Signature=function(ctx){
+  return cbHashString(`${HP.version}|${HP.engine}|${HP_BASE_SIGNATURE(ctx)}|${cb103IntegritySig()}|${state.hp?.safeBenchRack?'rack1':'rack0'}`);
+};
+
+/* ---------- readable mode labels / guidance ---------- */
+const HP_BASE_GUIDE=cb10Guide;
+cb10Guide=function(mode){
+  if(String(mode).toUpperCase()==='CROSSFIT_HYBRID'){
+    return `<div class="card v10Guide"><h3>HybridPower · forza + endurance</h3>
+      <p class="small">Non è un WOD casuale. H12 protegge prima gli anchor di forza/ipertrofia; conditioning entra solo se recupero, ginocchio, storico e prossime 72 h lo rendono compatibile.</p>
+      <p class="tiny muted">I90 è un riferimento concettuale per l'ibrido forza/endurance, non un protocollo copiato né una prova scientifica dell'algoritmo.</p>
+    </div>`;
+  }
+  return HP_BASE_GUIDE(mode);
+};
+
+/* ---------- audit screen: expose exactly what H12 considered ---------- */
+function hpCandidateAuditHTML(ctx){
+  const ms=cbA6MuscleStates(ctx),rows=cbCandidatePool(ctx).map(e=>{
+    const v=cbA6MarginalValue(e,0,[],ctx,ms);
+    const last=cb103LastExposure?.(e.id),fam=hpFamilyOf(e),fs=hpFamilyStats(fam,ctx.date,14);
+    return {e,v,last,fam,fs};
+  }).sort((a,b)=>b.v-a.v).slice(0,12);
+  const eq=state.equipment?.home||SEED.equipment?.home||{};
+  const benchBlocked=ctx.location==='home'&&eq.barbell&&eq.flat_bench&&!hpRequirementOK('safe_bench_rack','home');
+  return `<div class="card hpAudit"><h3>H12 · candidati realmente confrontati</h3>
+    <p class="small muted">Nessun sorteggio. Il punteggio è euristico e serve solo a ordinare opzioni compatibili col MASTER; non è una misura biologica.</p>
+    ${rows.map(r=>`<div class="row"><span class="grow"><div class="title">${esc(r.e.name)}</div><div class="sub">${esc(r.fam)} · famiglia ${r.fs.sets} set/14g · ultima famiglia ${r.fs.days===99?'—':r.fs.days+'g'} · ultimo esercizio ${r.last?.session?.date||'—'}</div></span><span class="hpScore">${r.v.toFixed(2)}</span></div>`).join('')}
+    ${benchBlocked?`<div class="card hpBlocked"><b>Barbell Bench Press esclusa</b><div class="small">Hai bilanciere + panca, ma il profilo non conferma un rack/spotter/setup di racking sicuro. H12 non la auto-prescrive finché non lo abiliti in PROFILO.</div></div>`:''}
+  </div>`;
+}
+const HP_BASE_COACH=renderCoach;
+renderCoach=function(){
+  hpEnsure();HP_BASE_COACH();hpBrandDom();
+  const ctx=cbV9Ctx(todayISO(),false),hero=$('#view .hero');
+  hero?.insertAdjacentHTML('afterend',hpCandidateAuditHTML(ctx));
+  $$('.engineTag').forEach(x=>x.textContent='H12');
+  const t=$('#view .v10Kicker');if(t)t.textContent=t.textContent.replace(/A10.*/,'H12');
+};
+
+/* ---------- profile: equipment safety + transparent rules ---------- */
+const HP_BASE_PROFILE=renderProfile;
+renderProfile=function(){
+  hpEnsure();HP_BASE_PROFILE();hpBrandDom();
+  $$('#view h3').forEach(h=>{if(/CALI POWER/i.test(h.textContent))h.textContent='HYBRIDPOWER HP1.2 LUX'});
+  const hero=$('#view .hero');
+  if(hero)hero.insertAdjacentHTML('afterend',`<div class="card hpAudit">
+    <div class="v10SectionHead"><div><h3>HYBRIDPOWER HP1.2 LUX · H12</h3><div class="sub">Physique + strength + Chechi control + hybrid engine</div></div><span class="hpBadge">DETERMINISTICO</span></div>
+    <p class="small">Storico reale → recupero → luogo/attrezzatura → domanda muscolare → famiglie di stimolo → esercizio → progressione.</p>
+    <label style="margin-top:10px"><input id="hpSafeRack" type="checkbox" style="width:auto;min-height:auto" ${state.hp.safeBenchRack?'checked':''}> Ho un rack/spotter/setup realmente sicuro per Barbell Bench Press</label>
+    <p class="tiny muted">Finché è disattivato, il bilanciere può entrare in OHP/row/squat/RDL ma NON viene prescritto automaticamente per bench press.</p>
+  </div>`);
+  const cb=$('#hpSafeRack');if(cb)cb.onchange=()=>{state.hp.safeBenchRack=!!cb.checked;state.activePlan=null;save();renderProfile()};
+};
+
+/* ---------- today/workout/progress wrappers ---------- */
+const HP_BASE_TOP=cb10Top;
+cb10Top=function(status){
+  return HP_BASE_TOP(status)
+    .replace(/V10\.2 · ENGINE A10\.2/g,'HYBRIDPOWER · H12')
+    .replace(/A10 legge/g,'H12 legge')
+    .replace(/<b>A10<\/b>/g,'<b>H12</b>');
+};
+const HP_BASE_TODAY=renderToday;
+renderToday=function(){hpEnsure();HP_BASE_TODAY();hpBrandDom();};
+const HP_BASE_WORKOUT=renderWorkout;
+renderWorkout=function(){hpEnsure();HP_BASE_WORKOUT();hpBrandDom();};
+const HP_BASE_PROGRESS=renderProgress;
+renderProgress=function(){
+  hpEnsure();HP_BASE_PROGRESS();hpBrandDom();
+  const k=$('#view .v10Kicker');if(k)k.textContent='STORICO · HYBRIDPOWER';
+  if($('#v103_json'))$('#v103_json').onclick=()=>download(`HYBRIDPOWER_BACKUP_${todayISO()}.json`,JSON.stringify(state,null,2));
+};
+const HP_BASE_CLOSE=closeAndAdapt;
+closeAndAdapt=function(){
+  HP_BASE_CLOSE();
+  hpEnsure();state.hp.lastCloseAt=Date.now();cbLocalPersist();
+};
+
+/* ---------- initial migration ---------- */
+hpEnsure();
+CB_REMOTE_APPLY=true;cbLocalPersist();CB_REMOTE_APPLY=false;
+hpBrandDom();
+nav('today');
+setTimeout(()=>{ if(cbHasCloud()) cbCloudBoot(); },350);
+</script>
+
 </body>
 </html>
