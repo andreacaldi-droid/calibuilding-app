@@ -1,0 +1,10 @@
+HYBRIDPOWER HP1.3.2 · H13 SAFE SYNC
+
+Correzioni di sicurezza dati:
+- uno stato cloud con meno storico non può più sovrascrivere automaticamente un locale più ricco;
+- collegare un codice Sync che farebbe perdere sedute viene bloccato;
+- prima di applicare uno stato remoto viene salvata una copia locale di emergenza;
+- importare un JSON rende il backup locale lo stato più recente e protetto;
+- in un conflitto, se il locale contiene più storico, il locale viene inviato al cloud invece di essere cancellato.
+
+MASTER, motore H13, esercizi, timer, storico e grafica non vengono modificati.
