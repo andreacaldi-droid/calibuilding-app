@@ -431,59 +431,11 @@ body{background:
 
 </style>
 
-<style id="hp12-lux-theme">
-:root{
-  --bg:#5E114B !important;
-  --bg2:#7A163F !important;
-  --card:#6C1348 !important;
-  --panel:#711539 !important;
-  --line:#E3B865 !important;
-  --text:#FFF7EE !important;
-  --muted:#F0D7BE !important;
-  --primary:#C92B4F !important;
-  --secondary:#8F2AC8 !important;
-  --accent:#E3B865 !important;
-  --good:#E3B865 !important;
-  --warn:#F4C66A !important;
-  --bad:#C92B4F !important;
-}
-html,body{background:linear-gradient(180deg,#7A163F 0%,#5E114B 52%,#8F2AC8 100%) !important;}
-body{color:var(--text)!important;}
-.card,.panel,.sheet,.modal,.drawer,.tile,.row-card,.exercise-card,.session-card,.stat-card,.cta-card{
-  background:rgba(110,21,72,.78)!important;
-  border:1px solid rgba(227,184,101,.45)!important;
-  box-shadow:0 10px 30px rgba(72,0,45,.22)!important;
-}
-button,.btn,.chip.active,.nav .active,.tab.active,.primary{
-  background:linear-gradient(135deg,#C92B4F 0%,#E3B865 100%)!important;
-  color:#2C071C!important;
-  border:0!important;
-}
-.secondary,.ghost,.outline{
-  background:rgba(143,42,200,.18)!important;
-  color:var(--text)!important;
-  border:1px solid rgba(227,184,101,.45)!important;
-}
-input,select,textarea{
-  background:rgba(255,247,238,.10)!important;
-  color:var(--text)!important;
-  border:1px solid rgba(227,184,101,.40)!important;
-}
-small,.muted,.subtle,.caption{color:var(--muted)!important;}
-a,.link,.highlight,.decision-up,.decision-maintain{color:#FFE8A6!important;}
-.progress,.bar,.ring-bg{background:rgba(255,247,238,.18)!important;}
-.topbar,.navbar,.bottom-nav,header,footer{
-  backdrop-filter:blur(10px)!important;
-  background:rgba(94,17,75,.55)!important;
-  border-color:rgba(227,184,101,.25)!important;
-}
-</style>
-
 </head>
 <body>
 <div class="app">
   <div class="topbar">
-    <div><div class="brand">HYBRID<span>POWER</span></div><div class="version">Adaptive Hybrid Physique & Performance Coach · HP1.2 · H12</div></div>
+    <div><div class="brand">HYBRID<span>POWER</span></div><div class="version">Adaptive Hybrid Physique & Performance Coach · HP1.3 · H13</div></div>
     <div class="chips"><span class="chip accent">MASTER LOCKED</span></div>
   </div>
   <div id="view"></div>
@@ -498,7 +450,7 @@ a,.link,.highlight,.decision-up,.decision-maintain{color:#FFE8A6!important;}
 
 <script>
 const KEY='CALIBUILDING_V01_STATE';
-const VERSION='1.1.0';
+const VERSION='1.3.0';
 const SEED={"version":"0.1.0","profile":{"sex":"male","age":35,"height_cm":183,"weight_kg":80,"experience_years":15,"level":"advanced","role":"performer"},"master":{"locked":true,"goal":"Molto muscoloso e visibilmente ipertrofico, relativamente asciutto, armonioso ed elegante; mantenere mobilita, coordinazione, agilita, dinamismo e credibilita scenica.","priorities":[{"name":"upper_chest","label":"Petto alto","weight":1.35},{"name":"shoulders","label":"Spalle","weight":1.3},{"name":"arms","label":"Braccia","weight":1.25},{"name":"back","label":"Schiena / densita","weight":1.0},{"name":"lower","label":"Lower / armonia / forza","weight":1.0},{"name":"performance","label":"Agilita / performer","weight":1.15}],"references":[{"name":"Anatoly / Vladimir Shmondenko","meaning":"densita muscolare + forza relativa + atletismo"},{"name":"Yuri Chechi","meaning":"controllo ginnico + linee atletiche + padronanza del corpo"},{"name":"Brad Pitt in Troy","meaning":"proporzioni magre, armoniose, cinematiche"},{"name":"Tom Hardy in Warrior","meaning":"fisico denso, atletico, combattivo"}],"rules":["Il MASTER resta stabile; i metodi sono flessibili.","Casa e trasferta hanno pari dignita fisiologica.","Preservare lo stimolo, non il nome dell'esercizio.","Niente sequenza A-B-C-D obbligatoria.","Niente muscle confusion o volume di riempimento.","Pump e fatica sono dati, non prova sufficiente di ipertrofia.","Progressione solo da esposizioni sufficientemente comparabili.","Il tempo disponibile e un input, non un tetto fisso.","Multidisciplinare non significa casuale.","Non trasformare il soggetto ne in bodybuilder rigido ne in atleta di danza professionistica."]},"equipment":{"home":{"barbell":true,"ez_bar":true,"pullup_bar":true,"dips":true,"adjustable_dumbbells_each_kg":30,"flat_bench":true,"trx":true,"backpack":true,"bands":true,"plates_total_kg":90,"barbell_on_shoulders":true,"commercial_rack_assumed":false},"travel":{"pullup_bar":false,"dips":true,"trx":true,"backpack_kg":30,"bands":true,"adjustable_dumbbells_each_kg":30,"dumbbells_count":2}},"constraints":{"knee":{"baseline":5,"history":"Pregressa storia articolare ginocchio/anca DX: usare il baseline e i segnali funzionali come gate.","split_squat_default":false,"notes":"Baseline 5/10 non e stop automatico. Reagire a aumento significativo, gonfiore nuovo, instabilita, blocco, perdita ROM/funzione o sintomo diverso."},"elbow":{"history":"Irritazione mediale/interna ricorrente: monitorare tirate e flessione del gomito.","notes":"Performance preservata non esclude irritazione. Adattare se peggiora chiaramente."}},"history":[],"ledger":{},"calendar":[{"offset":0,"location":"home","minutes":60,"event":"none","notes":""},{"offset":1,"location":"home","minutes":0,"event":"none","notes":""},{"offset":2,"location":"home","minutes":0,"event":"none","notes":""},{"offset":3,"location":"home","minutes":0,"event":"none","notes":""}],"settings":{"diet_started":false,"diet_start_phrase":"SPESA FATTA - INIZIO DIETA","last_verified_training_date":""}};
 
 const $=(q,p=document)=>p.querySelector(q);
@@ -4860,7 +4812,7 @@ resetSeed=function(){
   state=deepClone(SEED);cb10Ensure();state.activePlan=null;save();nav('today');
 };
 
-/* HYBRIDPOWER HP1.2 LUX: Cloudflare-native encrypted sync enabled.
+/* HYBRIDPOWER HP1.3 BLACK: Cloudflare-native encrypted sync enabled.
    The original cbCloudBoot / cbScheduleCloudPush implementations remain active. */
 function cb10HideCloudUI(){
   [...document.querySelectorAll('.card')].forEach(c=>{
@@ -5751,7 +5703,7 @@ cb10PlanCard=function(p,ctx){
    - integrated hold timer + spoken 10→0 countdown
    ========================================================= */
 
-const CB103={build:'2026-10-06',schema:1};
+const CB103={build:'2026-10-09-hp13',schema:1};
 let CB103_ISO_INT=null;
 
 function cb103EnsureAudit(){
@@ -6187,7 +6139,7 @@ renderToday=function(){
     }
   }
   const topVersion=document.querySelector('.version');
-  if(topVersion)topVersion.textContent='Adaptive Hybrid Physique & Performance Coach · HP1.2 · H12';
+  if(topVersion)topVersion.textContent='Adaptive Hybrid Physique & Performance Coach · HP1.3 · H13';
 };
 
 /* Runner: bind iso controls, show voice toggle. */
@@ -6245,14 +6197,14 @@ nav('today');
 
 <script>
 /* =========================================================
-   HYBRIDPOWER HP1.2 LUX — ENGINE H12
+   HYBRIDPOWER HP1.3 BLACK — ENGINE H12
    Deterministic, history-authoritative, objective-locked.
    No random exercise rotation. Systematic variation only.
    Same storage key/schema as Cali Power for in-place migration.
    ========================================================= */
 const HP={
-  version:'HP1.2',
-  engine:'H12',
+  version:'HP1.3',
+  engine:'H13',
   build:'2026-10-09',
   schema:1
 };
@@ -6280,7 +6232,7 @@ function hpBrandDom(){
   const brand=document.querySelector('.brand');
   if(brand)brand.innerHTML='HYBRID<span>POWER</span>';
   const v=document.querySelector('.version');
-  if(v)v.textContent='Adaptive Hybrid Physique & Performance Coach · HP1.2 · H12';
+  if(v)v.textContent='Adaptive Hybrid Physique & Performance Coach · HP1.3 · H13';
 }
 function hpEnsure(){
   try{cb103EnsureDataIntegrity()}catch(_){}
@@ -6686,7 +6638,7 @@ cb10Plan=function(ctx){
   return p;
 };
 buildPlan=function(ctx){return cbAttachDecisionMeta(cb10Plan(ctx),ctx)};
-chooseFocus=function(){return 'H12'};
+chooseFocus=function(){return 'H13'};
 
 /* ---------- plan signatures invalidate correctly when history detail changes ---------- */
 const HP_BASE_SIGNATURE=cb10Signature;
@@ -6726,18 +6678,18 @@ renderCoach=function(){
   hpEnsure();HP_BASE_COACH();hpBrandDom();
   const ctx=cbV9Ctx(todayISO(),false),hero=$('#view .hero');
   hero?.insertAdjacentHTML('afterend',hpCandidateAuditHTML(ctx));
-  $$('.engineTag').forEach(x=>x.textContent='H12');
-  const t=$('#view .v10Kicker');if(t)t.textContent=t.textContent.replace(/A10.*/,'H12');
+  $$('.engineTag').forEach(x=>x.textContent='H13');
+  const t=$('#view .v10Kicker');if(t)t.textContent=t.textContent.replace(/A10.*/,'H13');
 };
 
 /* ---------- profile: equipment safety + transparent rules ---------- */
 const HP_BASE_PROFILE=renderProfile;
 renderProfile=function(){
   hpEnsure();HP_BASE_PROFILE();hpBrandDom();
-  $$('#view h3').forEach(h=>{if(/CALI POWER/i.test(h.textContent))h.textContent='HYBRIDPOWER HP1.2 LUX'});
+  $$('#view h3').forEach(h=>{if(/CALI POWER/i.test(h.textContent))h.textContent='HYBRIDPOWER HP1.3 BLACK'});
   const hero=$('#view .hero');
   if(hero)hero.insertAdjacentHTML('afterend',`<div class="card hpAudit">
-    <div class="v10SectionHead"><div><h3>HYBRIDPOWER HP1.2 LUX · H12</h3><div class="sub">Physique + strength + Chechi control + hybrid engine</div></div><span class="hpBadge">DETERMINISTICO</span></div>
+    <div class="v10SectionHead"><div><h3>HYBRIDPOWER HP1.3 BLACK · H13</h3><div class="sub">Physique + strength + Chechi control + hybrid engine</div></div><span class="hpBadge">DETERMINISTICO</span></div>
     <p class="small">Storico reale → recupero → luogo/attrezzatura → domanda muscolare → famiglie di stimolo → esercizio → progressione.</p>
     <label style="margin-top:10px"><input id="hpSafeRack" type="checkbox" style="width:auto;min-height:auto" ${state.hp.safeBenchRack?'checked':''}> Ho un rack/spotter/setup realmente sicuro per Barbell Bench Press</label>
     <p class="tiny muted">Finché è disattivato, il bilanciere può entrare in OHP/row/squat/RDL ma NON viene prescritto automaticamente per bench press.</p>
@@ -6749,7 +6701,7 @@ renderProfile=function(){
 const HP_BASE_TOP=cb10Top;
 cb10Top=function(status){
   return HP_BASE_TOP(status)
-    .replace(/V10\.2 · ENGINE A10\.2/g,'HYBRIDPOWER · H12')
+    .replace(/V10\.2 · ENGINE A10\.2/g,'HYBRIDPOWER · H13')
     .replace(/A10 legge/g,'H12 legge')
     .replace(/<b>A10<\/b>/g,'<b>H12</b>');
 };
@@ -6775,6 +6727,187 @@ CB_REMOTE_APPLY=true;cbLocalPersist();CB_REMOTE_APPLY=false;
 hpBrandDom();
 nav('today');
 setTimeout(()=>{ if(cbHasCloud()) cbCloudBoot(); },350);
+</script>
+
+
+<style id="hp13-black-theme">
+:root{
+  --hp-black:#09090b;
+  --hp-black-2:#111116;
+  --hp-card:#15151b;
+  --hp-card-2:#1b1b22;
+  --hp-purple:#7c3aed;
+  --hp-purple-hi:#a78bfa;
+  --hp-red:#d92d52;
+  --hp-red-hi:#ef476f;
+  --hp-gold:#d6b25e;
+  --hp-gold-soft:#f1d58a;
+  --hp-white:#f8f7fb;
+  --hp-muted:#b8b5c2;
+  --hp-border:#2b2932;
+  --hp-focus:#f0c96d;
+}
+html,body{
+  background:var(--hp-black)!important;
+  color:var(--hp-white)!important;
+}
+body{
+  background:
+    radial-gradient(circle at 18% -10%,rgba(124,58,237,.11),transparent 34%),
+    radial-gradient(circle at 95% 18%,rgba(217,45,82,.08),transparent 28%),
+    var(--hp-black)!important;
+}
+.app{max-width:860px!important}
+.topbar,.navbar,.bottom-nav,header,footer{
+  background:rgba(9,9,11,.92)!important;
+  border-color:var(--hp-border)!important;
+  box-shadow:none!important;
+  backdrop-filter:blur(14px)!important;
+}
+.hero,.card,.panel,.sheet,.modal,.drawer,.tile,.row-card,.exercise-card,.session-card,.stat-card,.cta-card,
+.v103History details,.futureCard,.setblock,.restPanel,.v103Iso,.auditCard,.previewCard,.planHero{
+  background:var(--hp-card)!important;
+  border:1px solid var(--hp-border)!important;
+  box-shadow:none!important;
+}
+.hero,.planHero{border-color:#34313d!important}
+h1,h2,h3,h4,.brand,.planTitle{color:var(--hp-white)!important}
+.version,.muted,.subtle,.small,.tiny,.caption,.sub,.micro{color:var(--hp-muted)!important}
+.eyebrow,.engineTag,.planMode,.highlight,.link,a:not(.btn){color:var(--hp-gold-soft)!important}
+.chip,.badge,.statusOk,.statusNeed,.provisional{
+  background:#1a1820!important;
+  border-color:#3b3743!important;
+  color:var(--hp-white)!important;
+}
+.chip.accent,.badge.promote,.decision-up{color:var(--hp-gold-soft)!important;border-color:#6f5b2d!important}
+input,select,textarea{
+  background:#101014!important;
+  color:var(--hp-white)!important;
+  border:1px solid #3a3742!important;
+  border-radius:12px!important;
+}
+input:focus,select:focus,textarea:focus{
+  border-color:var(--hp-focus)!important;
+  outline:2px solid rgba(240,201,109,.28)!important;
+  outline-offset:1px!important;
+}
+button,.btn{
+  min-height:44px!important;
+  border-radius:12px!important;
+  font-weight:800!important;
+  letter-spacing:.005em!important;
+  box-shadow:none!important;
+  transition:background-color .15s ease,border-color .15s ease,transform .08s ease!important;
+}
+button:focus-visible,.btn:focus-visible,a:focus-visible,summary:focus-visible{
+  outline:3px solid var(--hp-focus)!important;
+  outline-offset:3px!important;
+}
+button.hp13-general,.btn.hp13-general,
+.bottom-nav button,.bottom-nav .btn,.nav button,.nav .btn{
+  background:var(--hp-purple)!important;
+  color:#fff!important;
+  border:1px solid #8f63ee!important;
+}
+button.hp13-general:hover,.btn.hp13-general:hover,
+.bottom-nav button:hover,.nav button:hover{background:#6d28d9!important}
+button.hp13-session,.btn.hp13-session{
+  background:var(--hp-red)!important;
+  color:#fff!important;
+  border:1px solid #eb5f7d!important;
+}
+button.hp13-session:hover,.btn.hp13-session:hover{background:#c81e47!important}
+button.hp13-quiet,.btn.hp13-quiet,.secondary,.ghost,.outline{
+  background:#18171d!important;
+  color:var(--hp-white)!important;
+  border:1px solid #45414e!important;
+}
+button.hp13-danger,.btn.hp13-danger,.danger{
+  background:#7f1d35!important;
+  color:#fff!important;
+  border:1px solid #b83252!important;
+}
+.bottom-nav,.nav{
+  background:#0d0d10!important;
+  border-top:1px solid #29262f!important;
+}
+.bottom-nav button,.nav button{
+  background:transparent!important;
+  border:0!important;
+  color:var(--hp-muted)!important;
+}
+.bottom-nav button.active,.nav button.active,
+.bottom-nav .active,.nav .active{
+  background:rgba(124,58,237,.20)!important;
+  color:#fff!important;
+  box-shadow:inset 0 0 0 1px rgba(167,139,250,.30)!important;
+}
+.v103History details{
+  border-color:#322e3a!important;
+  border-radius:14px!important;
+  padding:4px 12px!important;
+}
+.v103History details[open]{
+  border-color:#5a426d!important;
+  background:#17151c!important;
+}
+.v103History summary{
+  color:var(--hp-white)!important;
+  padding:12px 0!important;
+}
+.v103History .voided,.v103Audit{border-color:#643044!important;background:#1b1015!important}
+.v103Iso{border-color:#6740a0!important;background:#17131d!important}
+.v103Iso.active{box-shadow:inset 0 0 0 1px rgba(167,139,250,.32)!important}
+.v103IsoClock,.restClock,.timerClock,[role="timer"]{color:var(--hp-gold-soft)!important}
+.v103Decision{
+  color:var(--hp-white)!important;
+  background:#1c1921!important;
+  border-left:3px solid var(--hp-gold)!important;
+  padding:8px 10px!important;
+  border-radius:8px!important;
+}
+.setblock.done{border-color:#5a426d!important;background:#15131a!important}
+.progress,.bar,.musclebar,.ring-bg{background:#29262f!important}
+.musclebar>div,.progress>div,.bar>div{background:var(--hp-purple)!important}
+.banner,.noTrainCard{background:#19161a!important;border-color:#705d31!important;color:var(--hp-gold-soft)!important}
+hr{border-color:var(--hp-border)!important}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+}
+</style>
+<script id="hp13-semantic-ui">
+(function(){
+  const sessionWords=/\b(INIZIA SEDUTA|INIZIA ALLENAMENTO|DECIDI|CREA LA MIA SEDUTA|AVVIA TIMER|AVVIA RECUPERO|TERMINA RECUPERO|TERMINA SERIE|COMPLETA SERIE|SALVA E AVANTI|TERMINA SEDUTA|RIFAI CHECK|RIFAI OGGI|ANNULLA APERTURA|APERTURA PER ERRORE)\b/i;
+  const dangerWords=/\b(ELIMINA|ANNULLA SEDUTA|ANNULLARE SEDUTA)\b/i;
+  const quietWords=/\b(INDIETRO|CHIUDI|PAUSA|SALTA|MENO|PIÙ|\\+5|\\-5|\\+15|\\-15)\b/i;
+  function classify(){
+    document.querySelectorAll('button,.btn').forEach(b=>{
+      b.classList.remove('hp13-general','hp13-session','hp13-quiet','hp13-danger');
+      const t=(b.textContent||'').replace(/\s+/g,' ').trim();
+      const id=(b.id||'').toLowerCase();
+      const inRunner=!!b.closest('.setblock,.restPanel,.v103Iso,.v103Recover,[data-workout],.runner');
+      if(dangerWords.test(t)){b.classList.add('hp13-danger');return}
+      if(sessionWords.test(t)||inRunner||/finish|startwork|rest|setdone|iso|redo|backtocheck/.test(id)){b.classList.add('hp13-session');return}
+      if(quietWords.test(t)||b.classList.contains('secondary')||b.classList.contains('ghost')||b.classList.contains('outline')){b.classList.add('hp13-quiet');return}
+      if(!b.closest('.bottom-nav,.nav'))b.classList.add('hp13-general');
+    });
+    document.querySelectorAll('.v103IsoClock,.restClock,.timerClock').forEach(el=>{
+      el.setAttribute('role','timer');
+      el.setAttribute('aria-live','polite');
+      el.setAttribute('aria-atomic','true');
+    });
+    document.querySelectorAll('details>summary').forEach(el=>{
+      if(!el.hasAttribute('tabindex'))el.setAttribute('tabindex','0');
+    });
+  }
+  let scheduled=false;
+  const schedule=()=>{if(scheduled)return;scheduled=true;requestAnimationFrame(()=>{scheduled=false;classify()})};
+  new MutationObserver(schedule).observe(document.documentElement,{subtree:true,childList:true,attributes:true,attributeFilter:['class']});
+  window.addEventListener('DOMContentLoaded',schedule,{once:true});
+  window.addEventListener('load',schedule,{once:true});
+  setTimeout(schedule,0);
+  window.hp13RefreshUI=schedule;
+})();
 </script>
 
 </body>

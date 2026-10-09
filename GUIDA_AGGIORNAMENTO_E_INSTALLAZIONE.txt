@@ -1,0 +1,117 @@
+HYBRIDPOWER HP1.3 BLACK · H13
+GUIDA SEMPLICE — DAL TUO STATO ATTUALE ALLA VERSIONE DEFINITIVA
+
+IMPORTANTE
+Tu NON riparti da zero.
+Sei già su hybridpower.pages.dev e lo storico è già presente.
+Questa versione usa la stessa chiave dati locale e lo stesso backend Cloudflare.
+Il backup serve solo come rete di sicurezza.
+
+A. PRIMA DI AGGIORNARE
+
+1. Apri la HYBRIDPOWER che funziona adesso.
+2. Vai su PROFILO.
+3. Premi BACKUP JSON / ESPORTA STATO JSON.
+4. Salva il file e NON cancellarlo.
+5. Vai su STORICO e controlla che l'ultima seduta reale sia presente.
+
+B. AGGIORNA GITHUB
+
+6. Estrai il file ZIP HYBRIDPOWER HP1.3 BLACK.
+7. Apri il repository GitHub:
+   andreacaldi-droid/calibuilding-app
+8. Carica TUTTI i file e le cartelle contenuti nello ZIP.
+9. Sostituisci i file vecchi quando GitHub lo chiede.
+10. È importante che siano presenti anche:
+    - index.html
+    - manifest.webmanifest
+    - sw.js
+    - _headers
+    - icon-192.png
+    - icon-512.png
+    - cartella functions
+11. Fai COMMIT CHANGES.
+
+C. CLOUDFLARE
+
+12. Non creare un nuovo progetto.
+13. Usa lo stesso progetto Cloudflare "hybridpower".
+14. Poiché GitHub è già collegato e le distribuzioni automatiche sono abilitate,
+    Cloudflare dovrebbe creare da solo una NUOVA distribuzione dopo il commit.
+15. Vai in Cloudflare:
+    Workers e Pages → hybridpower → Distribuzioni
+16. Aspetta una nuova riga con la spunta verde.
+17. Se dopo alcuni minuti non compare, aggiorna la pagina.
+18. NON eliminare il database D1 e NON cambiare il binding DB.
+19. Il binding deve restare:
+    Nome variabile: DB
+    Database: hybridpower-sync
+
+D. APRI LA NUOVA VERSIONE
+
+20. Apri SOLO questo indirizzo stabile:
+    https://hybridpower.pages.dev
+21. Chiudi e riapri la pagina se vedi ancora la vecchia grafica.
+22. Devi leggere:
+    HYBRIDPOWER HP1.3 · H13
+23. Vai subito su STORICO.
+
+SE LO STORICO C'È:
+24. NON importare nulla.
+25. Continua normalmente: lo stesso dominio conserva i dati.
+
+SE LO STORICO NON C'È:
+26. Vai su PROFILO → IMPORTA STATO JSON.
+27. Seleziona il backup fatto al punto 3.
+28. Torna su STORICO e ricontrolla.
+
+E. CLOUD SYNC
+
+29. In PROFILO controlla CLOUD SYNC.
+30. Se è già attivo, non cambiare nulla.
+31. Se non è attivo, attivalo e conserva il Codice Sync.
+32. Sul secondo dispositivo apri https://hybridpower.pages.dev
+33. Collega il secondo dispositivo con lo stesso Codice Sync.
+34. Controlla che entrambi mostrino la stessa ultima seduta.
+
+F. INSTALLA HYBRIDPOWER COME APP
+
+ANDROID / CHROME
+35. Apri https://hybridpower.pages.dev in Chrome.
+36. Tocca il menu ⋮.
+37. Scegli "Installa app" oppure "Aggiungi a schermata Home".
+38. Conferma HYBRIDPOWER.
+39. Apri l'app installata e controlla ancora STORICO.
+
+PC / CHROME
+40. Apri https://hybridpower.pages.dev.
+41. Clicca l'icona "Installa" nella barra degli indirizzi.
+42. Se non compare: menu ⋮ → Trasmetti, salva e condividi → Installa pagina come app.
+43. Conferma HYBRIDPOWER.
+44. Apri l'app installata e controlla STORICO.
+
+G. QUANDO PUOI DISINSTALLARE CALIPOWER
+
+Puoi disinstallare la vecchia CaliPower SOLO quando sono vere TUTTE queste condizioni:
+- HYBRIDPOWER HP1.3 / H13 è installata.
+- Lo STORICO è completo.
+- L'ultima seduta reale è presente.
+- Cloud Sync risulta attivo o hai verificato il backup JSON.
+- Se usi due dispositivi, entrambi mostrano lo stesso stato.
+
+ANDROID
+45. Tieni premuta l'icona della vecchia CaliPower.
+46. Premi Info app / Disinstalla.
+47. Assicurati di disinstallare CALIPOWER, non HYBRIDPOWER.
+
+WINDOWS
+48. Cerca CaliPower nel menu Start.
+49. Tasto destro → Disinstalla.
+50. Mantieni HYBRIDPOWER.
+
+H. DOPO LA MIGRAZIONE
+
+51. Da questo momento registra nuove sedute SOLO su HYBRIDPOWER.
+52. Non usare più la vecchia CaliPower per nuovi allenamenti.
+53. Conserva il backup JSON per sicurezza.
+54. OGGI → CHECK → DECIDI → INIZIA SEDUTA.

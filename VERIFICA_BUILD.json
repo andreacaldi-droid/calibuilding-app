@@ -1,0 +1,13 @@
+{
+  "build": "HYBRIDPOWER HP1.3 BLACK",
+  "engine": "H13",
+  "checks_passed": 30,
+  "checks_total": 30,
+  "storage_key_preserved": true,
+  "cloud_endpoint": "/api/state-sync",
+  "d1_binding_name": "DB",
+  "d1_database_expected": "hybridpower-sync",
+  "history_authoritative": true,
+  "random_rotation": false,
+  "pwa_complete": true
+}

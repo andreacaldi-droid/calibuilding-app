@@ -1,0 +1,63 @@
+HYBRIDPOWER HP1.3 BLACK · H13 — RED TEAM FINALE
+
+VERDETTO
+La build conserva il motore adattivo e cambia la presentazione visiva.
+Non è stata introdotta una rotazione casuale degli esercizi.
+
+CONTROLLO INFORMATICO / ADATTIVITÀ
+PASS — stessa chiave di storage: CALIBUILDING_V01_STATE.
+PASS — storico reale usato come sorgente primaria.
+PASS — ledger ricostruito solo dalle sedute con lavoro reale.
+PASS — sessioni interrotte a zero lavoro identificate come accidentali.
+PASS — funzione "Rifai check" presente.
+PASS — normalizzazione regions → muscles presente.
+PASS — "Ultima volta" presente per la prescrizione.
+PASS — stati PROMOTE / CONSOLIDATE / HOLD / ADAPT / REGRESS presenti.
+PASS — nessun Math.random nel motore.
+PASS — catalogo ibrido deterministico e filtrato per casa/trasferta/attrezzatura.
+PASS — Barbell OHP disponibile a casa.
+PASS — Flat DB Bench disponibile a casa.
+PASS — Barbell Bench protetta da gate di setup/rack sicuro.
+PASS — EZ-bar curl e lavoro overhead tricipiti disponibili.
+PASS — TRX, wall handstand, L-sit/support e core isometrico presenti.
+PASS — micro-dose performer / iso-dynamic subordinata a recupero e costo di fatica.
+PASS — blocco hybrid strength + endurance presente e subordinato alle priorità.
+PASS — nessuna prescrizione RIR 0 di default nel catalogo HP.
+PASS — timer recupero presente.
+PASS — timer isometrico presente.
+PASS — countdown vocale 10→0 presente.
+PASS — durata totale seduta salvata/calcolata.
+PASS — sync client cifrata AES-GCM presente.
+PASS — endpoint Cloudflare /api/state-sync presente.
+PASS — Pages Function D1 inclusa nel pacchetto.
+PASS — service worker e manifest inclusi.
+PASS — header no-cache per ridurre il rischio di build obsolete.
+
+CONTROLLO SCIENTIFICO / TRAINING
+PASS — specificità: priorità del MASTER conservate.
+PASS — progressive overload: l'aumento richiede confronto con esposizione comparabile.
+PASS — autoregolazione: RIR, qualità, tecnica, dolore e readiness entrano nella decisione.
+PASS — varietà non casuale: famiglie di movimento penalizzate se ridondanti/recenti.
+PASS — concurrent/hybrid: conditioning non deve scavalcare automaticamente ipertrofia/forza.
+PASS — componente performer presente ma non obbligatoria in ogni seduta.
+PASS — selezione casa/trasferta basata sugli strumenti realmente disponibili.
+PASS — nessuna necessità di cedimento sistematico.
+
+ACCESSIBILITÀ / UI
+PASS — base nera.
+PASS — azioni generali viola.
+PASS — azioni specifiche della seduta rosse.
+PASS — oro usato come accento/focus, non come sfondo dominante.
+PASS — target interattivi minimi 44 px.
+PASS — focus da tastiera visibile.
+PASS — supporto prefers-reduced-motion.
+PASS — contrasto testo/sfondo elevato.
+PASS — contrasto bianco/viola ≈ 5.7:1.
+PASS — contrasto bianco/rosso ≈ 4.7:1.
+PASS — testo normale su nero > 9:1.
+
+LIMITI DICHIARATI
+- L'algoritmo completo HYBRIDPOWER non è un dispositivo medico né un protocollo clinicamente validato come prodotto unitario.
+- La qualità delle decisioni dipende dalla qualità dei dati inseriti.
+- Il sync D1 può essere verificato end-to-end solo sull'ambiente Cloudflare realmente distribuito.
+- Il gate Barbell Bench resta volutamente conservativo finché non è confermato un setup sicuro.
