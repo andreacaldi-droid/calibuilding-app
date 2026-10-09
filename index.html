@@ -435,7 +435,7 @@ body{background:
 <body>
 <div class="app">
   <div class="topbar">
-    <div><div class="brand">HYBRID<span>POWER</span></div><div class="version">Adaptive Hybrid Physique & Performance Coach · HP1.3 · H13</div></div>
+    <div><div class="brand">HYBRID<span>POWER</span></div><div class="version">Adaptive Hybrid Physique & Performance Coach · HP1.3.1 · H13</div></div>
     <div class="chips"><span class="chip accent">MASTER LOCKED</span></div>
   </div>
   <div id="view"></div>
@@ -450,7 +450,7 @@ body{background:
 
 <script>
 const KEY='CALIBUILDING_V01_STATE';
-const VERSION='1.3.0';
+const VERSION='1.3.1';
 const SEED={"version":"0.1.0","profile":{"sex":"male","age":35,"height_cm":183,"weight_kg":80,"experience_years":15,"level":"advanced","role":"performer"},"master":{"locked":true,"goal":"Molto muscoloso e visibilmente ipertrofico, relativamente asciutto, armonioso ed elegante; mantenere mobilita, coordinazione, agilita, dinamismo e credibilita scenica.","priorities":[{"name":"upper_chest","label":"Petto alto","weight":1.35},{"name":"shoulders","label":"Spalle","weight":1.3},{"name":"arms","label":"Braccia","weight":1.25},{"name":"back","label":"Schiena / densita","weight":1.0},{"name":"lower","label":"Lower / armonia / forza","weight":1.0},{"name":"performance","label":"Agilita / performer","weight":1.15}],"references":[{"name":"Anatoly / Vladimir Shmondenko","meaning":"densita muscolare + forza relativa + atletismo"},{"name":"Yuri Chechi","meaning":"controllo ginnico + linee atletiche + padronanza del corpo"},{"name":"Brad Pitt in Troy","meaning":"proporzioni magre, armoniose, cinematiche"},{"name":"Tom Hardy in Warrior","meaning":"fisico denso, atletico, combattivo"}],"rules":["Il MASTER resta stabile; i metodi sono flessibili.","Casa e trasferta hanno pari dignita fisiologica.","Preservare lo stimolo, non il nome dell'esercizio.","Niente sequenza A-B-C-D obbligatoria.","Niente muscle confusion o volume di riempimento.","Pump e fatica sono dati, non prova sufficiente di ipertrofia.","Progressione solo da esposizioni sufficientemente comparabili.","Il tempo disponibile e un input, non un tetto fisso.","Multidisciplinare non significa casuale.","Non trasformare il soggetto ne in bodybuilder rigido ne in atleta di danza professionistica."]},"equipment":{"home":{"barbell":true,"ez_bar":true,"pullup_bar":true,"dips":true,"adjustable_dumbbells_each_kg":30,"flat_bench":true,"trx":true,"backpack":true,"bands":true,"plates_total_kg":90,"barbell_on_shoulders":true,"commercial_rack_assumed":false},"travel":{"pullup_bar":false,"dips":true,"trx":true,"backpack_kg":30,"bands":true,"adjustable_dumbbells_each_kg":30,"dumbbells_count":2}},"constraints":{"knee":{"baseline":5,"history":"Pregressa storia articolare ginocchio/anca DX: usare il baseline e i segnali funzionali come gate.","split_squat_default":false,"notes":"Baseline 5/10 non e stop automatico. Reagire a aumento significativo, gonfiore nuovo, instabilita, blocco, perdita ROM/funzione o sintomo diverso."},"elbow":{"history":"Irritazione mediale/interna ricorrente: monitorare tirate e flessione del gomito.","notes":"Performance preservata non esclude irritazione. Adattare se peggiora chiaramente."}},"history":[],"ledger":{},"calendar":[{"offset":0,"location":"home","minutes":60,"event":"none","notes":""},{"offset":1,"location":"home","minutes":0,"event":"none","notes":""},{"offset":2,"location":"home","minutes":0,"event":"none","notes":""},{"offset":3,"location":"home","minutes":0,"event":"none","notes":""}],"settings":{"diet_started":false,"diet_start_phrase":"SPESA FATTA - INIZIO DIETA","last_verified_training_date":""}};
 
 const $=(q,p=document)=>p.querySelector(q);
@@ -6139,7 +6139,7 @@ renderToday=function(){
     }
   }
   const topVersion=document.querySelector('.version');
-  if(topVersion)topVersion.textContent='Adaptive Hybrid Physique & Performance Coach · HP1.3 · H13';
+  if(topVersion)topVersion.textContent='Adaptive Hybrid Physique & Performance Coach · HP1.3.1 · H13';
 };
 
 /* Runner: bind iso controls, show voice toggle. */
@@ -6197,13 +6197,13 @@ nav('today');
 
 <script>
 /* =========================================================
-   HYBRIDPOWER HP1.3 BLACK — ENGINE H12
+   HYBRIDPOWER HP1.3 BLACK — ENGINE H13
    Deterministic, history-authoritative, objective-locked.
    No random exercise rotation. Systematic variation only.
    Same storage key/schema as Cali Power for in-place migration.
    ========================================================= */
 const HP={
-  version:'HP1.3',
+  version:'HP1.3.1',
   engine:'H13',
   build:'2026-10-09',
   schema:1
@@ -6232,7 +6232,7 @@ function hpBrandDom(){
   const brand=document.querySelector('.brand');
   if(brand)brand.innerHTML='HYBRID<span>POWER</span>';
   const v=document.querySelector('.version');
-  if(v)v.textContent='Adaptive Hybrid Physique & Performance Coach · HP1.3 · H13';
+  if(v)v.textContent='Adaptive Hybrid Physique & Performance Coach · HP1.3.1 · H13';
 }
 function hpEnsure(){
   try{cb103EnsureDataIntegrity()}catch(_){}
@@ -6573,7 +6573,7 @@ function hpHybridPlan(ctx,ms,md){
       'La seduta protegge prima gli anchor di forza e usa conditioning dosato, non circuiti casuali.'
     ],personal:[md.why],inference:[
       'I90 è usato come ispirazione concettuale forza+endurance, non come protocollo copiato.',
-      'Se la domanda ipertrofica è alta, H12 preferisce resistance puro.'
+      'Se la domanda ipertrofica è alta, H13 preferisce resistance puro.'
     ],a11:{hybrid:true}}
   };
 }
@@ -6632,9 +6632,9 @@ cb10Plan=function(ctx){
   p.analysis.muscles=ms;
   p.analysis.personal=p.analysis.personal||[];p.analysis.inference=p.analysis.inference||[];
   p.analysis.personal.unshift(md.why);
-  p.analysis.inference.push('H12: nessuna rotazione casuale. Varianti/angoli entrano solo per domanda, recupero, storico, famiglia di stimolo e attrezzatura.');
-  p.analysis.inference.push('H12: esercizi anchor ricevono un piccolo vantaggio di continuità; una variante nuova deve offrire valore superiore per entrare.');
-  p.analysis.inference.push('H12: componente Chechi/iso-dynamic e conditioning sono strumenti subordinati al MASTER, non obblighi giornalieri.');
+  p.analysis.inference.push('H13: nessuna rotazione casuale. Varianti/angoli entrano solo per domanda, recupero, storico, famiglia di stimolo e attrezzatura.');
+  p.analysis.inference.push('H13: esercizi anchor ricevono un piccolo vantaggio di continuità; una variante nuova deve offrire valore superiore per entrare.');
+  p.analysis.inference.push('H13: componente Chechi/iso-dynamic e conditioning sono strumenti subordinati al MASTER, non obblighi giornalieri.');
   return p;
 };
 buildPlan=function(ctx){return cbAttachDecisionMeta(cb10Plan(ctx),ctx)};
@@ -6651,14 +6651,14 @@ const HP_BASE_GUIDE=cb10Guide;
 cb10Guide=function(mode){
   if(String(mode).toUpperCase()==='CROSSFIT_HYBRID'){
     return `<div class="card v10Guide"><h3>HybridPower · forza + endurance</h3>
-      <p class="small">Non è un WOD casuale. H12 protegge prima gli anchor di forza/ipertrofia; conditioning entra solo se recupero, ginocchio, storico e prossime 72 h lo rendono compatibile.</p>
+      <p class="small">Non è un WOD casuale. H13 protegge prima gli anchor di forza/ipertrofia; conditioning entra solo se recupero, ginocchio, storico e prossime 72 h lo rendono compatibile.</p>
       <p class="tiny muted">I90 è un riferimento concettuale per l'ibrido forza/endurance, non un protocollo copiato né una prova scientifica dell'algoritmo.</p>
     </div>`;
   }
   return HP_BASE_GUIDE(mode);
 };
 
-/* ---------- audit screen: expose exactly what H12 considered ---------- */
+/* ---------- audit screen: expose exactly what H13 considered ---------- */
 function hpCandidateAuditHTML(ctx){
   const ms=cbA6MuscleStates(ctx),rows=cbCandidatePool(ctx).map(e=>{
     const v=cbA6MarginalValue(e,0,[],ctx,ms);
@@ -6667,10 +6667,10 @@ function hpCandidateAuditHTML(ctx){
   }).sort((a,b)=>b.v-a.v).slice(0,12);
   const eq=state.equipment?.home||SEED.equipment?.home||{};
   const benchBlocked=ctx.location==='home'&&eq.barbell&&eq.flat_bench&&!hpRequirementOK('safe_bench_rack','home');
-  return `<div class="card hpAudit"><h3>H12 · candidati realmente confrontati</h3>
+  return `<div class="card hpAudit"><h3>H13 · candidati realmente confrontati</h3>
     <p class="small muted">Nessun sorteggio. Il punteggio è euristico e serve solo a ordinare opzioni compatibili col MASTER; non è una misura biologica.</p>
     ${rows.map(r=>`<div class="row"><span class="grow"><div class="title">${esc(r.e.name)}</div><div class="sub">${esc(r.fam)} · famiglia ${r.fs.sets} set/14g · ultima famiglia ${r.fs.days===99?'—':r.fs.days+'g'} · ultimo esercizio ${r.last?.session?.date||'—'}</div></span><span class="hpScore">${r.v.toFixed(2)}</span></div>`).join('')}
-    ${benchBlocked?`<div class="card hpBlocked"><b>Barbell Bench Press esclusa</b><div class="small">Hai bilanciere + panca, ma il profilo non conferma un rack/spotter/setup di racking sicuro. H12 non la auto-prescrive finché non lo abiliti in PROFILO.</div></div>`:''}
+    ${benchBlocked?`<div class="card hpBlocked"><b>Barbell Bench Press esclusa</b><div class="small">Hai bilanciere + panca, ma il profilo non conferma un rack/spotter/setup di racking sicuro. H13 non la auto-prescrive finché non lo abiliti in PROFILO.</div></div>`:''}
   </div>`;
 }
 const HP_BASE_COACH=renderCoach;
@@ -6702,8 +6702,8 @@ const HP_BASE_TOP=cb10Top;
 cb10Top=function(status){
   return HP_BASE_TOP(status)
     .replace(/V10\.2 · ENGINE A10\.2/g,'HYBRIDPOWER · H13')
-    .replace(/A10 legge/g,'H12 legge')
-    .replace(/<b>A10<\/b>/g,'<b>H12</b>');
+    .replace(/A10 legge/g,'H13 legge')
+    .replace(/<b>A10<\/b>/g,'<b>H13</b>');
 };
 const HP_BASE_TODAY=renderToday;
 renderToday=function(){hpEnsure();HP_BASE_TODAY();hpBrandDom();};
@@ -6907,6 +6907,22 @@ hr{border-color:var(--hp-border)!important}
   window.addEventListener('load',schedule,{once:true});
   setTimeout(schedule,0);
   window.hp13RefreshUI=schedule;
+})();
+</script>
+
+
+<script id="hp131-origin-guard">
+(function(){
+  const host=location.hostname;
+  const stable='hybridpower.pages.dev';
+  const isPreview=/^[a-z0-9]+\.hybridpower\.pages\.dev$/i.test(host) && host!==stable;
+  if(!isPreview) return;
+  window.addEventListener('DOMContentLoaded',()=>{
+    const b=document.createElement('div');
+    b.style.cssText='position:fixed;z-index:99999;left:12px;right:12px;top:12px;padding:14px 16px;border-radius:14px;background:#211126;color:#fff;border:1px solid #7c3aed;box-shadow:0 12px 30px rgba(0,0,0,.35);font:600 14px/1.35 system-ui';
+    b.innerHTML='<b>Stai usando un URL di anteprima Cloudflare.</b><br>Qui lo storico locale può risultare vuoto perché è un dominio diverso.<br><a href="https://hybridpower.pages.dev" style="display:inline-block;margin-top:8px;color:#fff;background:#7c3aed;padding:9px 12px;border-radius:10px;text-decoration:none">APRI HYBRIDPOWER STABILE</a>';
+    document.body.appendChild(b);
+  });
 })();
 </script>
 

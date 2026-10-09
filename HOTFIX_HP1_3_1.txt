@@ -1,0 +1,12 @@
+HYBRIDPOWER HP1.3.1 · H13 STABLE
+
+Correzioni:
+- tutte le etichette H12 residue corrette in H13;
+- versione visibile coerente HP1.3.1 · H13;
+- avviso automatico se apri un URL Cloudflare di anteprima tipo hash.hybridpower.pages.dev;
+- nessuna modifica a MASTER, storico, chiave storage, motore adattivo o database D1;
+- cache PWA aggiornata per forzare il refresh della build.
+
+IMPORTANTE:
+Usa sempre https://hybridpower.pages.dev
+Non usare URL di distribuzione tipo https://xxxxxxxx.hybridpower.pages.dev

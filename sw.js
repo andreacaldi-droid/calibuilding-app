@@ -1,4 +1,4 @@
-const CACHE='hybridpower-hp1-3-h13-20261009-r1';
+const CACHE='hybridpower-hp1-3-1-h13-stable-20261009-r1';
 const SHELL=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png'];
 
 self.addEventListener('install',event=>{

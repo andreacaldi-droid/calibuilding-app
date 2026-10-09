@@ -29,7 +29,6 @@ async function readRecord(db, id) {
     SELECT sync_id, encrypted, client_updated_at, revision, app_version, updated_at
     FROM hybridpower_state WHERE sync_id = ?
   `).bind(id).first();
-
   if (!row) return null;
   return {
     encrypted: JSON.parse(row.encrypted),
@@ -44,7 +43,6 @@ export async function onRequestGet({ request, env }) {
   if (!env.DB) return reply({ error: "D1_BINDING_MISSING" }, 500);
   const id = syncId(request);
   if (!id) return reply({ error: "INVALID_SYNC_ID" }, 400);
-
   await ensureSchema(env.DB);
   const record = await readRecord(env.DB, id);
   if (!record) return reply({ error: "NOT_FOUND" }, 404);
@@ -55,16 +53,12 @@ export async function onRequestPut({ request, env }) {
   if (!env.DB) return reply({ error: "D1_BINDING_MISSING" }, 500);
   const id = syncId(request);
   if (!id) return reply({ error: "INVALID_SYNC_ID" }, 400);
-
   let body;
   try { body = await request.json(); }
   catch { return reply({ error: "INVALID_JSON" }, 400); }
-
   if (!body?.encrypted?.iv || !body?.encrypted?.data)
     return reply({ error: "INVALID_ENCRYPTED_PAYLOAD" }, 400);
-
   await ensureSchema(env.DB);
-
   const now = Date.now();
   const clientUpdatedAt = Number(body.clientUpdatedAt || now);
   const appVersion = String(body.appVersion || "");
@@ -93,14 +87,12 @@ export async function onRequestPut({ request, env }) {
           updated_at = ?
       WHERE sync_id = ? AND revision = ?
     `).bind(encrypted, clientUpdatedAt, appVersion, now, id, Number(baseRevision)).run();
-
     if (!result?.meta?.changes) {
       const record = await readRecord(env.DB, id);
       if (record) return reply({ error: "REVISION_CONFLICT", record }, 409);
       return reply({ error: "NOT_FOUND" }, 404);
     }
   }
-
   const record = await readRecord(env.DB, id);
   return reply({ revision: record.revision, updatedAt: record.updatedAt });
 }
